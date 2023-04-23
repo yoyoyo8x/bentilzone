@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:700,500,900|Open+Sans:400,400italic");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex:1;
+  padding: 10px 60px;
+  /* position:fixed;
+    top:0;
+    width: 100%;
+    z-index: 1; */
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+  background-color: rgb(230, 230, 230, 0.3);
+}
+
+header img {
+  width: 3rem;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: #343434;
+}
+
+nav > ul {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  padding-left: 0;
+}
+
+.nav-item {
+  list-style: none;
+  font-size: 18px;
+}
+
+.nav-item:hover {
+  scale: 1.1;
+}
+
+.nav-item a:hover {
+  color: #2450ca;
+}
+
+.bag-logo a {
+  font-size: 26px;
+  color: #0d5eba;
+}
+
+.nav-login {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-login button {
+  font-size: 18px;
+  padding: 5px 10px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid gray;
+   display: flex;
+   gap:10px;
+   cursor: pointer;
+}
+
+.nav-login button:hover{
+    scale:1.1;
+}
