@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { AiFillGithub } from "react-icons/ai";
-import { AiOutlineLinkedin } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillFacebook } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { AiFillTwitterCircle } from "react-icons/ai";
@@ -39,7 +39,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <AiOutlineLinkedin />
+              <AiFillLinkedin />
             </a>
           </li>
           <li className="footer-item">
