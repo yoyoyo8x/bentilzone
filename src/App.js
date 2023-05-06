@@ -6,9 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
 import Service from "./pages/Service";
-import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 
 function App() {
@@ -19,18 +17,12 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} activeClassName="active" />
           <Route path="/about" element={<About />} activeClassName="active" />
-          <Route
-            path="/contact"
-            element={<Contact />}
-            activeClassName="active"
-          />
           <Route path="/menu" element={<Menu />} activeClassName="active" />
           <Route
             path="/service"
             element={<Service />}
             activeClassName="active"
           />
-          <Route path="/cart" element={<Cart />}></Route>
           <Route path="/login" element={<Login />}></Route>
         </Routes>
       </div>
