@@ -13,7 +13,7 @@ header{
   justify-content: space-between;
   align-items: center;
   flex: 1;
-  padding: 10px 60px;
+  padding: 7px 80px;
   background-color: rgb(230, 230, 230, 0.3);
 }
 
@@ -25,10 +25,11 @@ header img {
   display: flex;
   align-items: center;
   cursor: pointer;
+  gap:5px;
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
 }
 
@@ -46,7 +47,7 @@ nav > ul {
 
 .nav-item {
   list-style: none;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .nav-item:hover {
@@ -58,7 +59,7 @@ nav > ul {
 }
 
 .bag-logo a {
-  font-size: 26px;
+  font-size: 24px;
   color: #0d5eba;
 }
 
@@ -68,7 +69,7 @@ nav > ul {
 }
 
 .nav-login button {
-  font-size: 18px;
+  font-size: 16px;
   padding: 5px 10px;
   background-color: white;
   border-radius: 5px;

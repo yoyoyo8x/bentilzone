@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header/Header";
 import "../css/Login.css";
 import { useState } from "react";
 
@@ -18,7 +17,6 @@ const Login = () => {
   };
   return (
     <div>
-      <Header />
       <form onSubmit={handleSubmit}>
         <div className="form-content">
           <div>Username: </div>

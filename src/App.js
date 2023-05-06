@@ -1,6 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import About from "./pages/About";
@@ -13,6 +15,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <Header/>
         <Routes>
           <Route exact path="/" element={<Home />} activeClassName="active" />
           <Route path="/about" element={<About />} activeClassName="active" />
@@ -31,6 +34,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
         </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 }

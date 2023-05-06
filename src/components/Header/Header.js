@@ -43,7 +43,7 @@ const Header = () => {
         <div className="nav-login">
           <NavLink to="/login">
             <button>
-              <FaSignInAlt /> Log in
+              <FaSignInAlt /> Login
             </button>
           </NavLink>
         </div>
