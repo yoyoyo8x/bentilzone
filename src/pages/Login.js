@@ -28,7 +28,7 @@ const Login = () => {
             value={username}
             onChange={(e) => setusername(e.target.value)}
           />
-          <div>Password</div>
+          <div>Password: </div>
           <input
             type="password"
             name="Password"
