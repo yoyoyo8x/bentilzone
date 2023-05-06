@@ -63,7 +63,8 @@ footer img {
 
 .banner {
   font-size: 26px;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: Poppins;
 }
 
 .footer-logo-container:hover {
@@ -84,6 +85,7 @@ footer img:hover {
 
 .copyright {
   opacity: 0.6;
+  font-family: Poppins;
 }
 
 .footer-container ul {

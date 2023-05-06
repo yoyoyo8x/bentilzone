@@ -44,24 +44,6 @@ const Footer = () => {
           </li>
           <li className="footer-item">
             <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AiFillFacebook />
-            </a>
-          </li>
-          <li className="footer-item">
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AiFillInstagram />
-            </a>
-          </li>
-          <li className="footer-item">
-            <a
               href="https://twitter.com/"
               target="_blank"
               rel="noopener noreferrer"
@@ -76,6 +58,24 @@ const Footer = () => {
               rel="noopener noreferrer"
             >
               <AiFillRedditCircle />
+            </a>
+          </li>
+          <li className="footer-item">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AiFillFacebook />
+            </a>
+          </li>
+          <li className="footer-item">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AiFillInstagram />
             </a>
           </li>
         </ul>
