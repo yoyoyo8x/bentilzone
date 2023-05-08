@@ -1,5 +1,7 @@
 import React from "react";
 import "../css/Login.css";
+import { AiFillGithub } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 
 const Login = () => {
@@ -17,24 +19,43 @@ const Login = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div className="form-content">
-          <div>Username: </div>
-          <input
-            type="text"
-            name="Username"
-            value={username}
-            onChange={(e) => setusername(e.target.value)}
-          />
-          <div>Password: </div>
-          <input
-            type="password"
-            name="Password"
-            onChange={(e) => setpassword(e.target.value)}
-          />
+      <div className="login-container">
+        <img src="./images/Logo.png" alt="" className="login-logo" />
+        <div className="form-container">
+          <div className="social-login">
+            <button className="github">
+              <div className="social-icon">
+                <AiFillGithub />
+              </div>
+              <span>Gihub</span>
+            </button>
+            <button className="gmail">
+            <div className="social-icon">
+                <FcGoogle />
+              </div>
+              <span>Google</span>
+            </button>
+          </div>
+          <form className="login-form" onSubmit={handleSubmit}>
+            <div className="form-content">
+              <div>Username: </div>
+              <input
+                type="text"
+                name="Username"
+                value={username}
+                onChange={(e) => setusername(e.target.value)}
+              />
+              <div>Password: </div>
+              <input
+                type="password"
+                name="Password"
+                onChange={(e) => setpassword(e.target.value)}
+              />
+            </div>
+            <button type="submit">Login</button>
+          </form>
         </div>
-        <button type="submit">Login</button>
-      </form>
+      </div>
     </div>
   );
 };

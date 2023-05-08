@@ -1,6 +1,50 @@
-form{
-    width: 50%;
-    margin: auto;
-    text-align: center;
-    position: relative;
+.login-container {
+  padding: 0 150px;
+  padding-top: 130px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f7f7f7;
+}
+
+.login-logo {
+  width: 450px;
+}
+
+.form-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+}
+
+.social-login {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.social-login button {
+  width: 130px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: Poppins;
+  cursor: pointer;
+}
+
+.social-login button:hover{
+    background-color: #eff7f8;
+    scale: 1.07;
 }

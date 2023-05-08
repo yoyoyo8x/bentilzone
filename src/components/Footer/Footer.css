@@ -41,8 +41,9 @@
 }
 
 footer {
-  margin-top: 40px;
   padding: 0 50px;
+  padding-top: 40px;
+  background-color: #f7f7f7;
 }
 
 /* Footer Logo */

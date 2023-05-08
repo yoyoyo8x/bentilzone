@@ -3,6 +3,8 @@ header {
   width: 100%;
   z-index: 1;
   top: 0;
+  background-color:#ffffffb8;
+  backdrop-filter: blur(5px);
 }
 
 .navbar {
@@ -11,7 +13,6 @@ header {
   align-items: center;
   flex: 1;
   padding: 7px 80px;
-  backdrop-filter: blur(5px);
 }
 
 header img {
