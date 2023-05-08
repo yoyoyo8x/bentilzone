@@ -30,11 +30,16 @@ const Login = () => {
               <span>Gihub</span>
             </button>
             <button className="gmail">
-            <div className="social-icon">
+              <div className="social-icon">
                 <FcGoogle />
               </div>
               <span>Google</span>
             </button>
+          </div>
+          <div class="or_container">
+            <div class="line"></div>
+            <span>OR</span>
+            <div class="line"></div>
           </div>
           <form className="login-form" onSubmit={handleSubmit}>
             <div className="form-content">

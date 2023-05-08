@@ -1,8 +1,8 @@
 .login-container {
-  padding: 0 150px;
+  padding: 0 100px;
   padding-top: 130px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #f7f7f7;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .form-container {
-  width: 50%;
+  width: 40%;
   display: flex;
   align-items: center;
   /* justify-content: center; */
@@ -44,7 +44,23 @@
   cursor: pointer;
 }
 
-.social-login button:hover{
-    background-color: #eff7f8;
-    scale: 1.07;
+.social-login button:hover {
+  background-color: #eff7f8;
+  scale: 1.07;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  margin: 10px;
+}
+
+.or_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding:15px 0;
+  font-family: Poppins;
+  font-weight: 500;
 }
