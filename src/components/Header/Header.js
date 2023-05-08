@@ -10,7 +10,7 @@ const Header = () => {
       <div className="navbar">
         {/* Navigation logo */}
         <div className="header-logo">
-          <img src="./images/Logo.png" alt="" />
+          <img src="./bentilzone/images/Logo.png" alt="" />
           <div className="logo">Bentilzone</div>
         </div>
 

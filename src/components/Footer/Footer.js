@@ -13,7 +13,7 @@ const Footer = () => {
       {/* Footer logo */}
       <div className="footer-logo">
         <div className="footer-logo-container">
-          <img src="./images/Logo.png" alt="" />
+          <img src="./bentilzone/images/Logo.png" alt="" />
           <div className="banner">Bentilzone</div>
         </div>
       </div>
