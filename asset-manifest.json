@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/bentilzone/static/css/main.2454eed4.css",
-    "main.js": "/bentilzone/static/js/main.dd5e5857.js",
+    "main.js": "/bentilzone/static/js/main.3fe5866b.js",
     "static/js/787.32354143.chunk.js": "/bentilzone/static/js/787.32354143.chunk.js",
     "static/media/Logo.png": "/bentilzone/static/media/Logo.705417f3cf231c71d1bd.png",
     "index.html": "/bentilzone/index.html",
     "main.2454eed4.css.map": "/bentilzone/static/css/main.2454eed4.css.map",
-    "main.dd5e5857.js.map": "/bentilzone/static/js/main.dd5e5857.js.map",
+    "main.3fe5866b.js.map": "/bentilzone/static/js/main.3fe5866b.js.map",
     "787.32354143.chunk.js.map": "/bentilzone/static/js/787.32354143.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2454eed4.css",
-    "static/js/main.dd5e5857.js"
+    "static/js/main.3fe5866b.js"
   ]
 }
