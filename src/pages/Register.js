@@ -8,7 +8,7 @@ import {auth, google, github} from '../config/fire'
 import {signInWithPopup, signOut} from 'firebase/auth' 
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate();
   const [username, setusername] = useState("");
   const [user, setUser] = useState(null)
@@ -86,19 +86,18 @@ const Login = () => {
                 <div className="alert">Please enter your password</div>
                 <div className="invalid">Wrong password</div>
               </div>
-              <div className="forgot">Forgot Password?</div>
             </div>
             <button type="submit" className="submit-btn">
-              Sign in
+              Sign up
             </button>
           </form>
           <div className="line-container">
-            <div className="line" id="short"></div>
-            <span>Don't have an account?</span>
-            <div class="line" id="short"></div>
+            <div className="line" id="short-res"></div>
+            <span>Already have an account?</span>
+            <div class="line" id="short-res"></div>
           </div>
-          <button className="submit-btn" id="signup" onClick={()=> navigate("/register")}>
-            Sign up
+          <button className="submit-btn" id="signup" onClick={()=> navigate("/login")}>
+            Login
           </button>
         </div>
       </div>
@@ -106,4 +105,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

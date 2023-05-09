@@ -75,10 +75,15 @@
   width: 27%;
 }
 
+#short-res{
+  width: 24%;
+}
+
 .line-container {
   width: 95%;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 15px 0;
   margin-bottom: 10px;
   font-family: Poppins;
