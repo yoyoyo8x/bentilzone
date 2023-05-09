@@ -4,9 +4,12 @@ import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import Logo from "../images/Logo.png";
+import {auth, google, github} from '../config/fire'
+import {signInWithPopup, signOut} from 'firebase/auth' 
 
 const Login = () => {
   const [username, setusername] = useState("");
+  const [user, setUser] = useState(null)
   const [password, setpassword] = useState("");
   const users = [{ username: "admin", password: "1234" }];
   const handleSubmit = (e) => {
@@ -18,6 +21,19 @@ const Login = () => {
       alert("Login failed");
     }
   };
+  
+  const login = async(provider) => {
+    const result = await signInWithPopup(auth, provider) 
+    setUser(result.user)
+    console.log(result)
+  }
+
+  const logout = async() => {
+    const result = await signOut(auth)
+    setUser(null)
+    console.log(result)
+  }
+
   return (
     <div>
       <div className="login-container">
@@ -25,13 +41,13 @@ const Login = () => {
         <div className="form-container">
           {/* Social Login */}
           <div className="social-login">
-            <button className="github">
+            <button className="github" onClick={() => login(github)}>
               <div className="social-icon">
                 <AiFillGithub />
               </div>
               <span>Gihub</span>
             </button>
-            <button className="google">
+            <button className="google" onClick={() => login(google)}>
               <div className="social-icon">
                 <FcGoogle />
               </div>
