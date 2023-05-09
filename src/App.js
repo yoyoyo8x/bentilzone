@@ -20,7 +20,7 @@ function App() {
         <Route path="/menu" element={<Menu />} activeClassName="active" />
         <Route path="/service" element={<Service />} activeClassName="active" />
         <Route path="/contact" element={<Contact />} activeClassName="active" />
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </div>
