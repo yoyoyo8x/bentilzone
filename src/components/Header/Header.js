@@ -3,7 +3,7 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaSignInAlt } from "react-icons/fa";
-// import Logo from "./Logo.png";
+import Logo from "../../images/Logo.png";
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
       <div className="navbar">
         {/* Navigation logo */}
         <div className="header-logo">
-          <img src={process.env.PUBLIC_URL + "/images/Logo.png"} alt="" />
+          <img src={Logo} alt="" />
           <div className="logo">Bentilzone</div>
         </div>
 

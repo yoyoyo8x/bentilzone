@@ -3,6 +3,7 @@ import "../css/Login.css";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
+import Logo from "../images/Logo.png";
 
 const Login = () => {
   const [username, setusername] = useState("");
@@ -20,7 +21,7 @@ const Login = () => {
   return (
     <div>
       <div className="login-container">
-        <img src={process.env.PUBLIC_URL + "/images/Logo.png"} alt="" className="login-logo" />
+        <img src={Logo} alt="" className="login-logo" />
         <div className="form-container">
           <div className="social-login">
             <button className="github">

@@ -6,6 +6,7 @@ import { AiFillFacebook } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { AiFillRedditCircle } from "react-icons/ai";
+import Logo from "../../images/Logo.png";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
       {/* Footer logo */}
       <div className="footer-logo">
         <div className="footer-logo-container">
-          <img src={process.env.PUBLIC_URL + "/images/Logo.png"} alt="" />
+          <img src={Logo} alt="" />
           <div className="banner">Bentilzone</div>
         </div>
       </div>
