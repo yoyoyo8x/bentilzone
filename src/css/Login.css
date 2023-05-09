@@ -12,7 +12,7 @@
 
 .login-container {
   padding: 0 100px;
-  padding-top: 130px;
+  padding-top: 50px;
   display: flex;
   justify-content: space-around;
   background-color: #f7f7f7;
@@ -26,6 +26,7 @@
   width: 40%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 

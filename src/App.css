@@ -3,3 +3,7 @@
 .active{
     color: #2450ca;
 }
+
+body{
+    margin:90px 0;
+}
