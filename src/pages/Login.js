@@ -20,7 +20,7 @@ const Login = () => {
   return (
     <div>
       <div className="login-container">
-        <img src="./bentilzone/images/Logo.png" alt="" className="login-logo" />
+        <img src={process.env.PUBLIC_URL + "/images/Logo.png"} alt="" className="login-logo" />
         <div className="form-container">
           <div className="social-login">
             <button className="github">
