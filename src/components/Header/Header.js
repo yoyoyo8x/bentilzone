@@ -41,7 +41,8 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="nav-login">
+        {/* Login */}
+          <div className="nav-login">
           <NavLink to="/login">
             <button>
               <FaSignInAlt /> Login
