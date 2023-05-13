@@ -4,37 +4,41 @@ import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import Logo from "../images/Logo.png";
-import {auth, google, github} from '../config/fire'
-import {signInWithPopup, signOut} from 'firebase/auth' 
+import { auth, google, github } from "../config/fire";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import LoginForm from "../components/LoginForm/LoginForm";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
   const [username, setusername] = useState("");
-  const [user, setUser] = useState(null)
   const [password, setpassword] = useState("");
   const users = [{ username: "admin", password: "1234" }];
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(users);
     const account = users.find((user) => user.username === username);
+    console.log(account);
     if (account && account.password === password) {
       alert("Login successful");
     } else {
       alert("Login failed");
     }
   };
-  
-  const login = async(provider) => {
-    const result = await signInWithPopup(auth, provider) 
-    setUser(result.user)
-    console.log(result)
-  }
 
-  const logout = async() => {
-    const result = await signOut(auth)
-    setUser(null)
-    console.log(result)
-  }
+  const login = async (provider) => {
+    const result = await signInWithPopup(auth, provider);
+    setUser(result.user);
+    console.log(result);
+  };
+
+  const logout = async () => {
+    const result = await signOut(auth);
+    setUser(null);
+    console.log(result);
+  };
 
   return (
     <div>
@@ -63,41 +67,22 @@ const Login = () => {
             <div class="line"></div>
           </div>
           {/* Login Form */}
-          <form className="login-form" onSubmit={handleSubmit}>
-            <div className="form-content">
-              <div className="input-email">
-                <input
-                  type="text"
-                  name="Email"
-                  placeholder="Email Address"
-                  value={username}
-                  onChange={(e) => setusername(e.target.value)}
-                />
-                <div className="alert">Please enter your email address</div>
-                <div className="invalid">Invalid Email</div>
-              </div>
-              <div className="input-password">
-                <input
-                  type="password"
-                  name="Password"
-                  placeholder="Password"
-                  onChange={(e) => setpassword(e.target.value)}
-                />
-                <div className="alert">Please enter your password</div>
-                <div className="invalid">Wrong password</div>
-              </div>
-              <div className="forgot">Forgot Password?</div>
-            </div>
-            <button type="submit" className="submit-btn">
-              Sign in
-            </button>
-          </form>
+          <LoginForm
+            forgotText="Forgot Password?"
+            formBtn="Sign In"
+            handleClick={handleSubmit}
+          />
+          {/* Switch Page */}
           <div className="line-container">
             <div className="line" id="short"></div>
             <span>Don't have an account?</span>
             <div class="line" id="short"></div>
           </div>
-          <button className="submit-btn" id="signup" onClick={()=> navigate("/register")}>
+          <button
+            className="submit-btn"
+            id="signup"
+            onClick={() => navigate("/register")}
+          >
             Sign up
           </button>
         </div>
