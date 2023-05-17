@@ -1,0 +1,29 @@
+#Main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#Home{
+    display: grid;
+    gap: 8px;
+    width: 100%;
+}
+#Home .homeContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 24px;
+    padding: 8px 0;
+    flex: 1 1 0%;
+}
+#Home .homeContainer .homeElement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 4px;
+}
