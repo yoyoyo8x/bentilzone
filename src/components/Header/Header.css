@@ -11,8 +11,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex: 1;
-  padding: 7px 80px;
+  padding: 21px 80px;
 }
 
 header img {
