@@ -38,7 +38,6 @@ const LoginForm = ({ forgotText, formBtn, handleClick }) => {
           {formBtn}
         </button>
       </form>
-      ;
     </>
   );
 };
