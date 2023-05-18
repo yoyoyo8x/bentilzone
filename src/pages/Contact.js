@@ -58,7 +58,7 @@ const Contact = () => {
       </div>
 
       <div className="contact-title">Contact Form</div>
-      <form className="pb-10" name="myForm">
+      <form className="tw-pb-10 my-form" name="myForm">
         <div className="submit-content">
           <div className="submit-info">
             <input type="text" placeholder="First Name*" id="first-n" />
@@ -87,7 +87,7 @@ const Contact = () => {
         </div>
         <div className="button-submit">
           <button
-            className="btn bg-[#2d3034] text-white text-[20px] p-2 uppercase font-medium"
+            className="tw-btn tw-bg-[#2d3034] tw-text-white tw-text-[20px] tw-p-2 tw-uppercase tw-font-medium"
             id="submit-btn"
           >
             Send Message

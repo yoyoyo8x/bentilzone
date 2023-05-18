@@ -59,6 +59,6 @@ module.exports = {
     },
   },
   plugins: [],
-  // prefix: 'tw-',
+  prefix: 'tw-',
 }
 
