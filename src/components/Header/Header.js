@@ -7,7 +7,7 @@ import Logo from "../../images/Logo.png";
 
 const Header = () => {
   return (
-    <header className="tw-bg-lightGray">
+    <header className="tw-bg-lightGray tw-shadow-sm">
       <div className="navbar">
         {/* Navigation logo */}
         <div className="header-logo">
