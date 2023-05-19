@@ -4,8 +4,10 @@ import "./Main.css"
 
 function MainContainer(){
     return(
-        <main id="Main">
+        <main id="Main" className="md:tw-px-16 tw-w-full">
+            <div className="MainContainer">
             <HomeContainer/>
+            </div>
         </main>
     )
 }

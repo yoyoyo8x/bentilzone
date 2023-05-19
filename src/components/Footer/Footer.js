@@ -10,7 +10,7 @@ import Logo from "../../images/Logo.png";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className=" tw-bg-primary tw-shadow-sm">
       {/* Footer logo */}
       <div className="footer-logo">
         <div className="footer-logo-container">
