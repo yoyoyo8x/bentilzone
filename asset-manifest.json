@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/bentilzone/static/css/main.b81de7f9.css",
+    "main.css": "/bentilzone/static/css/main.9364532a.css",
     "main.js": "/bentilzone/static/js/main.06f8bdeb.js",
     "static/js/787.32354143.chunk.js": "/bentilzone/static/js/787.32354143.chunk.js",
     "static/media/cu1.png": "/bentilzone/static/media/cu1.858820017910e499f7b2.png",
@@ -45,12 +45,12 @@
     "static/media/car-img.svg": "/bentilzone/static/media/car-img.1da1aadf8d2522505535cc41fd106f2c.svg",
     "static/media/mail-img.svg": "/bentilzone/static/media/mail-img.ebe61aa57eee14aae83f18f54a1e1bc6.svg",
     "index.html": "/bentilzone/index.html",
-    "main.b81de7f9.css.map": "/bentilzone/static/css/main.b81de7f9.css.map",
+    "main.9364532a.css.map": "/bentilzone/static/css/main.9364532a.css.map",
     "main.06f8bdeb.js.map": "/bentilzone/static/js/main.06f8bdeb.js.map",
     "787.32354143.chunk.js.map": "/bentilzone/static/js/787.32354143.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b81de7f9.css",
+    "static/css/main.9364532a.css",
     "static/js/main.06f8bdeb.js"
   ]
 }
