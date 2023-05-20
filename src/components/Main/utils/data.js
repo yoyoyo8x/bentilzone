@@ -2,6 +2,42 @@ import I1 from "../img/i1.png";
 import F1 from "../img/f1.png";
 import C3 from "../img/c3.png";
 import Fi1 from "../img/fi1.png"
+import C6 from "../img/c6.png"
+import C4 from "../img/c4.png"
+import C2 from "../img/c2.png"
+import C1 from "../img/c1.png"
+import Cu6 from "../img/cu6.png"
+import Cu5 from "../img/cu5.png"
+import Cu4 from "../img/cu4.png"
+import Cu3 from "../img/cu3.png"
+import Cu2 from "../img/cu2.png"
+import Cu1 from "../img/cu1.png"
+import Fi2 from "../img/fi2.png"
+import F2 from "../img/f2.png";
+import F3 from "../img/f3.png";
+import F5 from "../img/f5.png";
+import F6 from "../img/f6.png";
+import F7 from "../img/f7.png";
+import I2 from "../img/i2.png";
+import I3 from "../img/i3.png";
+import I4 from "../img/i4.png";
+import I5 from "../img/i5.png";
+import I6 from "../img/i6.png";
+import I7 from "../img/i7.png";
+import D1 from "../img/d1.png";
+import D2 from "../img/d2.png";
+import D3 from "../img/d3.png";
+import D4 from "../img/d4.png";
+import D5 from "../img/d5.png";
+import D6 from "../img/d6.png";
+import D7 from "../img/d7.png";
+import D8 from "../img/d8.png";
+
+
+
+
+
+
 
 //Data của home container
 
@@ -72,5 +108,303 @@ export const Categories =[
         name:"Soft Drinks",
         urlParamName:"drinks",
     },
-
+]
+export const menuList =[
+    {
+        id: 1,
+        calories: "65",
+        category: "chicken",
+        qty:1,
+        imageURL: C6,
+        title:"Chicken Kebab Plate",
+        price:"10"
+    },
+    {
+        id: 2,
+        calories: "65",
+        category: "chicken",
+        qty:1,
+        imageURL: C4,
+        title:"Broasted Chicken",
+        price:"8.5"
+    },
+    {
+        id: 3,
+        calories: "35",
+        category: "chicken",
+        qty:1,
+        imageURL: C3,
+        title:"Chicken Kebab",
+        price:"12"
+    },
+    {
+        id: 4,
+        calories: "80",
+        category: "chicken",
+        qty:1,
+        imageURL: C2,
+        title:"Chicken 65",
+        price:"12.5"
+    },
+    {
+        id: 5,
+        calories: "65",
+        category: "chicken",
+        qty:1,
+        imageURL: C1,
+        title:"Chicken Manjoorian",
+        price:"8.5"
+    },
+    {
+        id: 6,
+        calories: "100",
+        category: "curry",
+        qty:1,
+        imageURL: Cu6,
+        title:"Dinner Masala",
+        price:"22.5"
+    },
+    {
+        id: 7,
+        calories: "65",
+        category: "curry",
+        qty:1,
+        imageURL: Cu5,
+        title:"Kadai Chicken",
+        price:"16.5"
+    },
+    {
+        id: 8,
+        calories: "65",
+        category: "curry",
+        qty:1,
+        imageURL: Cu4,
+        title:"Butter Chicken",
+        price:"18"
+    },
+    {
+        id: 9,
+        calories: "65",
+        category: "curry",
+        qty:1,
+        imageURL: Cu3,
+        title:"Prawn Masala",
+        price:"20"
+    },
+    {
+        id: 10,
+        calories: "80",
+        category: "curry",
+        qty:1,
+        imageURL: Cu2,
+        title:"Veg Masala",
+        price:"12.5"
+    },
+    {
+        id: 11,
+        calories: "45",
+        category: "curry",
+        qty:1,
+        imageURL: Cu1,
+        title:"Chicken Masala",
+        price:"14.5"
+    },
+    {
+        id: 12,
+        calories: "60",
+        category: "fish",
+        qty:1,
+        imageURL: Fi2,
+        title:"Fish Fry",
+        price:"15"
+    },
+    {
+        id: 13,
+        calories: "160",
+        category: "fish",
+        qty:1,
+        imageURL: Fi1,
+        title:"Fish Kebab Plater",
+        price:"22.5"
+    },
+    {
+        id: 14,
+        calories: "80",
+        category: "fruits",
+        qty:1,
+        imageURL: F3,
+        title:"Blue Berries",
+        price:"12"
+    },
+    {
+        id: 15,
+        calories: "120",
+        category: "fruits",
+        qty:1,
+        imageURL: F6,
+        title:"Pomegranate",
+        price:"15"
+    },
+    {
+        id: 16,
+        calories: "65",
+        category: "fruits",
+        qty:1,
+        imageURL: F7,
+        title:"Rasperry",
+        price:"20"
+    },
+    {
+        id: 17,
+        calories: "100",
+        category: "fruits",
+        qty:1,
+        imageURL: F2,
+        title:"Pine Apple",
+        price:"16"
+    },
+    {
+        id: 18,
+        calories: "100",
+        category: "fruits",
+        qty:1,
+        imageURL: F5,
+        title:"Strawberries",
+        price:"22"
+    },
+    {
+        id: 19,
+        calories: "65",
+        category: "icecreams",
+        qty:1,
+        imageURL: I6,
+        title:"Ice Cups",
+        price:"12"
+    },
+    {
+        id: 20,
+        calories: "65",
+        category: "icecreams",
+        qty:1,
+        imageURL: I1,
+        title:"Chocolate Vanilla",
+        price:"8.5"
+    },
+    {
+        id: 21,
+        calories: "70",
+        category: "icecreams",
+        qty:1,
+        imageURL: I2,
+        title:"Ice Cups 2",
+        price:"8"
+    },
+    {
+        id: 22,
+        calories: "50",
+        category: "icecreams",
+        qty:1,
+        imageURL: I3,
+        title:"Ice cream cone",
+        price:"5"
+    },
+    {
+        id: 23,
+        calories: "80",
+        category: "icecreams",
+        qty:1,
+        imageURL: I4,
+        title:"Ice cream bowl",
+        price:"10"
+    },
+    {
+        id: 24,
+        calories: "85",
+        category: "icecreams",
+        qty:1,
+        imageURL: I5,
+        title:"Ice cream bowl 2",
+        price:"10"
+    },
+    {
+        id: 25,
+        calories: "85",
+        category: "icecreams",
+        qty:1,
+        imageURL: I7,
+        title:"Ice cream bowl 3",
+        price:"9"
+    },
+    {
+        id: 26,
+        calories: "45",
+        category: "drinks",
+        qty:1,
+        imageURL: D8,
+        title:"Coca-Cola",
+        price:"3"
+    },
+    {
+        id: 27,
+        calories: "45",
+        category: "drinks",
+        qty:1,
+        imageURL: D6,
+        title:"Fanta",
+        price:"3"
+    },
+    {
+        id: 28,
+        calories: "45",
+        category: "drinks",
+        qty:1,
+        imageURL: D5,
+        title:"Sprite",
+        price:"3"
+    },
+    {
+        id: 29,
+        calories: "45",
+        category: "drinks",
+        qty:1,
+        imageURL: D2,
+        title:"Pepsi",
+        price:"3"
+    },
+    {
+        id: 30,
+        calories: "45",
+        category: "drinks",
+        qty:1,
+        imageURL: D1,
+        title:"RedBull",
+        price:"3.5"
+    },
+    {
+        id: 31,
+        calories: "50",
+        category: "drinks",
+        qty:1,
+        imageURL: D3,
+        title:"Mountain Dew",
+        price:"3.5"
+    },
+    {
+        id: 32,
+        calories: "60",
+        category: "drinks",
+        qty:1,
+        imageURL: D4,
+        title:"Cocktail",
+        price:"6"
+    },
+    {
+        id: 33,
+        calories: "70",
+        category: "drinks",
+        qty:1,
+        imageURL: D7,
+        title:"Green bean tea",
+        price:"5"
+    },
 ]

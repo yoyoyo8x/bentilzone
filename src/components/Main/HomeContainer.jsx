@@ -31,8 +31,8 @@ function HomeContainer(){
                 <div className="homeElementR">
                     {heroData && heroData.map(n=>(
                         <div key={n.id}
-                        className="homeItem tw-bg-cardOverlay tw-backdrop-blur-md tw-drop-shadow-lg tw-rounded-3xl">
-                        <img src={n.imageSrc} className='md:tw-w-20 md:tw-mt-10' alt={n.imageSrc} />
+                        className="homeItem tw-bg-cardOverlay tw-backdrop-blur-md tw-drop-shadow-lg ">
+                        <img src={n.imageSrc} className='md:tw-w-20 ' alt={n.imageSrc} />
                         <p className="homeItemName md:tw-text-base tw-text-textColor md:tw-mt-2">
                             {n.name}</p>
                         <p className="homeItemDes md:tw-text-[12px] tw-text-lighttextGray md:tw-my-1">
