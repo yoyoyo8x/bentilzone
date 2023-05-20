@@ -13,7 +13,7 @@ import Register from "./pages/Register";
 
 function App() {
   return (
-    <div className="app tw-w-screen tw-bg-primary">
+    <div className="app tw-w-full tw-bg-primary">
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} activeClassName="active" />
