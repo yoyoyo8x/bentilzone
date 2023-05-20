@@ -7,7 +7,7 @@ import { heroData } from "./utils/data";
 
 function HomeContainer(){
     return(
-        <section id="Home" className="tw-grid-cols-1 md:tw-grid-cols-2">
+        <section id="Home" className="tw-bg-primary tw-grid-cols-1 md:tw-grid-cols-2">
             <div className="homeContainerL">
                 <div className="homeElement tw-bg-orange-100 tw-rounded-full">
                     <p className="homeTitle tw-text-orange-500 ">Bike Delivery</p>
