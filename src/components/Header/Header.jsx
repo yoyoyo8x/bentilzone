@@ -8,7 +8,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { actionNew } from "../Context/reducer";
 import { useStateValue } from "../Context/StateProvider"
-
+import Dropdown from "../Dropdown/Dropdown";
 
 
 const Header = () => {
@@ -64,7 +64,9 @@ const Header = () => {
               <NavLink to="/contact">Contact us</NavLink>
             </li>
             <li className="nav-item bag-logo">
-              <button type="button" onClick={showCartcontainer}>
+              <button type="button" 
+              onClick={showCartcontainer}
+              >
                 <HiOutlineShoppingBag />
                 <div className="cart-number">3</div>
               </button>
@@ -73,14 +75,14 @@ const Header = () => {
         </nav>
         {/* Login */}
         {users ? (
-          <div className={`group flex items-center gap-3 px-3 py-1 rounded-lg`}>
-            <div className=" flex items-center justify-center">
+          <div className={`group tw-flex tw-items-center tw-gap-3 tw-px-3 tw-py-1 tw-rounded-lg`}>
+            <div className=" tw-flex tw-items-center tw-justify-center">
               <img
                 src={users.photoURL}
                 className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain"
                 alt="profile"
               />
-              <p className="text-headingColor cursor-pointer flex items-center justify-center gap-2"></p>
+              <Dropdown/>
             </div>
           </div>
         ) : (
