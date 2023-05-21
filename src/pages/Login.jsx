@@ -32,6 +32,7 @@ const Login = () => {
     const result = await signInWithPopup(auth, provider);
     setUser(result.user);
     console.log(result);
+    navigate("/");
   };
 
   const logout = async () => {
@@ -64,7 +65,7 @@ const Login = () => {
           <div className="line-container">
             <div className="line"></div>
             <span>OR</span>
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           {/* Login Form */}
           <LoginForm
@@ -76,7 +77,7 @@ const Login = () => {
           <div className="line-container">
             <div className="line" id="short"></div>
             <span>Don't have an account?</span>
-            <div class="line" id="short"></div>
+            <div className="line" id="short"></div>
           </div>
           <button
             className="submit-btn"

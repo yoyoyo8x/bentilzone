@@ -4,8 +4,18 @@ import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaSignInAlt } from "react-icons/fa";
 import Logo from "../../images/Logo.png";
+import { getAuth } from "firebase/auth";
+import { useState,useEffect } from "react";
 
 const Header = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const [users,setUsers] = useState(null);
+  console.log(users)
+  useEffect(()=>{
+    setUsers(user);
+  },[user]);
+
   return (
     <header className="tw-shadow-sm">
       <div className="navbar">
@@ -31,7 +41,7 @@ const Header = () => {
               <NavLink to="/about">About us</NavLink>
             </li>
             <li className="nav-item">
-            <NavLink to="/contact">Contact us</NavLink>
+              <NavLink to="/contact">Contact us</NavLink>
             </li>
             <li className="nav-item bag-logo">
               <button>
@@ -42,6 +52,22 @@ const Header = () => {
           </ul>
         </nav>
         {/* Login */}
+        {users!==null ? (
+          <div className={`group flex items-center gap-3 px-3 py-1 rounded-lg`}>
+          <div
+            className=" flex items-center justify-center"
+          >
+            <img
+              src={users.photoURL }
+              className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain"
+              alt="profile"
+            />
+            <p className="text-headingColor cursor-pointer flex items-center justify-center gap-2">
+             
+            </p>
+          </div>
+        </div>
+        ):(
           <div className="nav-login">
           <NavLink to="/login">
             <button>
@@ -49,6 +75,8 @@ const Header = () => {
             </button>
           </NavLink>
         </div>
+        )}
+        
       </div>
     </header>
   );
