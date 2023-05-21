@@ -6,6 +6,10 @@ import { FaSignInAlt } from "react-icons/fa";
 import Logo from "../../images/Logo.png";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
+import { actionNew } from "../Context/reducer";
+import { useStateValue } from "../Context/StateProvider"
+
+
 
 const Header = () => {
   const auth = getAuth();
@@ -21,6 +25,16 @@ const Header = () => {
       }
     });
   }, []);
+
+
+  const [{cartShow},dispatch] = useStateValue()
+  const showCartcontainer = ()=>{
+    dispatch({
+      type: actionNew.SET_CART_SHOW,
+      cartShow : !cartShow
+    })
+  }
+  
 
   return (
     <header className="tw-shadow-sm">
@@ -50,7 +64,7 @@ const Header = () => {
               <NavLink to="/contact">Contact us</NavLink>
             </li>
             <li className="nav-item bag-logo">
-              <button>
+              <button type="button" onClick={showCartcontainer}>
                 <HiOutlineShoppingBag />
                 <div className="cart-number">3</div>
               </button>
