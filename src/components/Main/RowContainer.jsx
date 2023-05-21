@@ -35,7 +35,7 @@ function RowContainer({flag,data,scrollValue}){
                         </div>
                         <div className="middleRElement2">
                             <p className="tittle tw-text-textColor">{item?.title}</p>
-                            <p className="calories tw-text-gray-500">{item?.calories}</p>
+                            <p className="calories tw-text-gray-500">{item?.calories} calories</p>
                             <div className="price tw-text-headingColor">
                                 <p className="title">
                                     <span className="tw-text-red-500">$</span>
