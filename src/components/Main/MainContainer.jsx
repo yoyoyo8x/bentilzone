@@ -7,13 +7,15 @@ import RowContainer from "./RowContainer";
 import { useState, useEffect } from "react";
 import {menuList} from "./utils/data";
 import MenuContainer from "./MenuContainer"
+import { useStateValue } from "../Context/StateProvider";
+import CartContainer from "../Header/CartContainer";
 
 
 
 function MainContainer(){
-
+    const[{cartShow}, dispatch] = useStateValue()
     const[scrollValue, setScrollValue] = useState(0)
-    useEffect(() =>{},[scrollValue])
+    useEffect(() =>{},[scrollValue,cartShow])
 
     return(
         <main id="Main" className="md:tw-px-16 tw-w-full">
@@ -45,6 +47,7 @@ function MainContainer(){
                 />
             </section>
             <MenuContainer/>
+            <CartContainer/>         
             </div>
         </main>
     )

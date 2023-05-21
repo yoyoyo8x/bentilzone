@@ -110,3 +110,71 @@ nav > ul {
   top: 0;
   transform: translate(60%, 95%);
 }
+
+
+/* CartContainer */
+.CartDisplay{
+  position: fixed;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  width: 375px;
+  right: 0;
+  top: 0;
+}
+.CartHeader{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 16px;
+}
+.CartHeader p{
+ font-size: 18px;
+ line-height: 28px;
+ font-weight: 600;
+}
+.CartHeaderel{
+  display: flex;
+  align-items: center;
+  gap:8px;
+  padding: 4px 8px;
+  margin: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+}
+/* Have cartItem */
+.cartItemCon{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cartItemCon .cartItemSec{
+  width: 100%;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap:12px;
+  padding:40px 24px ;
+}
+
+
+/* CartItem Empty*/
+.cartIempty{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.cartIempty p{
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+}

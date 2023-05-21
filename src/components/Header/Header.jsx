@@ -36,7 +36,7 @@ const Header = () => {
   };
 
   return (
-    <header className="tw-shadow-sm">
+    <header className="tw-shadow-sm tw-bg-primary">
       <div className="navbar">
         {/* Navigation logo */}
         <div className="header-logo">
