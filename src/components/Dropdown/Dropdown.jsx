@@ -10,7 +10,7 @@ export default function Dropdown() {
   return (
     <Menu as="div" className="tw-relative tw-inline-block tw-text-left">
       <div>
-        <Menu.Button className=" tw-rounded-md tw-bg-white tw-py-2 tw-text-sm tw-font-semibold tw-text-gray-900   tw-hover:bg-gray-50">       
+        <Menu.Button className=" tw-rounded-md tw-bg-white tw-py-2 tw-text-sm tw-font-semibold tw-text-gray-900   tw-hover:bg-gray-50">
           <ChevronDownIcon
             className="tw--mr-1 tw-h-5 tw-w-5 tw-text-gray-400"
             aria-hidden="true"
