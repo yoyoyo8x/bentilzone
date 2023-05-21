@@ -34,12 +34,6 @@ const Register = () => {
     console.log(result);
   };
 
-  const logout = async () => {
-    const result = await signOut(auth);
-    setUser(null);
-    console.log(result);
-  };
-
   return (
     <div>
       <div className="login-container">
