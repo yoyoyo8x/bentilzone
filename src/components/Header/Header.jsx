@@ -4,17 +4,23 @@ import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaSignInAlt } from "react-icons/fa";
 import Logo from "../../images/Logo.png";
-import { getAuth } from "firebase/auth";
-import { useState,useEffect } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const auth = getAuth();
-  const user = auth.currentUser;
-  const [users,setUsers] = useState(null);
-  console.log(users)
-  useEffect(()=>{
-    setUsers(user);
-  },[user]);
+  const [users, setUsers] = useState(null);
+  console.log(users);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUsers(user);
+        console.log(users);
+      } else {
+        console.log("user is logged out");
+      }
+    });
+  }, []);
 
   return (
     <header className="tw-shadow-sm">
@@ -52,31 +58,26 @@ const Header = () => {
           </ul>
         </nav>
         {/* Login */}
-        {users!==null ? (
+        {users ? (
           <div className={`group flex items-center gap-3 px-3 py-1 rounded-lg`}>
-          <div
-            className=" flex items-center justify-center"
-          >
-            <img
-              src={users.photoURL }
-              className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain"
-              alt="profile"
-            />
-            <p className="text-headingColor cursor-pointer flex items-center justify-center gap-2">
-             
-            </p>
+            <div className=" flex items-center justify-center">
+              <img
+                src={users.photoURL}
+                className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain"
+                alt="profile"
+              />
+              <p className="text-headingColor cursor-pointer flex items-center justify-center gap-2"></p>
+            </div>
           </div>
-        </div>
-        ):(
+        ) : (
           <div className="nav-login">
-          <NavLink to="/login">
-            <button>
-              <FaSignInAlt /> Login
-            </button>
-          </NavLink>
-        </div>
+            <NavLink to="/login">
+              <button>
+                <FaSignInAlt /> Login
+              </button>
+            </NavLink>
+          </div>
         )}
-        
       </div>
     </header>
   );
