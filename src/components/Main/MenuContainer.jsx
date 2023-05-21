@@ -5,11 +5,13 @@ import { Categories } from "./utils/data";
 import { useState } from "react";
 import RowContainer from "./RowContainer";
 import { menuList } from "./utils/data";
+import {IoFastFood} from "react-icons/io5";
 
 
 
 function MenuContainer (){
     const[filter,setFilter] = useState("chicken");
+    console.log(filter)
 
     return(
         <section className="Middle">
@@ -20,13 +22,22 @@ function MenuContainer (){
                         Our Hot Dishes</p>
                     <div className="middleCat tw-scrollbar-none">
                         {Categories && Categories.map(category=>(
-                           <motion.div whileTap={{scale:0.75}}
-                           key={category.id}
-                           className={`categoryFilter
-                           ${filter === category ? ' tw-bg-cartNumBg':' tw-bg-card'} tw-drop-shadow-xl hover:tw-bg-cartNumBg`}
-                           >
-                            
-                           </motion.div>
+                            <motion.div whileTap={{scale:0.75}}
+                            key={category.id}
+                            className={`tw-group cateFilter
+                            ${filter === category.urlParamName ? ' tw-bg-cartNumBg':' tw-bg-card'} tw-drop-shadow-xl hover:tw-bg-cartNumBg`}
+                            onClick={()=>setFilter(category.urlParamName)}
+                            >
+                            <div className={`cateIcon tw-shadow-lg
+                            ${filter === category.urlParamName? 'tw-bg-white':'tw-bg-cartNumBg'} group-hover:tw-bg-white`}>
+                                <IoFastFood className={`${filter === category.urlParamName? 'tw-text-textColor':'tw-text-white'} tw-text-lg group-hover:tw-text-textColor`}/>
+                            </div>
+                            <p className={`tw-text-sm 
+                            ${filter === category.urlParamName? 'tw-text-white':'tw-text-textColor'}                       
+                            group-hover:tw-text-white`}>
+                            {category.name}
+                            </p>
+                            </motion.div>
                         ))}
                     </div>
                     <div className=" tw-w-full">

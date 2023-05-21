@@ -262,7 +262,7 @@
     padding: 24px 0;
     overflow-x: scroll;
 }
-.middleCat .categoryFilter{
+.middleCat .cateFilter{
     width: 96px;
     min-width: 94px;
     height: 112px;
@@ -274,5 +274,14 @@
     align-items: center;
     gap: 12px;
 }
+.middleCat .cateFilter .cateIcon{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
    
