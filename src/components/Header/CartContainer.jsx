@@ -110,7 +110,7 @@ function CartContainer(){
                         whileTap={{scale: 0.8}}
                         type="button"
                         className="tw-w-full tw-p-2 tw-rounded-full tw-bg-gradient-to-tr tw-from-orange-400 tw-to-orange-600 tw-text-gray-50 tw-text-lg my-2 tw-hover:shadow-lg"
-                        onClick={()=>navigate("/")}
+                        onClick={()=>navigate("/login")}
                         >
                             Login to Check Out
                     </motion.button>
