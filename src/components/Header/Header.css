@@ -79,7 +79,7 @@ nav > ul {
   justify-content: flex-end;
 }
 
-.nav-login .button {
+.nav-login button {
   font-size: 16px;
   padding: 5px 10px;
   background-color: #fff;
