@@ -11,7 +11,6 @@ import {IoFastFood} from "react-icons/io5";
 
 function MenuContainer (){
     const[filter,setFilter] = useState("chicken");
-    console.log(filter)
 
     return(
         <section className="Middle">

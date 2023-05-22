@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Header.css"
 import { useStateValue } from "../Context/StateProvider";
@@ -6,21 +6,40 @@ import { actionNew } from "../Context/reducer";
 import {MdOutlineKeyboardBackspace} from "react-icons/md";
 import {RiRefreshFill} from "react-icons/ri";
 import EmptyCart from "./emptyCart.svg"
+import CartItem from "./CartItem";
+import { useState } from "react";
 
 function CartContainer(){
+    const [flag, setFlag] = useState(1);
+    const [tot, setTot] = useState(0);
     const [{cartShow,cartItems }, dispatch] = useStateValue();
+
     const showCart = ()=> {
         dispatch({
             type: actionNew.SET_CART_SHOW,
             cartShow: !cartShow
         });
     }
-    // const clearCart = ()=> {
-    //     dispatch({
-    //         type: actionNew.SET_CART_ITEMS,
-    //         cartItems: [],
-    //     })
-    // }
+    console.log(cartItems)
+
+    useEffect(()=>{
+        let totalPrice = cartItems.reduce(function(accumulator,item){
+            return accumulator + item.price * item.qty;
+        },0)
+        setTot(totalPrice);
+    },[tot,flag])
+        
+
+    useEffect(()=>setTot(cartItems.reduce((sum,cur)=>{
+        return sum + cur.qty * cur.price;
+    },0)),[cartItems]);
+
+    const clearCart = ()=> {
+        dispatch({
+            type: actionNew.SET_CART_ITEMS,
+            cartItems: [],
+        })
+    }
 
     return(
         <motion.div
@@ -37,18 +56,64 @@ function CartContainer(){
                     <motion.p whileTap={{scale: 0.75}} 
                     className="CartHeaderel tw-bg-gray-100 
                     hover:tw-shadow-md tw-text-textColor"
+                    onClick={clearCart}
                     >
                         Clear <RiRefreshFill/>{""}
                     </motion.p>
             </div>
             {/* bottom section */}
-            {cartItems && cartItems > 0 ? (
+            {cartItems && cartItems.length > 0 ? (
                 <div className="cartItemCon tw-bg-cartBg tw-rounded-t-[2rem]">
                     {/* Cart item section */}
                     <div className="cartItemSec md:tw-h-42 tw-overflow-y-scroll tw-scrollbar-none">
 
-                    </div>
 
+                    {cartItems && cartItems.map(item =>(
+                    <CartItem  key={item.id} item={item} setFlag={setFlag} flag={flag} showCart={showCart}/>    
+                    ))}
+                    </div>
+                    {/* Cart total section */}
+
+
+                    <div className="CartTot tw-bg-cartTotal tw-rounded-[2rem]">
+                    <div className="CartTotEle">
+                        <p className="tw-text-gray-400">Sub Total</p>
+                        <p className="tw-text-gray-400">${tot}</p>
+                    </div>
+                    <div className="CartTotEle">
+                        <p className="tw-text-gray-400">Delivery</p>
+                        <p className="tw-text-gray-400">$2.5</p>
+                    </div>
+                    <div className="CartTotEle">
+                        <p className="tw-text-gray-400">Total</p>
+                        <p className="tw-text-gray-400">${tot + 2.5}</p>
+                    </div>
+                    
+
+
+                    {/* Đoạn này bạn xử lý logic cái user nhé từ là nếu có người đăng nhập thì hiệu checkout, 
+                    nếu l có thì bắt đăng nhập để checkout sẽ hiện ra 1 trong 2 button này, 
+                    có cái user đăng nhập mà tôi kb b đang để biến gọi là gì */}
+
+                    {/* {user ? 
+                    (<motion.button 
+                        whileTap={{scale: 0.8}}
+                        type="button"
+                        className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                        >
+                            Check Out
+                    </motion.button>):
+                    (<motion.button 
+                        whileTap={{scale: 0.8}}
+                        type="button"
+                        className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                        >
+                            Login to Check Out
+                    </motion.button>
+                    )} */}
+
+                    
+                </div>
 
 
                 </div>

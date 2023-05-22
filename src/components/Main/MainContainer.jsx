@@ -47,7 +47,7 @@ function MainContainer(){
                 />
             </section>
             <MenuContainer/>
-            <CartContainer/>         
+            {cartShow && <CartContainer/>}
             </div>
         </main>
     )

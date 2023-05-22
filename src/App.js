@@ -10,9 +10,13 @@ import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import { StateProvider } from "./components/Context/StateProvider";
+import reducer from "./components/Context/reducer";
+import { initialState } from "./components/Context/initialState";
 
 function App() {
   return (
+    <StateProvider initialState={initialState} reducer={reducer}>
     <div className="app tw-w-full tw-bg-primary">
       <Header />
       <Routes>
@@ -26,6 +30,8 @@ function App() {
       </Routes>
       <Footer />
     </div>
+    </StateProvider>
+
   );
 }
 

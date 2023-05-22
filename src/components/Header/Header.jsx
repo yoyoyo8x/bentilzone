@@ -28,12 +28,13 @@ const Header = () => {
   }, []);
 
   const [{ cartShow }, dispatch] = useStateValue();
-  const showCartcontainer = () => {
+  const showCart = () => {
     dispatch({
       type: actionNew.SET_CART_SHOW,
       cartShow: !cartShow,
     });
   };
+  console.log(cartShow);
 
   return (
     <header className="tw-shadow-sm tw-bg-primary">
@@ -63,10 +64,10 @@ const Header = () => {
               <NavLink to="/contact">Contact us</NavLink>
             </li>
             <li className="nav-item bag-logo">
-              <button type="button" onClick={showCartcontainer}>
+              <div className="button" onClick={showCart}>
                 <HiOutlineShoppingBag />
                 <div className="cart-number">3</div>
-              </button>
+              </div>
             </li>
           </ul>
         </nav>

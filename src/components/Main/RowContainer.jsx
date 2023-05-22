@@ -2,12 +2,47 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {MdAddShoppingCart} from "react-icons/md"
 import NotFound from "./img/NotFound.svg"
+import { useStateValue } from "../Context/StateProvider";
+import { actionNew } from "../Context/reducer";
+import { useState } from "react";
 
 function RowContainer({flag,data,scrollValue}){
     const rowContainer = useRef()
     useEffect(()=>{
         rowContainer.current.scrollLeft += scrollValue;
     },[scrollValue]);
+
+
+    const[items, setItems]=useState([])
+
+    const [{cartItems}, dispatch] = useStateValue()
+    
+    
+    const addtoCart = (products) => {
+        dispatch({
+            type: actionNew.SET_CART_ITEMS,
+            cartItems: products,
+        })
+        localStorage.setItem("cartItems", JSON.stringify(items));
+    }
+
+
+    const addItemtoCart = (pro) => {
+        const list = [...cartItems]
+        const r = list.findIndex(i => i.id == pro.id)
+        if(r < 0){
+            list.push(pro)
+            setItems(list)
+            addtoCart(list)
+        }else{
+            list[r].qty = ++list[r].qty
+            setItems(list)
+            addtoCart(list)
+        }
+    }
+    useEffect(()=>{
+        addtoCart(items)
+    },[items])
 
     return(
         <div ref={rowContainer} 
@@ -29,6 +64,7 @@ function RowContainer({flag,data,scrollValue}){
                             <motion.div
                             whileTap={{scale:0.75}}
                             className="middleAddtoCart -tw-mt-8 hover:tw-shadow-md tw-bg-red-600"
+                            onClick={()=>addItemtoCart(item)}
                             >
                             <MdAddShoppingCart className="tw-text-white"/>
                             </motion.div>
