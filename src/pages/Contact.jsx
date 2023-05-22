@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/Contact.css";
-import Car from "../images/car-img.svg";
+import Bike from "../images/delivery-bike.png";
 import Phone from "../images/phone-img.svg";
 import Mail from "../images/mail-img.svg";
 
@@ -10,47 +10,40 @@ const Contact = () => {
       <div className="contact-content">
         <h3 className="contact-title">Contact Us</h3>
         <p>
-          Chúng tôi sẵn sàng đón nhận phản hồi và ý kiến của bạn về nhà hàng của
-          chúng tôi. Nếu bạn có bất kỳ câu hỏi, đề xuất hoặc đề nghị thương mại
-          nào, vui lòng liên hệ với chúng tôi theo bất kỳ cách nào phù hợp. Mỗi
-          khách có thể đặt bàn hoặc đặt bất kỳ câu hỏi nào – đại diện của chúng
-          tôi sẽ trả lời và cung cấp cho bạn mọi thông tin cần thiết.
+        We are open to your feedback and your opinion about our services. If you have any questions, suggestions or commercial offers, please feel free to contact us any suitable way. Every guest can have feedback or ask any question – our representatives will reply and provide you will all necessary information.
         </p>
         <p>
-          Chúng tôi rất mong nhận được phản hồi từ bạn và gặp bạn với tư cách là
-          thượng đế của chúng tôi!
+        We are looking forward hearing from you and seeing you as our customer!
         </p>
       </div>
       <div className="contact-info">
         <div className="info-item">
-          <img src={Car} alt="parking" className="contact-img" />
-          <h3>Parking</h3>
+          <img src={Bike} alt="parking" className="contact-img" id="bike"/>
+          <h3>Fast Delivery</h3>
           <p>
-            Chúng tôi có một bãi đậu xe thoải mái, vì vậy bạn có thể rời khỏi xe
-            và thưởng thức bữa ăn của mình mà không phải lo lắng!
+            We always deliver our products on time!<br/> 
+            Order now and be ready for your food!
           </p>
         </div>
         <div className="info-item">
           <img
             src={Phone}
-            alt="parking"
+            alt="tele"
             className="contact-img"
             id="telephone"
           />
           <h3>Telephone</h3>
           <p>
-            Chúng tôi sẵn lòng trả lời các câu hỏi của bạn hoặc chỉ đường cho
-            bạn qua điện thoại.
+          We are happy to answer your questions or give you directions via phone.
             <br />
             <a href="callto:+1 800 889 9898">+1 800 889 9898 </a>
           </p>
         </div>
         <div className="info-item">
-          <img src={Mail} alt="parking" className="contact-img" />
+          <img src={Mail} alt="mail" className="contact-img" />
           <h3>Email</h3>
           <p>
-            Nếu bạn đang di chuyển và vẫn muốn đặt câu hỏi, chỉ cần gửi e-mail
-            cho chúng tôi.
+          if you are on the go and still want to ask a question, simply drop us an e-mail.
             <br />
             <a href="mailto:mail@demolink.org">mail@demolink.org </a>
           </p>
