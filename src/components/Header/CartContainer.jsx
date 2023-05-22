@@ -8,12 +8,16 @@ import {RiRefreshFill} from "react-icons/ri";
 import EmptyCart from "./emptyCart.svg"
 import CartItem from "./CartItem";
 import { useState } from "react";
+import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function CartContainer(){
     const [{cartShow, cartItems}, dispatch] = useStateValue();
     const [tot, setTot] = useState(0);
     const [flag, setFlag] = useState(1);
-
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const navigate = useNavigate();
 
     const showCart = ()=> {
         dispatch({
@@ -94,22 +98,23 @@ function CartContainer(){
                     nếu l có thì bắt đăng nhập để checkout sẽ hiện ra 1 trong 2 button này, 
                     có cái user đăng nhập mà tôi kb b đang để biến gọi là gì */}
 
-                    {/* {user ? 
+                    {user ? 
                     (<motion.button 
                         whileTap={{scale: 0.8}}
                         type="button"
-                        className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                        className="tw-w-full tw-p-2 tw-rounded-full tw-bg-gradient-to-tr tw-from-orange-400 tw-to-orange-600 tw-text-gray-50 tw-text-lg tw-my-2 tw-hover:shadow-lg"
                         >
                             Check Out
                     </motion.button>):
                     (<motion.button 
                         whileTap={{scale: 0.8}}
                         type="button"
-                        className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                        className="tw-w-full tw-p-2 tw-rounded-full tw-bg-gradient-to-tr tw-from-orange-400 tw-to-orange-600 tw-text-gray-50 tw-text-lg my-2 tw-hover:shadow-lg"
+                        onClick={()=>navigate("/")}
                         >
                             Login to Check Out
                     </motion.button>
-                    )} */}
+                    )}
 
                     
                 </div>

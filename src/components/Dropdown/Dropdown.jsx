@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { useState } from "react";
 import { getAuth } from "firebase/auth";
 import { auth } from "../../config/fire";
 import { signOut } from "firebase/auth";
@@ -13,11 +12,9 @@ function classNames(...classes) {
 
 const Dropdown = () => {
   const navigate = useNavigate();
-  // const [users,setUsers] = useState(null);
   const logout = async () => {
     const result = await signOut(auth);
     console.log(result);
-    // setUsers(null);
     navigate("/");
   };
 
