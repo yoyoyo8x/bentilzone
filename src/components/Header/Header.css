@@ -128,7 +128,7 @@ nav > ul {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  padding: 16px;
+  padding: 8px 16px;
 }
 .CartHeader p{
  font-size: 18px;
