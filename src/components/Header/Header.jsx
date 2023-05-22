@@ -49,7 +49,7 @@ const Header = () => {
     console.log(sum)
 
   return (
-    <header className="tw-shadow-sm tw-bg-primary">
+    <header className="tw-shadow-sm">
       <div className="navbar">
         {/* Navigation logo */}
         <div className="header-logo">
