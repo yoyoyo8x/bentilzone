@@ -11,6 +11,8 @@ import { useStateValue } from "../Context/StateProvider";
 import Dropdown from "../Dropdown/Dropdown";
 
 const Header = () => {
+  const [sum, setSum] = useState(0)
+  const [flag, setFlag] = useState(1);
   const auth = getAuth();
   const [users, setUsers] = useState(null);
   console.log(users);
@@ -26,8 +28,8 @@ const Header = () => {
       }
     });
   }, []);
-
-  const [{ cartShow }, dispatch] = useStateValue();
+  // Cartshow
+  const [{ cartShow, cartItems }, dispatch] = useStateValue();
   const showCart = () => {
     dispatch({
       type: actionNew.SET_CART_SHOW,
@@ -35,6 +37,16 @@ const Header = () => {
     });
   };
   console.log(cartShow);
+
+  // Qty in cart
+  useEffect(()=>{
+    let sumQty = cartItems.reduce(function(sum, item){
+            console.log(item)
+            return sum + item.qty;
+        },0)
+        setSum(sumQty);
+    },[sum, flag, cartItems])
+    console.log(sum)
 
   return (
     <header className="tw-shadow-sm tw-bg-primary">
@@ -66,7 +78,11 @@ const Header = () => {
             <li className="nav-item bag-logo">
               <div className="button" onClick={showCart}>
                 <HiOutlineShoppingBag />
-                <div className="cart-number">3</div>
+                {
+                  cartItems && sum >0 && (
+                    <div className="cart-number">{sum}</div>
+                  )
+                }
               </div>
             </li>
           </ul>

@@ -155,7 +155,7 @@ nav > ul {
 }
 .cartItemCon .cartItemSec{
   width: 100%;
-  height: 340px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   gap:12px;

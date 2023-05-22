@@ -10,9 +10,10 @@ import CartItem from "./CartItem";
 import { useState } from "react";
 
 function CartContainer(){
-    const [flag, setFlag] = useState(1);
+    const [{cartShow, cartItems}, dispatch] = useStateValue();
     const [tot, setTot] = useState(0);
-    const [{cartShow,cartItems }, dispatch] = useStateValue();
+    const [flag, setFlag] = useState(1);
+
 
     const showCart = ()=> {
         dispatch({
@@ -21,18 +22,15 @@ function CartContainer(){
         });
     }
     console.log(cartItems)
-
     useEffect(()=>{
-        let totalPrice = cartItems.reduce(function(accumulator,item){
-            return accumulator + item.price * item.qty;
+        let totalPrice = cartItems.reduce(function(sum, item){
+            console.log(item)
+            return sum + item.qty * item.price ;
         },0)
         setTot(totalPrice);
-    },[tot,flag])
-        
+    },[tot, flag, cartItems])
+    console.log(tot)
 
-    useEffect(()=>setTot(cartItems.reduce((sum,cur)=>{
-        return sum + cur.qty * cur.price;
-    },0)),[cartItems]);
 
     const clearCart = ()=> {
         dispatch({
@@ -40,6 +38,7 @@ function CartContainer(){
             cartItems: [],
         })
     }
+
 
     return(
         <motion.div

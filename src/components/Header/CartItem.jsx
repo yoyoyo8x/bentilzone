@@ -20,7 +20,7 @@ function CartItem({item, setFlag, flag}){
             cartItems: items,
         })
     }
-    console.log(cartItems)
+
 
     const removeCart = () => {
         cartItems.map((cartItem)=>{
@@ -37,6 +37,7 @@ function CartItem({item, setFlag, flag}){
             }})
 
         }
+    // Đoan này hàm +- đang bị bug :(
     const updateQty = (action,id)=>{
         if(action === "add"){
             setQty(qty+1)
@@ -45,11 +46,10 @@ function CartItem({item, setFlag, flag}){
                         item.qty +=1;
                         setFlag(flag+1);
                     }
-                    console.log(cartItems)
                 })
             cartDispatch();
         }else{
-            if(qty <=1 ){
+            if(qty <= 1 ){
                 removeCart()
             }
                 else {
@@ -63,10 +63,10 @@ function CartItem({item, setFlag, flag}){
             cartDispatch();
         }}
     }
-
     useEffect(()=>{
-        setItems(cartItems)
-     },[qty,items])
+       setItems(cartItems)
+    },[qty,items])
+
 
 
     return(
