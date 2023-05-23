@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import Logo from "../images/Logo.png";
 import { auth, google, github } from "../config/fire";
-import { signInWithPopup, signOut } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm/LoginForm";
 

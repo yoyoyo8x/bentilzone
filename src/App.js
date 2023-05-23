@@ -16,15 +16,22 @@ import { useState, useEffect } from "react";
 import { AuthProvider } from "./components/Context/AuthProvider";
 import { auth } from "./config/fire";
 import { onAuthStateChanged } from "firebase/auth";
+import Ajax from "./components/AjaxLoader/AjaxLoader";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setIsLoading(false);
     });
   }, []);
+
+  if(isLoading==true){
+    return <Ajax/>
+  }
 
   return (
     <AuthProvider value={{ currentUser }}>
