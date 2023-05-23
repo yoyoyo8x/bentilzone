@@ -26,15 +26,13 @@ function CartContainer() {
     });
   };
 
-  console.log(cartItems);
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (sum, item) {
-      console.log(item);
       return sum + item.qty * item.price;
     }, 0);
     setTot(totalPrice);
   }, [tot, flag, cartItems]);
-  console.log(tot);
+  console.log(cartItems)
 
   const clearCart = () => {
     dispatch({

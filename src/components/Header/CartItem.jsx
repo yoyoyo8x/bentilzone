@@ -13,59 +13,99 @@ function CartItem({item, setFlag, flag}){
     const [qty, setQty] = useState(item.qty)
     const [items, setItems] = useState([])
 
-    const cartDispatch = ()=>{
-        localStorage.setItem("cartItems", JSON.stringify(items));
-        dispatch({
-            type: actionNew.SET_CART_ITEMS,
-            cartItems: items,
-        })
-    }
-
-
-    const removeCart = () => {
-        cartItems.map((cartItem)=>{
-            if (cartItem.id == item.id) {
-                const remove = cartItems.filter((item1)=>item1.id !== item.id);
-                const items = remove
+    const UppdateItem = (action)=>{
+        if(action =="add"){
+                let UpdateCart = cartItems.map((cartItem)=>{
+                    if (cartItem.id == item.id){
+                        return {...cartItem, qty: cartItem.qty+1};
+                    }
+                    return cartItem;   
+                });
                 setFlag(flag+1)
-                localStorage.setItem("cartItems", JSON.stringify(items));
+                localStorage.setItem("cartItems", JSON.stringify(UpdateCart));
                 dispatch({
-                    type:actionNew.SET_CART_ITEMS,
-                    cartItems:items
+                    type: actionNew.SET_CART_ITEMS,
+                    cartItems: UpdateCart,
                 })
-
-            }})
-
+        } else if (action=="remove") {
+              
+                let UpdateCart = cartItems.map((cartItem)=>{
+                    if (cartItem.id == item.id ){
+                        return {...cartItem, qty: cartItem.qty-1};
+                    }
+                    return cartItem;   
+                })
+                .filter((cartItem) =>cartItem.qty !== 0) 
+                setFlag(flag+1)
+                localStorage.setItem("cartItems", JSON.stringify(UpdateCart));
+                dispatch({
+                    type: actionNew.SET_CART_ITEMS,
+                    cartItems: UpdateCart,
+                }) 
         }
-    // Đoan này hàm +- đang bị bug :(
-    const updateQty = (action,id)=>{
-        if(action === "add"){
-            setQty(qty+1)
-                cartItems.map(item => {
-                    if(item.id === id){
-                        item.qty +=1;
-                        setFlag(flag+1);
-                    }
-                })
-            cartDispatch();
-        }else{
-            if(qty <= 1 ){
-                removeCart()
-            }
-                else {
-            setQty(qty-1)
-                cartItems.map(item => {
-                    if(item.id === id){
-                        item.qty -=1;
-                        setFlag(flag+1);
-                    }
-                })
-            cartDispatch();
-        }}
     }
+    console.log(cartItems)
     useEffect(()=>{
-       setItems(cartItems)
-    },[qty,items])
+           setItems(cartItems)
+        },[qty])
+    
+    
+    
+
+
+    // const cartDispatch = ()=>{
+    //     localStorage.setItem("cartItems", JSON.stringify(items));
+    //     dispatch({
+    //         type: actionNew.SET_CART_ITEMS,
+    //         cartItems: items,
+    //     })
+    // }
+
+
+    // const removeCart = () => {
+    //     cartItems.map((cartItem)=>{
+    //         if (cartItem.id == item.id) {
+    //             const remove = cartItems.filter((item1)=>item1.id !== item.id);
+    //             const items = remove
+    //             setFlag(flag+1)
+    //             localStorage.setItem("cartItems", JSON.stringify(items));
+    //             dispatch({
+    //                 type:actionNew.SET_CART_ITEMS,
+    //                 cartItems:items
+    //             })
+
+    //         }})
+
+    //     }
+    // // Đoan này hàm +- đang bị bug :(
+    // const updateQty = (action,id)=>{
+    //     if(action === "add"){
+    //         setQty(qty+1)
+    //             cartItems.map(item => {
+    //                 if(item.id === id){
+    //                     item.qty +=1;
+    //                     setFlag(flag+1);
+    //                 }
+    //             })
+    //         cartDispatch();
+    //     }else{
+    //         if(qty <= 1 ){
+    //             removeCart()
+    //         }
+    //             else {
+    //         setQty(qty-1)
+    //             cartItems.map(item => {
+    //                 if(item.id === id){
+    //                     item.qty -=1;
+    //                     setFlag(flag+1);
+    //                 }
+    //             })
+    //         cartDispatch();
+    //     }}
+    // }
+    // useEffect(()=>{
+    //    setItems(cartItems)
+    // },[qty,items])
 
 
 
@@ -76,13 +116,13 @@ function CartItem({item, setFlag, flag}){
             <div className="CartItemEle">
                         <p className="tw-text-base tw-text-gray-50">{item?.title}</p>
                         <p className="tw-text-sm tw-block tw-text-gray-300 tw-font-semibold">
-                            $ {parseFloat(item?.price) * qty}</p>
+                            $ {(item?.price)*(item.qty)}</p>
             </div>
             {/* Button */}
             <div className="CartItemEle2 tw-group">
                 <motion.div 
                         whileTap={{scale:0.75}}
-                        onClick={()=>updateQty("remove", item?.id)}
+                        onClick={()=>UppdateItem("remove", item?.id)}
                         >
                             <BiMinus className="tw-text-gray-50" />
                 </motion.div>
@@ -90,7 +130,7 @@ function CartItem({item, setFlag, flag}){
                             {item.qty}</p>
                 <motion.div 
                         whileTap={{scale:0.75}}
-                        onClick={()=>updateQty("add", item?.id)}
+                        onClick={()=>UppdateItem("add", item?.id)}
                         >
                             <BiPlus className="tw-text-gray-50"/>
                 </motion.div>

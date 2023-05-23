@@ -12,7 +12,6 @@ import { useAuthValue } from "../Context/AuthProvider";
 
 const Header = () => {
   const {currentUser} = useAuthValue()
-  console.log(currentUser)
 
   const [sum, setSum] = useState(0)
   const [flag, setFlag] = useState(1);
@@ -25,17 +24,14 @@ const Header = () => {
       cartShow: !cartShow,
     });
   };
-  console.log(cartShow);
 
   // Qty in cart
   useEffect(()=>{
     let sumQty = cartItems.reduce(function(sum, item){
-            console.log(item)
             return sum + item.qty;
         },0)
         setSum(sumQty);
     },[sum, flag, cartItems])
-    console.log(sum)
 
   return (
     <header className="tw-shadow-sm">
