@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import Logo from "../images/Logo.png";
 import { auth, google, github } from "../config/fire";
-import { signInWithPopup, signOut } from "firebase/auth";
+import { signInWithPopup} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm/LoginForm";
 
@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div>
       <div className="login-container">
-        <img src={Logo} alt="" className="login-logo" />
+        <img src={Logo} alt="logo" className="login-logo" />
         <div className="form-container">
           {/* Social Login */}
           <div className="social-login">

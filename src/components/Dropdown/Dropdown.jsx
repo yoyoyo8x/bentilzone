@@ -1,16 +1,19 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { getAuth } from "firebase/auth";
 import { auth } from "../../config/fire";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useAuthValue } from "../Context/AuthProvider";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Dropdown = () => {
+  const { currentUser } = useAuthValue();
+  console.log(currentUser);
+
   const navigate = useNavigate();
   const logout = async () => {
     const result = await signOut(auth);
@@ -18,8 +21,6 @@ const Dropdown = () => {
     navigate("/");
   };
 
-  const authen = getAuth();
-  const user = authen.currentUser;
   return (
     <Menu as="div" className="tw-relative tw-inline-block tw-text-left">
       <div>
@@ -50,7 +51,7 @@ const Dropdown = () => {
                     "tw-block tw-px-4 tw-py-2 tw-text-sm"
                   )}
                 >
-                  {user.displayName}
+                  {currentUser.displayName}
                 </div>
               )}
             </Menu.Item>

@@ -4,30 +4,19 @@ import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaSignInAlt } from "react-icons/fa";
 import Logo from "../../images/Logo.png";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { actionNew } from "../Context/reducer";
 import { useStateValue } from "../Context/StateProvider";
 import Dropdown from "../Dropdown/Dropdown";
+import { useAuthValue } from "../Context/AuthProvider";
 
 const Header = () => {
+  const {currentUser} = useAuthValue()
+  console.log(currentUser)
+
   const [sum, setSum] = useState(0)
   const [flag, setFlag] = useState(1);
-  const auth = getAuth();
-  const [users, setUsers] = useState(null);
-  console.log(users);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUsers(user);
-        console.log(users);
-      } else {
-        setUsers(null);
-        console.log("user is logged out");
-      }
-    });
-  }, []);
+  
   // Cartshow
   const [{ cartShow, cartItems }, dispatch] = useStateValue();
   const showCart = () => {
@@ -88,13 +77,13 @@ const Header = () => {
           </ul>
         </nav>
         {/* Login */}
-        {users ? (
+        {currentUser ? (
           <div
             className={`group tw-flex tw-items-center tw-gap-3 tw-px-3 tw-py-1 tw-rounded-lg`}
           >
             <div className=" tw-flex tw-items-center tw-justify-center">
               <img
-                src={users.photoURL}
+                src={currentUser.photoURL}
                 className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain"
                 alt="profile"
               />
