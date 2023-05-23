@@ -3,10 +3,19 @@ import "../css/Contact.css";
 import Bike from "../images/delivery-bike.png";
 import Phone from "../images/phone-img.svg";
 import Mail from "../images/mail-img.svg";
+import CartContainer from "../components/Header/CartContainer";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useStateValue } from "../components/Context/StateProvider";
 
 const Contact = () => {
+  const[{cartShow}, dispatch] = useStateValue();
+  const[scrollValue, setScrollValue] = useState(0);
+  useEffect(() =>{},[scrollValue,cartShow]);
+
   return (
     <div className="contact-container">
+      {cartShow&&<CartContainer/>}
       <div className="contact-content">
         <h3 className="contact-title">Contact Us</h3>
         <p>
