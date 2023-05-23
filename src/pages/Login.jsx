@@ -43,6 +43,11 @@ const Login = () => {
         } else {
           setErrorPassword("");
         }
+        if (error.code === "auth/wrong-password") {
+          setErrorPassword("Wrong password.");
+        } else {
+          setErrorPassword("");
+        }
       });
   };
 
