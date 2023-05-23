@@ -33,6 +33,11 @@ const Login = () => {
         } else {
           setErrorEmail("");
         }
+        if (error.code == "auth/user-not-found") {
+          setErrorEmail("Account does not exist.");
+        } else {
+          setErrorEmail("");
+        }
         if (error.code === "auth/missing-password") {
           setErrorPassword("Please enter your password.");
         } else {
