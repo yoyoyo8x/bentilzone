@@ -25,6 +25,9 @@ const Register = () => {
       if (password !== confirmPass) {
         isValid = false;
         setError("Passwords does not match");
+      } else {
+        isValid = true;
+        setError("");
       }
     }
     return isValid;
@@ -34,7 +37,7 @@ const Register = () => {
     e.preventDefault();
 
     if (validatePassword()) {
-      createUserWithEmailAndPassword(auth, email, password)
+      await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
@@ -42,9 +45,27 @@ const Register = () => {
           navigate("/");
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
+          console.log(error.code);
+          if (error.code === "auth/email-already-in-use") {
+            setErrorEmail("Email address already in use.");
+          } else {
+            setErrorEmail("");
+          }
+          if (error.code == "auth/invalid-email") {
+            setErrorEmail("Invaded email address.");
+          } else {
+            setErrorEmail("");
+          }
+          if (error.code === "auth/missing-password") {
+            setErrorPassword("Please enter your password.");
+          } else {
+            setErrorPassword("");
+          }
+          if (error.code === "auth/weak-password") {
+            setErrorPassword("Password is not strong enough.");
+          } else {
+            setErrorPassword("");
+          }
         });
     }
   };
@@ -79,7 +100,7 @@ const Register = () => {
           <div className="line-container">
             <div className="line"></div>
             <span>OR</span>
-            <div class="line"></div>
+            <div className="line"></div>
           </div>
           {/* Login Form */}
           <form className="login-form" onSubmit={SignUp}>
@@ -96,7 +117,6 @@ const Register = () => {
               </div>
               <div className="input-password">
                 <input
-                  required
                   type="password"
                   name="Password"
                   placeholder="Password"
@@ -107,7 +127,6 @@ const Register = () => {
               </div>
               <div className="input-password">
                 <input
-                  required
                   type="password"
                   name="Password"
                   placeholder="Confirm Password"
@@ -125,7 +144,7 @@ const Register = () => {
           <div className="line-container">
             <div className="line" id="short-res"></div>
             <span>Already have an account?</span>
-            <div class="line" id="short-res"></div>
+            <div className="line" id="short-res"></div>
           </div>
           <button
             className="submit-btn"

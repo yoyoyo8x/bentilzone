@@ -27,9 +27,17 @@ const Login = () => {
         console.log(user);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        console.log(error.code);
+        if (error.code == "auth/invalid-email") {
+          setErrorEmail("Invaded email address.");
+        } else {
+          setErrorEmail("");
+        }
+        if (error.code === "auth/missing-password") {
+          setErrorPassword("Please enter your password.");
+        } else {
+          setErrorPassword("");
+        }
       });
   };
 
