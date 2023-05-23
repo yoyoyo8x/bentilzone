@@ -26,12 +26,13 @@ function RowContainer({flag,data,scrollValue}){
         localStorage.setItem("cartItems", JSON.stringify(items));
     }
 
-
+    
     const addItemtoCart = (pro) => {
         const list = [...cartItems]
         const r = list.findIndex(i => i.id == pro.id)
         if(r < 0){
-            list.push(pro)
+            const neuItem = {...pro, qty:1}
+            list.push(neuItem)
             setItems(list)
             addtoCart(list)
         }else{
