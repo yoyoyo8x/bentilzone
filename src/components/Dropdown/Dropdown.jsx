@@ -51,7 +51,7 @@ const Dropdown = () => {
                     "tw-block tw-px-4 tw-py-2 tw-text-sm"
                   )}
                 >
-                  {currentUser.displayName}
+                  {currentUser.displayName|| currentUser.email.replace(/(@[a-z0-9.-]+\.[a-z]{2,})/g, '')}
                 </div>
               )}
             </Menu.Item>

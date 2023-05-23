@@ -94,3 +94,60 @@
 #signup {
   width: 90%;
 }
+/* Login Form */
+
+.login-form {
+  width: 90%;
+}
+
+.input-email,
+.input-password {
+  margin-bottom: 15px;
+}
+
+.input-email input,
+.input-password input {
+  width: 93%;
+  font-size: 18px;
+  font-family: Poppins;
+  padding: 5px 15px;
+
+  &:focus {
+    outline-color: rgb(252, 132, 132);
+  }
+}
+
+.alert {
+  color: red;
+  padding: 3px 15px;
+}
+
+.forgot {
+  color: red;
+  margin-bottom: 15px;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(171, 58, 58);
+  }
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-family: Poppins;
+  text-transform: uppercase;
+  box-shadow: 1px 1px #848484;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #ffa500;
+  cursor: pointer;
+
+  &:hover {
+    animation: zoomOut forwards 1s ease-in-out;
+  }
+}

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaSignInAlt } from "react-icons/fa";
 import Logo from "../../images/Logo.png";
+import Avatar from "../Main/img/avatar.png"
 import { useState, useEffect } from "react";
 import { actionNew } from "../Context/reducer";
 import { useStateValue } from "../Context/StateProvider";
@@ -79,7 +80,7 @@ const Header = () => {
           >
             <div className=" tw-flex tw-items-center tw-justify-center">
               <img
-                src={currentUser.photoURL}
+                src={currentUser.photoURL || Avatar}
                 className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain"
                 alt="profile"
               />

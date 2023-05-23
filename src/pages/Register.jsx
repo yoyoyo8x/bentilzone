@@ -7,24 +7,45 @@ import Logo from "../images/Logo.png";
 import { auth, google, github } from "../config/fire";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import LoginForm from "../components/LoginForm/LoginForm";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [username, setusername] = useState("");
-  const [password, setpassword] = useState("");
-  const users = [{ username: "admin", password: "1234" }];
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+  const [error, setError] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
 
-  const Singup = (e) => {
+  const validatePassword = () => {
+    let isValid = true;
+    if (password !== "" && confirmPass !== "") {
+      if (password !== confirmPass) {
+        isValid = false;
+        setError("Passwords does not match");
+      }
+    }
+    return isValid;
+  };
+
+  const SignUp = async (e) => {
     e.preventDefault();
-    console.log(users);
-    const account = users.find((user) => user.username === username);
-    console.log(account);
-    if (account && account.password === password) {
-      alert("Login failed");
-    } else {
-      alert("Login successful");
+
+    if (validatePassword()) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
     }
   };
 
@@ -61,7 +82,45 @@ const Register = () => {
             <div class="line"></div>
           </div>
           {/* Login Form */}
-          <LoginForm formBtn="Sign up" handleClick={Singup} />
+          <form className="login-form" onSubmit={SignUp}>
+            <div className="form-content">
+              <div className="input-email">
+                <input
+                  type="text"
+                  name="Email"
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <div className="alert">{errorEmail}</div>
+              </div>
+              <div className="input-password">
+                <input
+                  required
+                  type="password"
+                  name="Password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <div className="alert">{errorPassword}</div>
+              </div>
+              <div className="input-password">
+                <input
+                  required
+                  type="password"
+                  name="Password"
+                  placeholder="Confirm Password"
+                  value={confirmPass}
+                  onChange={(e) => setConfirmPass(e.target.value)}
+                />{" "}
+                <div className="alert">{error}</div>
+              </div>
+            </div>
+            <button type="submit" className="submit-btn">
+              SIGN UP
+            </button>
+          </form>
           {/* Switch Page */}
           <div className="line-container">
             <div className="line" id="short-res"></div>

@@ -5,27 +5,32 @@ import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import Logo from "../images/Logo.png";
 import { auth, google, github } from "../config/fire";
-import { signInWithPopup} from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import LoginForm from "../components/LoginForm/LoginForm";
 
 const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [username, setusername] = useState("");
-  const [password, setpassword] = useState("");
-  const users = [{ username: "admin", password: "1234" }];
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const Login = (e) => {
     e.preventDefault();
-    console.log(users);
-    const account = users.find((user) => user.username === username);
-    console.log(account);
-    if (account && account.password === password) {
-      alert("Login successful");
-    } else {
-      alert("Login failed");
-    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        navigate("/");
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
   };
 
   const login = async (provider) => {
@@ -62,11 +67,34 @@ const Login = () => {
             <div className="line"></div>
           </div>
           {/* Login Form */}
-          <LoginForm
-            forgotText="Forgot Password?"
-            formBtn="Sign In"
-            handleClick={handleSubmit}
-          />
+          <form className="login-form">
+            <div className="form-content">
+              <div className="input-email">
+                <input
+                  type="text"
+                  name="Email"
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <div className="alert">{errorEmail}</div>
+              </div>
+              <div className="input-password">
+                <input
+                  type="password"
+                  name="Password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <div className="alert">{errorPassword}</div>
+              </div>
+              <div className="forgot">Forgot Password?</div>
+            </div>
+            <button type="submit" className="submit-btn" onClick={Login}>
+              Sign in
+            </button>
+          </form>
           {/* Switch Page */}
           <div className="line-container">
             <div className="line" id="short"></div>
