@@ -15,28 +15,25 @@ const Contact = () => {
 
   const [isPopup, setIsPopup] = useState(false);
 
-  const [first, setFirst] = useState("");
-  const [last, setLast] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [first,setFirst]=useState("");
+  const [last,setLast]=useState("");
   const [firstError, setFirstError] = useState("");
   const [lastError, setLastError] = useState("");
   const [emailError, setEmailError] = useState("");
   const validEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
+  const [info, setInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
   const store = async (e) => {
     e.preventDefault();
 
     setIsPopup(!isPopup);
 
-    const info = {
-      firstName: first,
-      lastName: last,
-      email: email,
-      message: message,
-    };
-
-    if (first === "") {
+    if (info.firstName === "") {
       setFirstError("Please enter your first name");
       setIsPopup(false);
     } else {
@@ -44,7 +41,7 @@ const Contact = () => {
       setIsPopup(true);
     }
 
-    if (last === "") {
+    if (info.lastName === "") {
       setLastError("Please enter your last name");
       setIsPopup(false);
     } else {
@@ -52,24 +49,24 @@ const Contact = () => {
       setIsPopup(true);
     }
 
-    if (email === "") {
+    if (info.email === "") {
       setEmailError("Please enter your email");
       setIsPopup(false);
     }
-    if (email !== "" && validEmail.test(email) === false) {
+    if (info.email !== "" && validEmail.test(info.email) === false) {
       setEmailError("Invalid email");
       setIsPopup(false);
     }
-    if (email !== "" && validEmail.test(email) === true) {
+    if (info.email !== "" && validEmail.test(info.email) === true) {
       setEmailError("");
       setIsPopup(true);
     }
 
     if (
-      first === "" ||
-      last === "" ||
-      email === "" ||
-      validEmail.test(email) === false
+      info.firstName === "" ||
+      info.lastName === "" ||
+      info.email === "" ||
+      validEmail.test(info.email) === false
     ) {
       return false;
     }
@@ -77,8 +74,18 @@ const Contact = () => {
     localStorage.setItem("userInfo", JSON.stringify(info));
     const userInfo = localStorage.getItem("userInfo");
     console.log(userInfo);
-    console.log(first);
-    console.log(last);
+
+    const dataInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const firstN = dataInfo.firstName;
+    const lastN = dataInfo.lastName;
+    setFirst(firstN);
+    setLast(lastN);
+    setInfo({
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (
@@ -173,20 +180,26 @@ const Contact = () => {
                   <input
                     type="text"
                     placeholder="First Name*"
-                    onChange={(e) => setFirst(e.target.value)}
+                    onChange={(e) =>
+                      setInfo({ ...info, firstName: e.target.value })
+                    }
                   />
                   <div className="required">{firstError}</div>
                   <input
                     type="text"
                     placeholder="Last Name*"
                     id="second-n"
-                    onChange={(e) => setLast(e.target.value)}
+                    onChange={(e) =>
+                      setInfo({ ...info, lastName: e.target.value })
+                    }
                   />
                   <div className="required">{lastError}</div>
                   <input
                     type="email"
                     placeholder="Email Address*"
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) =>
+                      setInfo({ ...info, email: e.target.value })
+                    }
                   />
                   <div className="required">{emailError}</div>
                 </div>
@@ -194,7 +207,9 @@ const Contact = () => {
                   <textarea
                     placeholder="Your Message"
                     className="submit-message"
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e) =>
+                      setInfo({ ...info, message: e.target.value })
+                    }
                   ></textarea>
                 </div>
               </div>
