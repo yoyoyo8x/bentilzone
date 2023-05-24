@@ -77,7 +77,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="body">
       <div className="login-container">
         <div className="login-logo-container">
           <img src={Logo} alt="" className="login-logo" />

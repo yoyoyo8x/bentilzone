@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap");
 
-#root{
-    height: 100vh;
+#root {
+  height: 100vh;
 }
 
-.active{
-    color: #2450ca;
+.active {
+  color: #6f93f6 !important;
 }
 
-body{
-    margin-top:90px;
+.body {
+  margin-top: 90px;
 }
-.app{
-    height: auto;
-    display: flex;
-    flex-direction: column;
+.app {
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }

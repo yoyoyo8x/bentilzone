@@ -9,7 +9,7 @@ const About = () => {
   const[scrollValue, setScrollValue] = useState(0)
   useEffect(() =>{},[scrollValue,cartShow])
   return (
-    <div>
+    <div className="body">
       <main id="Main" className="md:tw-px-16 tw-w-full">
       <div className="MainContainer">
       {cartShow && <CartContainer/>}

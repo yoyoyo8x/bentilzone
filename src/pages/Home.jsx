@@ -3,7 +3,9 @@ import MainContainer from "../components/Main/MainContainer";
 
 const Home = () => {
   return (
-    <MainContainer/>
+    <div className="body">
+      <MainContainer />
+    </div>
   );
 };
 
