@@ -107,7 +107,7 @@
 
 .input-email input,
 .input-password input {
-  width: 93%;
+  width: 100%;
   font-size: 18px;
   font-family: Poppins;
   padding: 5px 15px;
@@ -151,3 +151,43 @@
     animation: zoomOut forwards 1s ease-in-out;
   }
 }
+
+/* Responsive */
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px) {
+  /* --------LOGIN-------- */
+  .login-container {
+    padding: 0 35px;
+  }
+
+  .login-logo {
+    display: none;
+  }
+
+  .form-container {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (max-width: 1039px) and (min-width: 740px) {
+  /* --------LOGIN-------- */
+  .login-container {
+    padding: 0 35px;
+    flex-direction: column-reverse;
+  }
+
+  .login-logo-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-container {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+/* PC: width >= 1040px */

@@ -40,7 +40,7 @@ const Register = () => {
       await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in
-          const {user} = userCredential;
+          const { user } = userCredential;
           console.log(user);
           navigate("/");
         })
@@ -79,7 +79,9 @@ const Register = () => {
   return (
     <div>
       <div className="login-container">
-        <img src={Logo} alt="" className="login-logo" />
+        <div className="login-logo-container">
+          <img src={Logo} alt="" className="login-logo" />
+        </div>
         <div className="form-container">
           {/* Social Login */}
           <div className="social-login">

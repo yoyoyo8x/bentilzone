@@ -22,7 +22,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const {user} = userCredential;
+        const { user } = userCredential;
         navigate("/");
         console.log(user);
       })
@@ -61,7 +61,9 @@ const Login = () => {
   return (
     <div>
       <div className="login-container">
-        <img src={Logo} alt="logo" className="login-logo" />
+        <div className="login-logo-container">
+          <img src={Logo} alt="logo" className="login-logo" />
+        </div>
         <div className="form-container">
           {/* Social Login */}
           <div className="social-login">
