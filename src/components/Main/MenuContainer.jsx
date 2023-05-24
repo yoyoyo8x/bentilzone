@@ -9,7 +9,7 @@ import {IoFastFood} from "react-icons/io5";
 
 
 
-function MenuContainer (){
+function MenuContainer ({flag}){
     const[filter,setFilter] = useState("chicken");
 
     return(
@@ -19,7 +19,9 @@ function MenuContainer (){
                     before:tw-absolute before:tw-rounded-lg before:tw-w-16 before:tw-h-1 before:-tw-bottom-2 before:tw-left-0 
                     before:tw-bg-gradient-to-tr tw-from-orange-400 tw-to-orange-600">
                         Our Hot Dishes</p>
-                    <div className="middleCat tw-scrollbar-none">
+                    <div className={`middleCat ${flag ? 
+                        'tw-overflow-x-scroll tw-scrollbar-none':
+                        'tw-overflow-x-hidden tw-flex-wrap tw-justify-center'} xl:tw-justify-center lg:tw-justify-start`}>
                         {Categories && Categories.map(category=>(
                             <motion.div whileTap={{scale:0.75}}
                             key={category.id}

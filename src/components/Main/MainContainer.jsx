@@ -46,7 +46,7 @@ function MainContainer(){
                 data={menuList?.filter((n)=>n.category === "fruits")}
                 />
             </section>
-            <MenuContainer/>
+            <MenuContainer flag={true}/>
             {cartShow && <CartContainer/>}
             </div>
         </main>

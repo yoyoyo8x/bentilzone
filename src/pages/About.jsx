@@ -14,7 +14,7 @@ const About = () => {
       <div className="MainContainer">
       {cartShow && <CartContainer/>}
       </div>
-    </main>
+      </main>
     </div>
   );
 };

@@ -75,7 +75,6 @@
     padding: 8px 0;
 }
 #Home .homeContainerR .homeContainerRbg{
-    height: 650px;
     width: auto;
     margin-left: auto;
 }
@@ -89,8 +88,6 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 16px 128px;
-    gap: 16px;
 }
 #Home .homeContainerR .homeElementR .homeItem{
     display: flex;
@@ -98,27 +95,18 @@
     align-items: center;
     justify-content: flex-end;
     padding: 16px;
-    width: 190px;
-    height: 210px;
+    
 }
-#Home .homeContainerR .homeElementR .homeItem img{
-    width: 160px;
-}
+
 #Home .homeContainerR .homeElementR .homeItem .homeItemName{
-    font-size: 16px;
-    line-height: 28px;
     font-weight: 600;
     margin-top: 16px;
 }
 #Home .homeContainerR .homeElementR .homeItem .homeItemDes{
-    font-size: 14px;
-    line-height: 20px;
     font-weight: 600;
     margin: 12px 0;
 }
 #Home .homeContainerR .homeElementR .homeItem .homeItemP{
-    font-size: 14px;
-    line-height: 20px;
     font-weight: 600;
 }
 
@@ -240,6 +228,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 .emptyItem img{
     height: 340px;
@@ -257,10 +246,10 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 32px;
     padding: 24px 0;
-    overflow-x: scroll;
+    scroll-behavior: smooth;
+
 }
 .middleCat .cateFilter{
     width: 96px;
