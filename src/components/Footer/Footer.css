@@ -100,3 +100,51 @@ footer img:hover {
   font-size: 28px;
   opacity: 0.8;
 }
+
+/* Responsive */
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px) {
+  /* --------FOOTER-------- */
+  footer {
+    padding: 25px 35px;
+  }
+
+  .footer-logo {
+    display: block;
+  }
+
+  .footer-logo-container {
+    flex-direction: column;
+  }
+
+  .footer-container {
+    display: block;
+  }
+
+  .footer-container ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin-top: 25px;
+  }
+
+  .footer-container li {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (max-width: 1039px) and (min-width: 740px) {
+  /* --------FOOTER-------- */
+  .footer-container {
+    display: block;
+  }
+
+  .footer-container ul {
+    gap: 60px;
+    margin-top: 25px;
+  }
+}
+/* PC: width >= 1040px */
