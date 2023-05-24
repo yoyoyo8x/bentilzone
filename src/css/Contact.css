@@ -38,7 +38,7 @@
   object-fit: cover;
 }
 
-#bike{
+#bike {
   width: 30px;
   height: 29px;
   opacity: 0.6;
@@ -48,8 +48,8 @@
   height: 29px;
 }
 
-.contact-img{
- margin: auto;
+.contact-img {
+  margin: auto;
 }
 
 .info-item {
@@ -111,3 +111,60 @@
   padding-left: 10px;
   color: red;
 }
+
+.button-submit {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive */
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px) {
+  /* --------CONTACT-------- */
+  .contact-container {
+    padding: 0 10px;
+  }
+  .contact-info {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .submit-content {
+    flex-direction: column;
+    margin-left: 0px;
+    text-align: right;
+  }
+
+  .submit-content input,
+  .submit-content textarea {
+    width: 100%;
+  }
+
+  /* .popup-container{
+    width: 340px;
+  } */
+}
+
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (max-width: 1039px) and (min-width: 740px) {
+  /* --------CONTACT-------- */
+  .contact-container {
+    padding: 0 50px;
+  }
+  
+  .submit-content {
+    flex-direction: column;
+    text-align: right;
+    margin-left: 0px;
+  }
+
+  .submit-content input,
+  .submit-content textarea {
+    width: 100%;
+  }
+
+  /* .popup-container{
+    width: 45%;
+  } */
+}
+
+/* PC: width >= 1040px */
