@@ -4,6 +4,7 @@ import CartContainer from "../components/Header/CartContainer";
 import { useStateValue } from "../components/Context/StateProvider";
 import { useEffect } from "react";
 import { useState } from "react";
+import "../components/Main/Main.css"
 
 
 const Shop = () => {
