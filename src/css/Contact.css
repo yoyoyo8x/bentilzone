@@ -88,15 +88,15 @@
   font-family: "Montserrat", Sans-serif;
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   width: 95%;
   border: 1px solid #ebeced;
   padding: 16px 18px;
 }
 
 .submit-content textarea {
-  height: 194px;
-  min-height: 194px;
+  height: 189px;
+  min-height: 189px;
 }
 
 .submit-box {
@@ -105,10 +105,9 @@
 }
 
 .required {
-  display: none;
   font-family: Poppins;
   line-height: 1em;
-  padding-bottom: 17px;
+  padding-bottom: 6px;
   padding-left: 10px;
   color: red;
 }

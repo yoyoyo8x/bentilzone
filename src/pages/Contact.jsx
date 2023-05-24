@@ -4,14 +4,68 @@ import Bike from "../images/delivery-bike.png";
 import Phone from "../images/phone-img.svg";
 import Mail from "../images/mail-img.svg";
 import CartContainer from "../components/Header/CartContainer";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useStateValue } from "../components/Context/StateProvider";
 
 const Contact = () => {
   const [{ cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
   useEffect(() => {}, [scrollValue, cartShow]);
+
+  const [first, setFirst] = useState("");
+  const [last, setLast] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [firstError, setFirstError] = useState("");
+  const [lastError, setLastError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const validEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+  const store = async (e) => {
+    e.preventDefault();
+
+    const info = {
+      firstName: first,
+      lastName: last,
+      email: email,
+      message: message,
+    };
+
+    if (first === "") {
+      setFirstError("Please enter your first name");
+    } else {
+      setFirstError("");
+    }
+
+    if (last === "") {
+      setLastError("Please enter your last name");
+    } else {
+      setLastError("");
+    }
+
+    if (email === "") {
+      setEmailError("Please enter your email");
+    }
+    if (email !== "" && validEmail.test(email) === false) {
+      setEmailError("Invalid email");
+    }
+    if (email !== "" && validEmail.test(email) === true) {
+      setEmailError("");
+    }
+
+    if (
+      first === "" ||
+      last === "" ||
+      email === "" ||
+      validEmail.test(email) === false
+    ) {
+      return false;
+    }
+
+    localStorage.setItem("userInfo", JSON.stringify(info));
+    const userInfo = localStorage.getItem("userInfo");
+    console.log(userInfo);
+  };
 
   return (
     <>
@@ -69,38 +123,39 @@ const Contact = () => {
         </div>
 
         <div className="contact-title">Contact Form</div>
-        <form className="tw-pb-10 my-form" name="myForm">
+        <form className="tw-pb-10 my-form" onSubmit={store}>
           <div className="submit-content">
             <div className="submit-info">
-              <input type="text" placeholder="First Name*" id="first-n" />
-              <div className="required" id="1st-required">
-                Please fill out your first name
-              </div>
-              <input type="text" placeholder="Last Name*" id="second-n" />
-              <div className="required" id="2nd-required">
-                Please fill out your second name
-              </div>
-              <input type="email" placeholder="Email Address*" id="email" />
-              <div className="required" id="email-required">
-                Please fill out your email address
-              </div>
-              <div className="required" id="email-invalid">
-                Invalid Email Address
-              </div>
+              <input
+                type="text"
+                placeholder="First Name*"
+                onChange={(e) => setFirst(e.target.value)}
+              />
+              <div className="required">{firstError}</div>
+              <input
+                type="text"
+                placeholder="Last Name*"
+                id="second-n"
+                onChange={(e) => setLast(e.target.value)}
+              />
+              <div className="required">{lastError}</div>
+              <input
+                type="email"
+                placeholder="Email Address*"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <div className="required">{emailError}</div>
             </div>
             <div className="submit-box">
               <textarea
                 placeholder="Your Message"
                 className="submit-message"
-                id="message"
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
           </div>
           <div className="button-submit">
-            <button
-              className="tw-btn tw-bg-[#2d3034] tw-text-white tw-text-[20px] tw-p-2 tw-uppercase tw-font-medium"
-              id="submit-btn"
-            >
+            <button className="tw-btn tw-bg-[#2d3034] tw-text-white tw-text-[20px] tw-p-2 tw-uppercase tw-font-medium">
               Send Message
             </button>
           </div>
