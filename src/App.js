@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+import PrivateRoute from "./config/PrivateRoute";
 import { StateProvider } from "./components/Context/StateProvider";
 import reducer from "./components/Context/reducer";
 import { initialState } from "./components/Context/initialState";
@@ -39,7 +41,7 @@ function App() {
         <div className="app tw-w-full tw-bg-primary">
           <Header />
           <Routes>
-            <Route exact path="/" element={<Home />} activeClassName="active" />
+            <Route exact path="/*" element={<Home />} activeClassName="active" />
             <Route path="/about" element={<About />} activeClassName="active" />
             <Route path="/menu" element={<Menu />} activeClassName="active" />
             <Route
@@ -54,6 +56,7 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<PrivateRoute Component={Profile}/>}/>
           </Routes>
           <Footer />
         </div>

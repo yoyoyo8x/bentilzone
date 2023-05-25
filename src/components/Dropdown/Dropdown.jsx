@@ -5,6 +5,7 @@ import { auth } from "../../config/fire";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../Context/AuthProvider";
+import { Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -57,8 +58,8 @@ const Dropdown = () => {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <Link
+                  to="/profile"
                   className={classNames(
                     active
                       ? "tw-bg-gray-100 tw-text-gray-900"
@@ -67,7 +68,7 @@ const Dropdown = () => {
                   )}
                 >
                   Edit account
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
