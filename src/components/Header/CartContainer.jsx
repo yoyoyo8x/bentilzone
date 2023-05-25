@@ -35,6 +35,7 @@ function CartContainer() {
   console.log(cartItems)
 
   const clearCart = () => {
+    localStorage.setItem("cartItems", JSON.stringify([]));
     dispatch({
       type: actionNew.SET_CART_ITEMS,
       cartItems: [],

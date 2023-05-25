@@ -5,15 +5,17 @@ import NotFound from "./img/NotFound.svg"
 import { useStateValue } from "../Context/StateProvider";
 import { actionNew } from "../Context/reducer";
 import { useState } from "react";
+import {fetchCart} from "../Main/utils/fetchLocalStorageData"
 
 function RowContainer({flag,data,scrollValue}){
     const rowContainer = useRef()
     useEffect(()=>{
         rowContainer.current.scrollLeft += scrollValue;
     },[scrollValue]);
-
-
-    const[items, setItems]=useState([])
+    
+    
+    const cartInfo = fetchCart() 
+    const[items, setItems]=useState(cartInfo)
 
     const [{cartItems}, dispatch] = useStateValue()
     
