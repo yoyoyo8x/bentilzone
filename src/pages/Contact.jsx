@@ -15,8 +15,8 @@ const Contact = () => {
 
   const [isPopup, setIsPopup] = useState(false);
 
-  const [first,setFirst]=useState("");
-  const [last,setLast]=useState("");
+  const [first, setFirst] = useState("");
+  const [last, setLast] = useState("");
   const [firstError, setFirstError] = useState("");
   const [lastError, setLastError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -175,7 +175,7 @@ const Contact = () => {
 
             <div className="contact-title">Contact Form</div>
             <form className="tw-pb-10 my-form" onSubmit={store}>
-              <div className="submit-content">
+              <div className="submit-content contact-form">
                 <div className="submit-info">
                   <input
                     type="text"

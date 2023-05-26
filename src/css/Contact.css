@@ -74,9 +74,13 @@
 .submit-content {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 100px;
+  /* margin-left: 100px; */
   font-family: "Open Sans", sans-serif;
   text-align: left;
+}
+
+.contact-form{
+  margin-left: 100px;
 }
 
 .submit-info {
@@ -153,22 +157,20 @@
   text-transform: uppercase;
   font-weight: 500;
 }
+
 .popup-content {
   text-align: center;
 }
+
+.check-out{
+  margin-left: 0px;
+}
+
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-#city {
-  font-family: "Montserrat", Sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  margin-bottom: 6px;
-  width: 95%;
-  border: 1px solid #ebeced;
-  padding: 16px 18px;
-}
-#method {
+
+#city,#method {
   font-family: "Montserrat", Sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -195,7 +197,10 @@ option[value=""][disabled] {
   }
   .submit-content {
     flex-direction: column;
-    margin-left: 0px;
+  }
+
+  .contact-form{
+    margin-left: 0;
   }
 
   .submit-content input,
@@ -217,7 +222,10 @@ option[value=""][disabled] {
 
   .submit-content {
     flex-direction: column;
-    margin-left: 0px;
+  }
+
+  .contact-form{
+    margin-left: 0;
   }
 
   .submit-content input,

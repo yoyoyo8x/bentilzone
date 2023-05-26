@@ -125,9 +125,6 @@ function CheckoutForm() {
 
   return (
     <>
-      <div className="tw-font-bold tw-text-[34px] tw-text-orange-500">
-        Your Bill
-      </div>
       {isPopup ? (
         <div className="popup-overlay tw-backdrop-blur-md">
           <div className="popup-container">
@@ -152,6 +149,9 @@ function CheckoutForm() {
         </div>
       ) : (
         <form className="tw-pb-10 my-form" onSubmit={pay}>
+          <div className="tw-font-bold tw-text-[34px] tw-text-orange-500 tw-text-center tw-mr-[37px]">
+            Your Bill
+          </div>
           <div className="submit-content tw-w-[800px] tw-flex-col">
             <div className="submit-info">
               <input
