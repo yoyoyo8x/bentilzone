@@ -28,6 +28,10 @@
   margin-bottom: 20px;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 /* Responsive */
 
 /* Mobile: width < 740px */

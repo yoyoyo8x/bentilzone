@@ -4,7 +4,8 @@ import { AiFillEdit } from "react-icons/ai";
 import Avatar from "../components/Main/img/avatar.png";
 import "../css/Profile.css";
 import { updateProfile, updateEmail } from "firebase/auth";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { upload } from "../config/fire";
 
 const Profile = () => {
   const { currentUser } = useAuthValue();
@@ -12,31 +13,45 @@ const Profile = () => {
 
   const [newName, setNewName] = useState(currentUser.displayName);
   const [newEmail, setNewEmail] = useState("");
-  const [newImg, setNewImg] = useState(currentUser.photoURL);
+  const [photoURL, setPhotoURL] = useState(currentUser.photoURL);
+  const [photo, setPhoto] = useState(null);
+  const [loading, setLoading] = useState(false);
+  console.log(photo);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (photo !== null) {
+      upload(photo, currentUser, setLoading);
+    }
     updateProfile(currentUser, {
       displayName: newName,
     });
     updateEmail(currentUser, newEmail);
-    window.location.reload();
+    setTimeout(() => window.location.reload(), 3000);
   };
 
-  // useEffect(() => {},[currentUser.displayName,currentUser.email]);
+  // useEffect(() => {
+  //   setTimeout(() => window.location.reload(),2000)
+  // },[]);
 
   return (
     <div className="body tw-pt-20 tw-px-6 md:tw-px-40 lg:tw-flex tw-gap-20 tw-justify-center">
       <div className="profile-container tw-flex tw-flex-col tw-items-center tw-gap-3">
         <img
-          src={currentUser.photoURL || Avatar}
+          src={photoURL || Avatar}
           alt=""
-          className="tw-w-10 tw-min-w-[200px] tw-h-10 tw-min-h-[200px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain tw-mb-5 tw-relative"
+          className="tw-w-10 tw-min-w-[200px] tw-h-10 tw-min-h-[200px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-mb-5 tw-relative"
         />
-        <button className="edit-img">
+        <label className="edit-img">
           <AiFillEdit />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setPhoto(e.target.files[0])}
+          />
           Edit
-        </button>
+        </label>
+        {/* <button onClick={()=>setPhotoURL(null)}>Remove</button> */}
         <div className="tw-text-xl tw-w-[300px] tw-text-center tw-font-medium">
           {currentUser.displayName ||
             currentUser.email.replace(/(@[a-z0-9.-]+\.[a-z]{2,})/g, "")}

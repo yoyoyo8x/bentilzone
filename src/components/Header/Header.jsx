@@ -84,7 +84,7 @@ const Header = () => {
             <div className=" tw-flex tw-items-center tw-justify-center">
               <img
                 src={currentUser.photoURL || Avatar}
-                className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain"
+                className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer "
                 alt="profile"
               />
               <Dropdown />

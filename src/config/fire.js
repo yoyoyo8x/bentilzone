@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth'
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { updateProfile } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBD-6f6OMt9bB1SMhgwx0100nimVbheHCA",
@@ -15,3 +17,20 @@ initializeApp(firebaseConfig);
 export const auth = getAuth()
 export const google = new GoogleAuthProvider()
 export const github = new GithubAuthProvider()
+const storage = getStorage();
+
+// Storage
+export async function upload(file, currentUser, setLoading) {
+  const fileRef = ref(storage, currentUser.uid + '.png');
+  console.log(fileRef);
+
+  setLoading(true);
+  
+  const snapshot = await uploadBytes(fileRef, file);
+  const photoURL = await getDownloadURL(fileRef);
+
+  updateProfile(currentUser, {photoURL});
+  
+  setLoading(false);
+  alert("Uploaded Avatar!");
+}
