@@ -46,7 +46,7 @@ function HomeContainer(){
                         
                         ">
                     
-                        <img src={n.imageSrc} className='xl:tw-w-40 md:tw-w-32 tw-w-24' alt={n.imageSrc} />
+                        <img src={n.imageSrc} className='md:tw-w-32 tw-w-24' alt={n.imageSrc} />
                         <p className="homeItemName md:tw-text-sm tw-text-textColor 
                         md:tw-mt-2 
                         2xl:tw-text-xl 

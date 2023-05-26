@@ -7,16 +7,6 @@ export const actionNew = {
 
 const reducer = (state, action) => {
     switch (action.type) {
-        // case actionNew.SET_USER:   // SET_USER khoi tao
-        //     return {
-        //         ...state,
-        //         user: action.user,
-        //     };
-        // case actionNew.SET_FOOD_ITEMS:  // SET_FOOD_ITEMS khoi tao
-        //     return {
-        //         ...state,
-        //         fooditems: action.fooditems,
-        //     };
         case actionNew.SET_CART_SHOW: // trang thai show cart ban dau
             return {
                 ...state,

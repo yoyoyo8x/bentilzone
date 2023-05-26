@@ -19,6 +19,7 @@ import { AuthProvider } from "./components/Context/AuthProvider";
 import { auth } from "./config/fire";
 import { onAuthStateChanged } from "firebase/auth";
 import Ajax from "./components/AjaxLoader/AjaxLoader";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -44,6 +45,7 @@ function App() {
             <Route exact path="/*" element={<Home />} activeClassName="active" />
             <Route path="/about" element={<About />} activeClassName="active" />
             <Route path="/menu" element={<Menu />} activeClassName="active" />
+            <Route path="/checkout" element={<Checkout />} activeClassName="active" />
             <Route
               path="/service"
               element={<Service />}
