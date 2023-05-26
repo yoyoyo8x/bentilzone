@@ -8,6 +8,7 @@ import CartItem from "../components/Header/CartItem";
 import EmptyCart from "../components/Main/img/emptyCart.svg";
 import "../components/Header/Header.css"
 import {TiShoppingCart} from "react-icons/ti"
+import CheckoutForm from "../components/Main/CheckoutForm";
 
 
 const Checkout = () => {
@@ -30,18 +31,7 @@ const Checkout = () => {
     <div className="body">
       <main id="Main" className="md:tw-px-16 tw-w-full">
         <div className="MainContainer">
-          <div className=" tw-flex tw-justify-around tw-w-full">
-            <div className="tw-flex">
-              <h3>Your total bill: ${tot + 2.5}</h3>
-
-              {/* Đang suy nghĩ chưa biết thiết kế sao */}
-            </div>
-
-
-
-
-
-
+          <div className=" tw-flex tw-justify-center tw-w-full">
             <div className="tw-flex tw-items-center tw-flex-col tw-justify-center tw-bg-cartBg tw-rounded-[2rem]">
               <div className=" tw-font-bold tw-text-[34px] tw-text-orange-500 tw-flex tw-items-center tw-gap-2 tw-mt-2">Your cart <TiShoppingCart/></div>
               {cartItems && cartItems.length > 0 ? (
@@ -81,6 +71,12 @@ const Checkout = () => {
                   <p className="tw-text-textColor">Add some items to your cart</p>
                 </div>
               )}
+            </div>
+
+
+            <div className="tw-flex tw-items-center tw-flex-col">
+              <CheckoutForm/>
+              {/* Đang suy nghĩ chưa biết thiết kế sao */}
             </div>
           </div>
         </div>
