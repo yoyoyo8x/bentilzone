@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bentilzone/static/css/main.1aa495c8.css",
-    "main.js": "/bentilzone/static/js/main.80ec1b42.js",
+    "main.css": "/bentilzone/static/css/main.f9306855.css",
+    "main.js": "/bentilzone/static/js/main.556c577a.js",
     "static/js/787.32354143.chunk.js": "/bentilzone/static/js/787.32354143.chunk.js",
     "static/media/cu1.png": "/bentilzone/static/media/cu1.858820017910e499f7b2.png",
     "static/media/c6.png": "/bentilzone/static/media/c6.bcfda7a904c074751b67.png",
@@ -48,12 +48,12 @@
     "static/media/mail-img.svg": "/bentilzone/static/media/mail-img.ebe61aa57eee14aae83f18f54a1e1bc6.svg",
     "static/media/Ajax.svg": "/bentilzone/static/media/Ajax.f8313d83bb0a1a4cb9963ef23716d6d8.svg",
     "index.html": "/bentilzone/index.html",
-    "main.1aa495c8.css.map": "/bentilzone/static/css/main.1aa495c8.css.map",
-    "main.80ec1b42.js.map": "/bentilzone/static/js/main.80ec1b42.js.map",
+    "main.f9306855.css.map": "/bentilzone/static/css/main.f9306855.css.map",
+    "main.556c577a.js.map": "/bentilzone/static/js/main.556c577a.js.map",
     "787.32354143.chunk.js.map": "/bentilzone/static/js/787.32354143.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1aa495c8.css",
-    "static/js/main.80ec1b42.js"
+    "static/css/main.f9306855.css",
+    "static/js/main.556c577a.js"
   ]
 }
