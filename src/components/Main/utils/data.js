@@ -32,7 +32,8 @@ import D5 from "../img/d5.png";
 import D6 from "../img/d6.png";
 import D7 from "../img/d7.png";
 import D8 from "../img/d8.png";
-
+import QR1 from "../img/QR1.jpg"
+import QR2 from "../img/QR2.jpg"
 
 
 
@@ -408,3 +409,28 @@ export const menuList =[
         price:"5"
     },
 ]
+export const CheckoutList =[
+    {
+        id:1,
+        name: "Phạm Đức Tài",
+        stk: "19036284211011",
+        imgQR: QR1,
+        Bank: "Techcombank"
+    },
+    {   
+        id:2,
+        name: "Lê Hoàng Anh Thư",
+        stk: "0421000504725",
+        imgQR: QR2,
+        Bank: "Vietcombank"
+    },
+    {
+        id:3,
+        name: "Nguyễn Đức Trung",
+        stk: "19036284211011",
+        imgQR: QR1,
+        Bank: "Vietcombank"
+    },
+
+]
+

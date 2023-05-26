@@ -106,6 +106,7 @@ function CartContainer() {
                 whileTap={{ scale: 0.8 }}
                 type="button"
                 className="tw-w-full tw-p-2 tw-rounded-full tw-bg-gradient-to-tr tw-from-orange-400 tw-to-orange-600 tw-text-gray-50 tw-text-lg tw-my-2 tw-hover:shadow-lg"
+                onClick={() => navigate("/checkout")}
               >
                 Check Out
               </motion.button>
@@ -122,7 +123,7 @@ function CartContainer() {
           </div>
         </div>
       ) : (
-        <div className="cartIempty">
+        <div className="cartIempty tw-h-full">
           <img src={EmptyCart} className="tw-w-300" alt="" />
           <p className="tw-text-textColor">Add some items to your cart</p>
         </div>
