@@ -156,29 +156,31 @@
 .popup-content {
   text-align: center;
 }
-input[type=number]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-#city{
+#city {
   font-family: "Montserrat", Sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 6px;
-    width: 95%;
-    border: 1px solid #ebeced;
-    padding: 16px 18px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  width: 95%;
+  border: 1px solid #ebeced;
+  padding: 16px 18px;
 }
-#method{
+#method {
   font-family: "Montserrat", Sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 6px;
-    width: 95%;
-    border: 1px solid #ebeced;
-    padding: 16px 18px;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  width: 95%;
+  border: 1px solid #ebeced;
+  padding: 16px 18px;
 }
 
-
+option[value=""][disabled] {
+  display: none;
+}
 
 /* Responsive */
 
