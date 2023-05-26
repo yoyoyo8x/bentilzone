@@ -11,6 +11,7 @@ function RowContainer({flag,data,scrollValue}){
     const rowContainer = useRef()
     useEffect(()=>{
         rowContainer.current.scrollLeft += scrollValue;
+        console.log(rowContainer.current.scrollLeft)
     },[scrollValue]);
     
     

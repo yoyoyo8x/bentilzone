@@ -30,12 +30,12 @@ function MainContainer(){
                     <div className="middleElement tw-hidden">
                         <motion.div whileTap={{scale:0.75}}
                         className="middleButton tw-bg-orange-300 hover:tw-bg-orange-500 hover:tw-shadow-lg"
-                        onClick={()=> setScrollValue(scrollValue-200)}
+                        onClick={()=> setScrollValue(-200)}
                         ><MdChevronLeft className="tw-text-lg tw-text-white"
                         /></motion.div>
                         <motion.div whileTap={{scale:0.75}}
                         className="middleButton tw-bg-orange-300 hover:tw-bg-orange-500 hover:tw-shadow-lg"
-                        onClick={()=> setScrollValue(scrollValue+200)}
+                        onClick={()=> setScrollValue(+200)}
                         ><MdChevronRight className="tw-text-lg tw-text-white"
                         /></motion.div>
                     </div>
