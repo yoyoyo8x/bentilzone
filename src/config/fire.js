@@ -32,5 +32,5 @@ export async function upload(file, currentUser, setLoading) {
   updateProfile(currentUser, {photoURL});
   
   setLoading(false);
-  alert("Uploaded Avatar!");
+  alert("Uploaded Profile!");
 }
