@@ -3,16 +3,9 @@ import { useState } from "react";
 import Success from "../../images/icons8-order-completed-48.png";
 import "../../css/Contact.css";
 import { CityList } from "./utils/data";
-<<<<<<< HEAD
 import PaybyCard from "./PaybyCard";
 import PaybyQR from "./PaybyQR";
 import PayinCash from "./PayinCash";
-=======
-import PaybyCard from "./PaybyCard"
-import PaybyQR from "./PaybyQR"
-import PayinCash from "./PayinCash";
-
->>>>>>> ac0950592729042ef2538bee344dd7c7f961b370
 
 function CheckoutForm() {
   const [isPopup, setIsPopup] = useState(false);
