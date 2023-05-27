@@ -81,7 +81,7 @@ function CheckoutForm() {
 
     // expiryCard
     if (info.expiryCard === "") {
-      setexpiryError("Please set your expiryCard");
+      setexpiryError("Please enter your Card Expiration Date");
       setIsPopup(false);
     } else {
       setexpiryError("");
@@ -90,7 +90,7 @@ function CheckoutForm() {
 
     // CVV
     if (info.CVV === "") {
-      setcvvError("Please enter your CVV");
+      setcvvError("Please enter your Card CVV");
       setIsPopup(false);
     } else {
       setcvvError("");
@@ -263,6 +263,7 @@ function CheckoutForm() {
                 type="number"
                 placeholder="Phone Number*"
                 id="third-n"
+                onInput={(e) => (e.target.value = e.target.value.slice(0, 10))}
                 onChange={(e) =>
                   setInfo({ ...info, phoneNumber: e.target.value })
                 }
