@@ -463,6 +463,7 @@ export const CityList =[
     {city:"Hà Giang"},
     {city:"Hạ Long"},
     {city:"Hà Tiên"},
+    {city:"Hà Nội"},
     {city:"Hà Tĩnh"},
     {city:"Hải Dương"},
     {city:"Hòa Bình"},
