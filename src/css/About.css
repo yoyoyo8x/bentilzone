@@ -1,3 +1,62 @@
 .about-main-container {
   margin-top: 7rem;
 }
+
+.introduction-container {
+  height: 400px;
+}
+
+.intro-title {
+  font-weight: 600;
+  color: #ea580c;
+  font-size: 1.7rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 3px;
+}
+
+.intro-text {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.571);
+}
+
+.introduction-item {
+  background-color: rgb(255 255 255 / 0.3);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.introduction-link {
+  color: rgba(0, 0, 0, 0.181);
+}
+
+.active-introduction-link {
+  font-weight: 600;
+  position: relative;
+}
+
+.active-introduction-link::after {
+  position: absolute;
+  content: "";
+  width: 70%;
+  height: 3px;
+  background-color: #ea580c;
+  top: 28px;
+  left: 0;
+}
+
+/* ------------------ */
+/* ---achive styling--- */
+.achivement-item {
+  width: 350px;
+  padding: 4rem;
+  /* color: azure; */
+  border-radius: 1rem;
+  background-color: #ffffffbb;
+  backdrop-filter: blur(10px);
+}
+
+.achivement-subtitle {
+  color: #ea580c;
+}

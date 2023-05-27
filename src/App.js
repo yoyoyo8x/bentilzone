@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
@@ -52,6 +52,7 @@ function App() {
               activeClassName="active"
             />
             <Route path="/about" element={<About />} activeClassName="active">
+              <Route index element={<Navigate to="aboutus" />} />
               <Route path="aboutus" element={<AboutUs />} />
               <Route path="whychooseus" element={<WhyChooseUs />} />
               <Route path="commitment" element={<Commit />} />

@@ -54,8 +54,8 @@ const About = () => {
   return (
     <main id="Main" className="about-main-container | md:tw-px-16  tw-w-full">
       <div className="introduction-container">
-        <div className="introduction-link-container">
-          <ul>
+        <div className="introduction-link-container tw-flex tw-justify-center">
+          <ul className="tw-flex tw-justify-around tw-w-5/12 gap-x-3">
             <li>
               <NavLink to="/about/aboutus" className={activeItem}>
                 About Us
@@ -73,15 +73,21 @@ const About = () => {
             </li>
           </ul>
         </div>
-        <div className="introduction-content-container">
-          <Outlet />
+        <div className="introduction-content-container tw-flex tw-justify-center">
+          <div className="tw-w-7/12 tw-mt-16 tw-drop-shadow-xl">
+            <Outlet />
+          </div>
         </div>
       </div>
-      <div className="achivement-container">
+      <div className="achivement-container tw-flex tw-justify-center tw-gap-x-16 tw-mt-16 tw-leading-10">
         {achivementDt.map((item) => (
-          <div className="achivement-item">
-            <h3 className="achivement-title">{item.title}</h3>
-            <span className="achievement-subtitle">{item.subtitle}</span>
+          <div className="achivement-item | tw-flex tw-flex-col tw-items-center tw-drop-shadow-xl">
+            <h3 className="achivement-title | tw-tracking-wider tw-font-medium tw-text-slate-400">
+              {item.title}
+            </h3>
+            <span className="achivement-subtitle | tw-tracking-wider sm:tw-text-3xl tw-text-xl tw-font-bold tw-text-center">
+              {item.subtitle}
+            </span>
           </div>
         ))}
       </div>
