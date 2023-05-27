@@ -32,8 +32,10 @@ import D5 from "../img/d5.png";
 import D6 from "../img/d6.png";
 import D7 from "../img/d7.png";
 import D8 from "../img/d8.png";
-import QR1 from "../img/QR1.jpg"
-import QR2 from "../img/QR2.jpg"
+import QR1 from "../img/QR1.jpg";
+import QR2 from "../img/QR2.jpg";
+import QR3 from "../img/QR3.jpg";
+
 
 
 
@@ -427,9 +429,9 @@ export const CheckoutList =[
     {
         id:3,
         name: "Nguyễn Đức Trung",
-        stk: "19036284211011",
-        imgQR: QR1,
-        Bank: "Vietcombank"
+        stk: "7542127",
+        imgQR: QR3,
+        Bank: "ACB"
     },
 ]
 export const CityList =[

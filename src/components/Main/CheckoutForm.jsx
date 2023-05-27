@@ -3,6 +3,13 @@ import { useState } from "react";
 import Success from "../../images/icons8-order-completed-48.png";
 import "../../css/Contact.css";
 import { CityList } from "./utils/data";
+import { useStateValue } from "../Context/StateProvider";
+import { useEffect } from "react";
+import PaybyCard from "./PaybyCard"
+import PaybyQR from "./PaybyQR"
+import { actionNew } from "../Context/reducer";
+import Payincash from "./PayinCash";
+
 
 function CheckoutForm() {
   const [isPopup, setIsPopup] = useState(false);
@@ -15,6 +22,7 @@ function CheckoutForm() {
   const [cityError, setCityError] = useState("");
   const [methodError, setMethodError] = useState("");
   const [addressError, setAddressError] = useState("");
+  
 
   const validPhone =
     /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/;
@@ -123,6 +131,31 @@ function CheckoutForm() {
     });
   };
 
+
+  const [{ payShow }, dispatch] = useStateValue();
+  const showPay = (e) => {
+    setInfo({ ...info, method: e.target.value })
+      if(e.target.value ==="Paybycard"){
+        dispatch({
+          type: actionNew.SET_PAY_SHOW,
+          payShow: !payShow,
+        });
+        }
+      else if(e.target.value === "PaybyQR"){
+        dispatch({
+          type: actionNew.SET_PAY_SHOW,
+          payShow: !payShow,
+        });
+        } 
+      else if(e.target.value === "Payincash"){
+        dispatch({
+          type: actionNew.SET_PAY_SHOW,
+          payShow: !payShow,
+        });
+      }
+    }
+  useEffect(() => {}, [payShow]);
+
   return (
     <>
       {isPopup ? (
@@ -197,15 +230,22 @@ function CheckoutForm() {
               <select
                 name="method"
                 id="method"
-                onChange={(e) => setInfo({ ...info, method: e.target.value })}
+                onChange={(e) => showPay(e)}
               >
                 <option value="" disabled selected>
                   Pay Method*
                 </option>
-                <option value="Pay in cash">Pay In Cash</option>
-                <option value="Pay buy cash">Pay Buy Cash</option>
+                <option value="Payincash">Pay In Cash</option>
+                <option value="Paybycard">Pay By Card</option>
+                <option value="PaybyQR">Pay By QR</option>
               </select>
               <div className="required">{methodError}</div>
+              
+              {(payShow && <PaybyCard/>||<PaybyQR/>)}
+              
+
+              
+          
             </div>
             <div className="submit-box">
               <textarea
