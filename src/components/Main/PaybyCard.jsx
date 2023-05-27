@@ -55,7 +55,7 @@ function PaybyCard({
             <div className="tw-flex tw-flex-col tw-flex-1">
               <input
                 style={{ width: "100%", height: "55px" }}
-                type="month"
+                type="date"
                 id="third-n"
                 onChange={(e) =>
                   setInfo({ ...info, expiryCard: e.target.value })
@@ -66,11 +66,9 @@ function PaybyCard({
             <div className="tw-flex tw-flex-col tw-flex-1">
               <input
                 style={{ width: "100%" }}
-                type="text"
+                type="number"
                 placeholder="CVV*"
                 id="f4-n"
-                pattern="[0-9]{10}"
-                maxLength={3}
                 onChange={(e) => setInfo({ ...info, CVV: e.target.value })}
               />
               <div className="required">{cvvError}</div>
