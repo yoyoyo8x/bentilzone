@@ -1,4 +1,4 @@
-export default function AboutUS() {
+export default function AboutUs() {
   return (
     <div className="introduction-item">
       <h1 className="intro-title">ABOUT US</h1>

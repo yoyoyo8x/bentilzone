@@ -10,6 +10,9 @@ import Service from "./pages/Service";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import AboutUs from "./pages/about_pages/AboutUs";
+import Commit from "./pages/about_pages/Commitment";
+import WhyChooseUs from "./pages/about_pages/WhyChooseUs";
 import PrivateRoute from "./config/PrivateRoute";
 import { StateProvider } from "./components/Context/StateProvider";
 import reducer from "./components/Context/reducer";
@@ -32,8 +35,8 @@ function App() {
     });
   }, []);
 
-  if(isLoading==true){
-    return <Ajax/>
+  if (isLoading == true) {
+    return <Ajax />;
   }
 
   return (
@@ -42,10 +45,23 @@ function App() {
         <div className="app tw-w-full tw-bg-primary">
           <Header />
           <Routes>
-            <Route exact path="/*" element={<Home />} activeClassName="active" />
-            <Route path="/about" element={<About />} activeClassName="active" />
+            <Route
+              exact
+              path="/*"
+              element={<Home />}
+              activeClassName="active"
+            />
+            <Route path="/about" element={<About />} activeClassName="active">
+              <Route path="aboutus" element={<AboutUs />} />
+              <Route path="whychooseus" element={<WhyChooseUs />} />
+              <Route path="commitment" element={<Commit />} />
+            </Route>
             <Route path="/menu" element={<Menu />} activeClassName="active" />
-            <Route path="/checkout" element={<Checkout />} activeClassName="active" />
+            <Route
+              path="/checkout"
+              element={<Checkout />}
+              activeClassName="active"
+            />
             <Route
               path="/service"
               element={<Service />}
@@ -58,7 +74,10 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<PrivateRoute Component={Profile}/>}/>
+            <Route
+              path="/profile"
+              element={<PrivateRoute Component={Profile} />}
+            />
           </Routes>
           <Footer />
         </div>
