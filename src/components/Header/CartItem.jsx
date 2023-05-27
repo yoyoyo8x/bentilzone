@@ -44,7 +44,6 @@ function CartItem({ item, setFlag, flag }) {
       });
     }
   };
-  console.log(cartItems);
   useEffect(() => {
     setItems(cartItems);
   }, [qty]);

@@ -25,15 +25,14 @@ const Checkout = () => {
     }, 0);
     setTot(totalPrice);
   }, [tot, flag, cartItems]);
-  console.log(cartItems)
 
   return (
     <div className="body">
       <main id="" className="md:tw-px-32 tw-py-10 tw-w-full ">
         <div className="MainContainer">
           <div className=" tw-flex tw-justify-center tw-w-full tw-gap-10">
-            <div className="tw-flex tw-items-center tw-w-full tw-flex-col tw-justify-center tw-bg-cartBg tw-rounded-[2rem]">
-              <div className=" tw-font-bold tw-text-[34px] tw-text-orange-500 tw-flex tw-items-center tw-gap-2 tw-mt-2">Your cart <TiShoppingCart/></div>
+            <div className="tw-flex tw-items-center tw-w-full tw-flex-col tw-justify-center tw-bg-cartBg tw-rounded-[2rem] tw-h-full">
+              <div className=" tw-font-bold tw-text-[34px] tw-text-orange-500 tw-flex tw-items-center tw-gap-2 tw-mt-2 tw-py-4">Your cart <TiShoppingCart/></div>
               {cartItems && cartItems.length > 0 ? (
                 <div className="cartItemCon">
                   {/* Cart item section */}
@@ -51,15 +50,15 @@ const Checkout = () => {
                   {/* Cart total section */}
 
                 <div className="CartTot tw-bg-cartTotal tw-rounded-[2rem]">
-                  <div className="CartTotEle">
+                  <div className="CartTotEle" style={{width:"80%"}}>
                     <p className="tw-text-gray-400">Sub Total</p>
                     <p className="tw-text-gray-400">${tot}</p>
                   </div>
-                  <div className="CartTotEle">
+                  <div className="CartTotEle"  style={{width:"80%"}} >
                     <p className="tw-text-gray-400">Delivery</p>
                     <p className="tw-text-gray-400">$2.5</p>
                   </div>
-                  <div className="CartTotEle">
+                  <div className="CartTotEle"  style={{width:"80%"}}>
                     <p className="tw-text-gray-400">Total</p>
                     <p className="tw-text-gray-400">${tot + 2.5}</p>
                   </div>
