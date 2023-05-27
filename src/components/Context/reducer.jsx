@@ -19,7 +19,6 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 payShow: action.payShow,
-                payShow1: action.payShow1,
             };
 
         case actionNew.SET_CART_ITEMS: // trang thai show cart item ban dau

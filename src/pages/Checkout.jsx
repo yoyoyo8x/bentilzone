@@ -25,7 +25,6 @@ const Checkout = () => {
     }, 0);
     setTot(totalPrice);
   }, [tot, flag, cartItems]);
-  console.log(cartItems)
 
   return (
     <div className="body">

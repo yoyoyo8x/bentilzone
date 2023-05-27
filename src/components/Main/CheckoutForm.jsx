@@ -111,7 +111,6 @@ function CheckoutForm() {
 
     localStorage.setItem("userCheckout", JSON.stringify(info));
     const userInfo = localStorage.getItem("userCheckout");
-    console.log(userInfo);
 
     const dataInfo = JSON.parse(localStorage.getItem("userCheckout"));
     const firstN = dataInfo.firstName;
@@ -147,12 +146,14 @@ function CheckoutForm() {
           payShow: !payShow,
         });
         } 
-      else if(e.target.value === "Payincash"){
+      else if (e.target.value === "Payincash"){
         dispatch({
           type: actionNew.SET_PAY_SHOW,
           payShow: !payShow,
         });
       }
+
+    console.log(e.target.value)
     }
   useEffect(() => {}, [payShow]);
 
@@ -241,7 +242,7 @@ function CheckoutForm() {
               </select>
               <div className="required">{methodError}</div>
               
-              {(payShow && <PaybyCard/>||<PaybyQR/>)}
+              {payShow && <Payincash/>||<PaybyCard/>||<PaybyQR/>}
               
 
               

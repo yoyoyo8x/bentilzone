@@ -13,12 +13,10 @@ function classNames(...classes) {
 
 const Dropdown = () => {
   const { currentUser } = useAuthValue();
-  console.log(currentUser);
 
   const navigate = useNavigate();
   const logout = async () => {
     const result = await signOut(auth);
-    console.log(result);
     navigate("/");
   };
 
