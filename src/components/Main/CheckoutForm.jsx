@@ -216,18 +216,9 @@ function CheckoutForm() {
                 <option value="PaybyQR">Pay By QR</option>
               </select>
               <div className="required">{methodError}</div>
-<<<<<<< HEAD
-
               {info.method === "Payincash" && <PayinCash />}
               {info.method === "Paybycard" && <PaybyCard />}
               {info.method === "PaybyQR" && <PaybyQR />}
-=======
-              
-              {info.method === 'Payincash'&& <PayinCash/>}
-              {info.method === 'Paybycard'&& <PaybyCard/>}
-              {info.method === 'PaybyQR'&& <PaybyQR/>}
-            
->>>>>>> ac0950592729042ef2538bee344dd7c7f961b370
             </div>
             <div className="submit-box">
               <textarea
