@@ -82,7 +82,7 @@ const About = () => {
       <div className="achivement-container tw-flex tw-justify-center tw-gap-x-16 tw-mt-16 tw-leading-10">
         {achivementDt.map((item) => (
           <div className="achivement-item | tw-flex tw-flex-col tw-items-center tw-drop-shadow-xl">
-            <h3 className="achivement-title | tw-tracking-wider tw-font-medium tw-text-slate-400">
+            <h3 className="achivement-title | tw-tracking-wider tw-font-medium tw-text-slate-400 tw-text-lg tw-leading-10">
               {item.title}
             </h3>
             <span className="achivement-subtitle | tw-tracking-wider sm:tw-text-3xl tw-text-xl tw-font-bold tw-text-center">
@@ -92,16 +92,23 @@ const About = () => {
         ))}
       </div>
       <div className="members-container">
-        <h1>Passionate people behind your favorrite app</h1>
-        {membersDt.map((item) => (
-          <div className="member-item">
-            <img src={item.imgUrl} alt="" />
-            <div className="member-info">
-              <h2 className="member-name">{item.name}</h2>
-              <span className="member-position">{item.position}</span>
+        <h1 className="tw-text-3xl tw-text-center tw-text-slate-400 tw-font-medium">
+          Passionate people behind your favorite app
+        </h1>
+        <div className="tw-flex tw-justify-center tw-gap-x-16 tw-mt-16">
+          {membersDt.map((item) => (
+            <div className="member-item tw-flex tw-flex-col tw-items-center tw-text-center  tw-drop-shadow-xl">
+              <img src={item.imgUrl} alt="" />
+              <div className="member-info | tw-mt-5">
+                <h2 className="member-name | tw-text-xl">{item.name}</h2>
+                <span className="member-position">{item.position}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+      <div className="tw-flex tw-justify-center tw-mt-16">
+        <button>TRY OUR SERVICE NOW</button>
       </div>
     </main>
   );

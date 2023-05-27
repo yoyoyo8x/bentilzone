@@ -60,3 +60,16 @@
 .achivement-subtitle {
   color: #ea580c;
 }
+
+/* --------------------- */
+/* ---member styling--- */
+
+.members-container {
+  margin-top: 7rem;
+}
+.member-item {
+  background-color: #ffffffbb;
+  backdrop-filter: blur(10px);
+  padding-bottom: 1rem;
+  border-radius: 0.8rem;
+}
