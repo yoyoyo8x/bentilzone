@@ -151,7 +151,7 @@ function CheckoutForm() {
         </div>
       ) : (
         <form className="tw-pb-10 my-form" onSubmit={pay}>
-          <div className="tw-font-bold tw-text-[34px] tw-text-orange-500 tw-text-center tw-mr-[37px]">
+          <div className="tw-font-bold tw-text-[34px] tw-text-orange-500 tw-text-center tw-mr-[40px] tw-mb-4">
             Your Bill
           </div>
           <div className="submit-content tw-w-[800px] tw-flex-col">
