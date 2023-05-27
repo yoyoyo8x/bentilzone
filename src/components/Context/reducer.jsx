@@ -1,7 +1,6 @@
 // Tao cac gia tri khoi tao ban dau cho cac ham
 
 export const actionNew = {
-<<<<<<< HEAD
   SET_CART_SHOW: "SET_CART_SHOW",
   SET_CART_ITEMS: "SET_CART_ITEMS",
 };
@@ -13,21 +12,6 @@ const reducer = (state, action) => {
         ...state,
         cartShow: action.cartShow,
       };
-=======
-    SET_CART_SHOW: 'SET_CART_SHOW',
-    SET_CART_ITEMS: 'SET_CART_ITEMS',
-
-}
-
-const reducer = (state, action) => {
-    switch (action.type) {
-        case actionNew.SET_CART_SHOW: // trang thai show cart ban dau
-            return {
-                ...state,
-                cartShow: action.cartShow,
-            };
-        
->>>>>>> ac0950592729042ef2538bee344dd7c7f961b370
 
     case actionNew.SET_CART_ITEMS: // trang thai show cart item ban dau
       return {
