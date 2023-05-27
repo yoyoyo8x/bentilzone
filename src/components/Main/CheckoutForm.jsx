@@ -18,15 +18,11 @@ function CheckoutForm() {
   const [cityError, setCityError] = useState("");
   const [methodError, setMethodError] = useState("");
   const [addressError, setAddressError] = useState("");
-  const [cardHolderError, setCardHolderError ] = useState("");
+  const [cardHolderError, setCardHolderError] = useState("");
   const [cardNumberError, setcardNumberError] = useState("");
   const [cardTypeError, setcardTypeError] = useState("");
   const [expiryError, setexpiryError] = useState("");
   const [cvvError, setcvvError] = useState("");
-
-
-
-
 
   const validPhone =
     /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/;
@@ -38,18 +34,17 @@ function CheckoutForm() {
     city: "",
     method: "",
     address: "",
-    cardHolder:"",
-    cardNumber:"",
-    cardType:"",
-    expiryCard:"",
-    CVV:""
+    cardHolder: "",
+    cardNumber: "",
+    cardType: "",
+    expiryCard: "",
+    CVV: "",
   });
 
   const pay = async (e) => {
     e.preventDefault();
 
     setIsPopup(!isPopup);
-
 
     // cardHolder
     if (info.cardHolder === "") {
@@ -66,10 +61,7 @@ function CheckoutForm() {
       setIsPopup(false);
     }
 
-    if (
-      info.cardNumber !== "" &&
-      validPhone.test(info.cardNumber) === false
-    ) {
+    if (info.cardNumber !== "" && validPhone.test(info.cardNumber) === false) {
       setcardNumberError("Invalid Card Number");
       setIsPopup(false);
     }
@@ -105,8 +97,6 @@ function CheckoutForm() {
       setIsPopup(true);
     }
 
-
-
     //firstName
 
     if (info.firstName === "") {
@@ -127,7 +117,6 @@ function CheckoutForm() {
       setIsPopup(true);
     }
 
-
     // phone number
     if (info.phoneNumber === "") {
       setPhoneError("Please enter your phone number");
@@ -144,7 +133,6 @@ function CheckoutForm() {
       setPhoneError("");
       setIsPopup(true);
     }
-
 
     // city
 
@@ -165,7 +153,6 @@ function CheckoutForm() {
       setIsPopup(true);
     }
 
-
     // address
     if (info.address === "") {
       setAddressError("Please enter your address");
@@ -175,8 +162,6 @@ function CheckoutForm() {
       setIsPopup(true);
     }
 
-
-
     if (
       info.firstName === "" ||
       info.lastName === "" ||
@@ -184,11 +169,11 @@ function CheckoutForm() {
       validPhone.test(info.phoneNumber) === false ||
       info.city === "" ||
       info.method === "" ||
-      info.address === ""||
-      info.cardHolder === ""||
-      info.cardNumber === ""||
-      info.cardType === ""||
-      info.expiryCard === ""||
+      info.address === "" ||
+      info.cardHolder === "" ||
+      info.cardNumber === "" ||
+      info.cardType === "" ||
+      info.expiryCard === "" ||
       info.CVV === ""
     ) {
       return false;
@@ -212,11 +197,11 @@ function CheckoutForm() {
       city: "",
       method: "",
       address: "",
-      cardHolder:"",
+      cardHolder: "",
       cardNumber: "",
-      cardType :"",
+      cardType: "",
       expiryCard: "",
-      CVV:""
+      CVV: "",
     });
   };
 
@@ -251,11 +236,9 @@ function CheckoutForm() {
           </div>
           <div className="submit-content tw-w-[800px] tw-flex-col">
             <div className="submit-info">
-
-
-            {/* ----------- */}
+              {/* ----------- */}
               <input
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
                 type="text"
                 placeholder="First Name*"
                 onChange={(e) =>
@@ -263,20 +246,20 @@ function CheckoutForm() {
                 }
               />
               <div className="required">{firstError}</div>
-            {/* ----------- */}
+              {/* ----------- */}
 
               <input
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
                 type="text"
                 placeholder="Last Name*"
                 id="second-n"
                 onChange={(e) => setInfo({ ...info, lastName: e.target.value })}
               />
               <div className="required">{lastError}</div>
-            {/* ----------- */}
+              {/* ----------- */}
 
               <input
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
                 type="number"
                 placeholder="Phone Number*"
                 id="third-n"
@@ -285,10 +268,10 @@ function CheckoutForm() {
                 }
               />
               <div className="required">{phoneError}</div>
-            {/* ----------- */}
+              {/* ----------- */}
 
               <select
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
                 name="city"
                 id="city"
                 className="empty"
@@ -303,11 +286,10 @@ function CheckoutForm() {
 
               <div className="required">{cityError}</div>
 
-
-            {/* ----------- */}
+              {/* ----------- */}
 
               <select
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
                 name="method"
                 id="method"
                 onChange={(e) => setInfo({ ...info, method: e.target.value })}
@@ -321,26 +303,27 @@ function CheckoutForm() {
               </select>
               <div className="required">{methodError}</div>
               {info.method === "Payincash" && <PayinCash />}
-              {info.method === "Paybycard" && <PaybyCard 
-              info={info} setInfo={setInfo} pay={pay} 
-              cardHolderError={cardHolderError} 
-              cardNumberError={cardNumberError} 
-              cardTypeError={cardTypeError}
-              expiryError={expiryError}
-              cvvError={cvvError}
-              />}
-              
-              {info.method === "PaybyQR" && <PaybyQR />}
-              </div>
+              {info.method === "Paybycard" && (
+                <PaybyCard
+                  info={info}
+                  setInfo={setInfo}
+                  pay={pay}
+                  cardHolderError={cardHolderError}
+                  cardNumberError={cardNumberError}
+                  cardTypeError={cardTypeError}
+                  expiryError={expiryError}
+                  cvvError={cvvError}
+                />
+              )}
 
+              {info.method === "PaybyQR" && <PaybyQR />}
+            </div>
 
             {/* ----------- */}
 
-
-
-            <div className="submit-box" >
+            <div className="submit-box">
               <textarea
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
                 placeholder="Address details"
                 className="submit-message"
                 onChange={(e) => setInfo({ ...info, address: e.target.value })}
