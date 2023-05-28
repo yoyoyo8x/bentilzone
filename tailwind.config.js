@@ -59,9 +59,6 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('tailwind-scrollbar'),
-  ],
-  prefix: 'tw-',
-}
-
+  plugins: [require("tailwind-scrollbar")],
+  prefix: "tw-",
+};
