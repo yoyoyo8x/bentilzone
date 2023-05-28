@@ -2,6 +2,8 @@ import React from "react";
 import { useStateValue } from "../components/Context/StateProvider";
 import { useState } from "react";
 import { useEffect } from "react";
+import Sidebar from "../components/Service/Sidebar";
+import Main from "../components/Service/Main";
 import CartContainer from "../components/Header/CartContainer";
 
 const Service = () => {
@@ -11,8 +13,9 @@ const Service = () => {
 
   return (
     <div className="body">
-      <main id="Main" className="md:tw-px-16 tw-w-full">
-        <div className="MainContainer">{cartShow && <CartContainer />}</div>
+      <main className="tw-w-full tw-flex">
+        <Sidebar />
+        <Main />
       </main>
     </div>
   );
