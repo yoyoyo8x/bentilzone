@@ -30,7 +30,7 @@ const Checkout = () => {
       <main id="" className="md:tw-px-32 tw-py-10 tw-w-full ">
         <div className="MainContainer">
           <div className=" tw-flex tw-justify-center tw-w-full tw-gap-10">
-            <div className="tw-flex tw-items-center tw-w-full tw-flex-col tw-justify-center tw-bg-cartBg tw-rounded-[2rem]">
+            <div className="tw-flex tw-items-center tw-w-full tw-flex-col tw-justify-center tw-bg-cartBg tw-rounded-[2rem] tw-h-[700px]">
               <div className=" tw-font-bold tw-text-[34px] tw-text-orange-500 tw-flex tw-items-center tw-gap-2 tw-mt-2 tw-py-4">
                 Your cart <TiShoppingCart />
               </div>
