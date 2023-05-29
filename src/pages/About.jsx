@@ -58,7 +58,7 @@ const About = () => {
       <main id="Main" className="about-main-container | md:tw-px-16  tw-w-full">
         <div className="introduction-container">
           <div className="introduction-link-container tw-flex tw-justify-center">
-            <ul className="tw-flex tw-justify-around lg:tw-w-5/12 md:tw-w-7/12 tw-w-9/12 gap-x-3">
+            <ul className="tw-flex tw-justify-around lg:tw-w-5/12 md:tw-w-7/12 tw-w-9/12 tw-gap-x-3">
               <li>
                 <NavLink to="/about/aboutus" className={activeItem}>
                   About Us
