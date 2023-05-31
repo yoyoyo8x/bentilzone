@@ -31,7 +31,7 @@ function HomeContainer(){
                 </button>
             </div>  
             <div className="homeContainerR tw-mt-12 md:tw-mt-0 ">
-                <img src={heroBg} className="homeContainerRbg md:tw-w-full md:tw-h-420 lg:tw-h650 tw-h-[900px] " alt="heroBg" />
+                <img src={heroBg} className="homeContainerRbg sm:tw-h-420 md:tw-w-full md:tw-h-420 lg:tw-h-650 tw-h-full " alt="heroBg" />
                 <div className="homeElementR 2xl:tw-py-4 2xl:tw-px-32 xl:tw-px-20 md:tw-gap-4 tw-gap-8">
                     {heroData && heroData.map(n=>(
                         <div key={n.id}

@@ -275,7 +275,11 @@
     padding: 16px;
 }
 }
-
+/* .middleCat {
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 24px 0;
+} */
 /* Tablet: width >= 740px and width < 1024px */
 @media only screen and (max-width: 1039px) and (min-width: 740px) {
 }
