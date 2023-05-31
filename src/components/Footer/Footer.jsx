@@ -12,10 +12,25 @@ const Footer = () => {
   return (
     <footer className=" tw-bg-primary tw-shadow-sm">
       {/* Footer logo */}
-      <div className="footer-logo">
-        <div className="footer-logo-container">
-          <img src={Logo} alt="" />
-          <div className="banner">Bentilzone</div>
+      <div className="footer-contact">
+        <div className="footer-logo">
+          <div className="footer-logo-container">
+            <img src={Logo} alt="" />
+            <div className="banner">Bentilzone</div>
+          </div>
+        </div>
+        <div className="address">
+          <div className="footer-title">Address</div>
+          <p>
+            Quince Saigon, 37bis Ky Con Street, <br /> 
+            Nguyen Thai Binh Ward,<br />
+            District 1, Ho Chi Minh City
+          </p>
+        </div>
+        <div className="contactUs">
+          <div className="footer-title">Contact Us</div>
+          <a href="callto:+1 800 889 9898">+1 800 889 9898 </a>
+          <a href="mailto:mail@demolink.org">mail@demolink.org </a>
         </div>
       </div>
 
