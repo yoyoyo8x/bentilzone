@@ -32,7 +32,7 @@ function HomeContainer(){
             </div>  
             <div className="homeContainerR tw-mt-12 md:tw-mt-0 ">
                 <img src={heroBg} className="homeContainerRbg sm:tw-h-420 md:tw-w-full md:tw-h-420 lg:tw-h-650 tw-h-full " alt="heroBg" />
-                <div className="homeElementR 2xl:tw-py-4 2xl:tw-px-32 xl:tw-px-20 md:tw-gap-4 tw-gap-8">
+                <div className="homeElementR 2xl:tw-py-4 2xl:tw-px-32 xl:tw-px-20 xxs:tw-gap-4 md:tw-gap-4 tw-gap-2">
                     {heroData && heroData.map(n=>(
                         <div key={n.id}
                         className="homeItem tw-bg-cardOverlay tw-backdrop-blur-md tw-drop-shadow-lg 

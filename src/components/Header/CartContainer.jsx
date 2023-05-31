@@ -32,7 +32,7 @@ function CartContainer() {
     }, 0);
     setTot(totalPrice);
   }, [tot, flag, cartItems]);
-  console.log(cartItems)
+  console.log(cartItems);
 
   const clearCart = () => {
     localStorage.setItem("cartItems", JSON.stringify([]));
@@ -96,10 +96,6 @@ function CartContainer() {
               <p className="tw-text-gray-400">Total</p>
               <p className="tw-text-gray-400">${tot + 2.5}</p>
             </div>
-
-            {/* Đoạn này bạn xử lý logic cái user nhé từ là nếu có người đăng nhập thì hiệu checkout, 
-                    nếu l có thì bắt đăng nhập để checkout sẽ hiện ra 1 trong 2 button này, 
-                    có cái user đăng nhập mà tôi kb b đang để biến gọi là gì */}
 
             {user ? (
               <motion.button

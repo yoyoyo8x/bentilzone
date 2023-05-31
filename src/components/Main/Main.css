@@ -270,10 +270,13 @@
 
 /* Mobile: width < 740px */
 
-@media only screen and (max-width: 739px){
-#Main{
+@media only screen and (max-width: 739px) {
+  #Main {
     padding: 16px;
-}
+  }
+  #Home .homeContainerR .homeContainerRbg {
+    width: 100%;
+  }
 }
 /* .middleCat {
   flex-wrap: wrap;
@@ -281,7 +284,10 @@
   padding: 24px 0;
 } */
 /* Tablet: width >= 740px and width < 1024px */
-@media only screen and (max-width: 1039px) and (min-width: 740px) {
+@media only screen and (max-width: 1039px) and (min-width: 739px) {
+  #Home .homeContainerR .homeContainerRbg {
+    width: 100%;
+  }
 }
 /* PC: width >= 1040px */
 /* --------HEADER-------- */

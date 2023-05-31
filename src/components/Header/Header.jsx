@@ -150,7 +150,9 @@ const Header = () => {
           </div>
           <div className="header-logo tw-justify-center tw-pt-16">
             <img className="tw-scale-150" src={Logo} alt="" />
-            <div className="tw-text-white tw-text-3xl tw-font-medium md:tw-text-5xl">Bentilzone</div>
+            <div className="tw-text-white tw-text-3xl tw-font-medium md:tw-text-5xl">
+              Bentilzone
+            </div>
           </div>
         </div>
       ) : (
