@@ -34,6 +34,9 @@ function CheckoutForm() {
     city: "",
     method: "",
     address: "",
+  });
+
+  const [cardInfo, setCardInfo] = useState({
     cardHolder: "",
     cardNumber: "",
     cardType: "",
@@ -41,13 +44,16 @@ function CheckoutForm() {
     CVV: "",
   });
 
+  console.log(info);
+  console.log(cardInfo);
+
   const pay = async (e) => {
     e.preventDefault();
 
     setIsPopup(!isPopup);
 
     // cardHolder
-    if (info.cardHolder === "") {
+    if (cardInfo.cardHolder === "") {
       setCardHolderError("Please enter your CardHolder Name");
       setIsPopup(false);
     } else {
@@ -56,22 +62,16 @@ function CheckoutForm() {
     }
 
     // CardNumber
-    if (info.cardNumber === "") {
+    if (cardInfo.cardNumber === "") {
       setcardNumberError("Please enter your Card Number");
       setIsPopup(false);
-    }
-
-    if (info.cardNumber !== "" && validPhone.test(info.cardNumber) === false) {
-      setcardNumberError("Invalid Card Number");
-      setIsPopup(false);
-    }
-    if (info.cardNumber !== "" && validPhone.test(info.cardNumber) === true) {
+    } else {
       setcardNumberError("");
       setIsPopup(true);
     }
 
     // cardType
-    if (info.cardType === "") {
+    if (cardInfo.cardType === "") {
       setcardTypeError("Please choose your Card Type");
       setIsPopup(false);
     } else {
@@ -80,7 +80,7 @@ function CheckoutForm() {
     }
 
     // expiryCard
-    if (info.expiryCard === "") {
+    if (cardInfo.expiryCard === "") {
       setexpiryError("Please enter your Card Expiration Date");
       setIsPopup(false);
     } else {
@@ -89,7 +89,7 @@ function CheckoutForm() {
     }
 
     // CVV
-    if (info.CVV === "") {
+    if (cardInfo.CVV === "") {
       setcvvError("Please enter your Card CVV");
       setIsPopup(false);
     } else {
@@ -170,17 +170,17 @@ function CheckoutForm() {
       info.city === "" ||
       info.method === "" ||
       info.address === "" ||
-      info.cardHolder === "" ||
-      info.cardNumber === "" ||
-      info.cardType === "" ||
-      info.expiryCard === "" ||
-      info.CVV === ""
+      (info.method === "Paybycard" && cardInfo.cardHolder === "") ||
+      (info.method === "Paybycard" && cardInfo.cardNumber === "") ||
+      (info.method === "Paybycard" && cardInfo.cardType === "") ||
+      (info.method === "Paybycard" && cardInfo.expiryCard === "") ||
+      (info.method === "Paybycard" && cardInfo.CVV === "")
     ) {
       return false;
     }
 
     localStorage.setItem("userCheckout", JSON.stringify(info));
-    const userInfo = localStorage.getItem("userCheckout");
+    localStorage.setItem("userCard", JSON.stringify(cardInfo));
 
     const dataInfo = JSON.parse(localStorage.getItem("userCheckout"));
     const firstN = dataInfo.firstName;
@@ -197,6 +197,8 @@ function CheckoutForm() {
       city: "",
       method: "",
       address: "",
+    });
+    setCardInfo({
       cardHolder: "",
       cardNumber: "",
       cardType: "",
@@ -306,8 +308,8 @@ function CheckoutForm() {
               {info.method === "Payincash" && <PayinCash />}
               {info.method === "Paybycard" && (
                 <PaybyCard
-                  info={info}
-                  setInfo={setInfo}
+                  info={cardInfo}
+                  setInfo={setCardInfo}
                   pay={pay}
                   cardHolderError={cardHolderError}
                   cardNumberError={cardNumberError}

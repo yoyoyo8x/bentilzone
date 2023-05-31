@@ -12,7 +12,7 @@ function PaybyCard({
   cvvError,
 }) {
   return (
-    <form className="my-form" onSubmit={pay}>
+    <div className="my-form" onSubmit={pay}>
       <div className="submit-content tw-w-[800px] tw-flex-col">
         <div className="submit-info">
           <input
@@ -80,7 +80,7 @@ function PaybyCard({
           </div>
         </div>
       </div>
-    </form>
+    </div>
   );
 }
 export default PaybyCard;
