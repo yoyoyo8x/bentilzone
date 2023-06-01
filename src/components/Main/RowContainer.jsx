@@ -56,12 +56,16 @@ function RowContainer({flag,data,scrollValue}){
             {data && data.length >0 ? (
                 data.map((item)=>(
                     <div key={item.id} className="middleRContainer
-                    md:tw-w-300 md:tw-min-w-[300px]  tw-bg-cardOverlay tw-rounded-lg  
+                    md:tw-w-[300px] md:tw-min-w-[300px] 
+                    tw-w-[275px] tw-h-[175px] tw-bg-cardOverlay tw-rounded-lg  
                     tw-backdrop-blur-lg hover:tw-drop-shadow-lg">
                         <div className="middleRElement">
                             <motion.div
                             whileHover={{scale: 1.2}}
-                            className="middleImg tw-drop-shadow-2xl"
+                            className="middleImg 
+                            md:tw-w-[160px] md:tw-h-[110px]
+                            tw-w-[130px] tw-h-[90px]
+                            tw-drop-shadow-2xl"
                             >
                             <img src={item?.imageURL} alt=""/>      
                             </motion.div>

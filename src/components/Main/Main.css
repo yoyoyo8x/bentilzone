@@ -155,8 +155,6 @@
   margin: 48px 0 0 0;
 }
 .middleRow .middleRContainer {
-  width: 275px;
-  height: 175px;
   padding: 8px 16px;
   margin: 30px 0;
   display: flex;
@@ -172,8 +170,6 @@
   justify-content: space-between;
 }
 .middleRow .middleRContainer .middleRElement .middleImg {
-  width: 160px;
-  height: 110px;
   margin-top: -32px;
 }
 .middleRow .middleRContainer .middleRElement .middleImg img {
