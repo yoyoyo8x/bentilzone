@@ -2,8 +2,6 @@ import React from "react";
 import { useStateValue } from "../components/Context/StateProvider";
 import { useState } from "react";
 import { useEffect } from "react";
-import CartContainer from "../components/Header/CartContainer";
-import { CheckoutList } from "../components/Main/utils/data";
 import CartItem from "../components/Header/CartItem";
 import EmptyCart from "../components/Main/img/emptyCart.svg";
 import "../components/Header/Header.css";
@@ -29,8 +27,14 @@ const Checkout = () => {
     <div className="body">
       <main id="" className="md:tw-px-32 tw-py-10 tw-w-full ">
         <div className="MainContainer">
-          <div className=" tw-flex tw-justify-center tw-w-full tw-gap-10">
-            <div className="tw-flex tw-items-center tw-w-full tw-flex-col tw-justify-center tw-bg-cartBg tw-rounded-[2rem] tw-h-[700px]">
+          <div className="lg:tw-flex lg:tw-flex-row tw-justify-center tw-w-full tw-gap-10
+          tw-flex-rol 
+          
+          ">
+            <div className="tw-flex tw-items-center tw-w-full tw-flex-col tw-justify-center 
+            tw-bg-cartBg tw-rounded-[2rem] tw-h-[700px] xl:tw-mb-0 lg:tw-mb-8
+            tw-mb-8
+            ">
               <div className=" tw-font-bold tw-text-[34px] tw-text-orange-500 tw-flex tw-items-center tw-gap-2 tw-mt-2 tw-py-4">
                 Your cart <TiShoppingCart />
               </div>

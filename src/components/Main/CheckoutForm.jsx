@@ -232,12 +232,12 @@ function CheckoutForm() {
           </div>
         </div>
       ) : (
-        <form className="tw-pb-10 my-form" onSubmit={pay}>
+        <form className="tw-pb-10 my-form tw-w-full" onSubmit={pay}>
           <div className="tw-font-bold tw-text-[30px] tw-text-orange-500 tw-text-center tw-rounded-[2rem] tw-bg-cartBg tw-w-[95%] tw-m-auto tw-mb-5">
             Your Bill
           </div>
-          <div className="submit-content tw-w-[800px] tw-flex-col">
-            <div className="submit-info">
+          <div className="submit-content xl:tw-w-[800px] lg:tw-w-[600px] tw-w-full tw-flex-col">
+            <div className="submit-info ">
               {/* ----------- */}
               <input
                 style={{ width: "100%" }}
@@ -334,7 +334,7 @@ function CheckoutForm() {
               <div className="required">{addressError}</div>
             </div>
             <div className="button-submit">
-              <button className="tw-btn tw-bg-cartBg tw-text-orange-500 tw-text-[20px] tw-p-2 tw-uppercase tw-font-medium tw-w-[30%]">
+              <button className="tw-btn tw-bg-cartBg tw-text-orange-500 tw-text-[20px] tw-p-2 tw-uppercase tw-font-medium tw-w-[30%] tw-rounded-xl">
                 Pay
               </button>
             </div>
