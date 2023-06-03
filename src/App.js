@@ -25,10 +25,41 @@ import { auth } from "./config/fire";
 import { onAuthStateChanged } from "firebase/auth";
 import Ajax from "./components/AjaxLoader/AjaxLoader";
 import Checkout from "./pages/Checkout";
+import audio from "./audio.mp3";
+import muted from "./images/mute-audio.png";
+import play from "./images/audio.png";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [song, isSong] = useState(new Audio(audio));
+
+  song.loop = true;
+  song.volume = 0.7;
+
+  useEffect(() => {
+    const promise = song.play();
+    if (promise !== undefined) {
+      promise
+        .then(() => {
+          // Autoplay started
+        })
+        .catch((error) => {
+          // Autoplay was prevented.
+        });
+    }
+  }, []);
+
+  const toggleAudio = () => {
+    if (isPlaying) {
+      song.pause();
+    } else {
+      song.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -88,6 +119,21 @@ function App() {
           </Routes>
           <Footer />
         </div>
+        {/* <audio id="myaudio" controls="true" autoPlay loop="loop">
+          <source src={audio} type="audio/mp3" />
+        </audio> */}
+        <button className="audio-btn" onClick={toggleAudio}>
+          {" "}
+          {isPlaying ? (
+            <div className="audio-icon">
+              <img src={play} alt="" />
+            </div>
+          ) : (
+            <div className="audio-icon">
+              <img src={muted} alt="" />
+            </div>
+          )}
+        </button>
       </StateProvider>
     </AuthProvider>
   );

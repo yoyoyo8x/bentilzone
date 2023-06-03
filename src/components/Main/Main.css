@@ -262,6 +262,23 @@
   justify-content: center;
 }
 
+.audio-btn {
+  display: block;
+  position: fixed;
+  padding: 2px;
+  border: none;
+  bottom: 12px;
+  right: 3px;
+  background-color: var(--text);
+  opacity: 0.6;
+  border-radius: 80%;
+  scale: 0.72;
+}
+
+.audio-icon {
+  scale: 0.8;
+}
+
 /* Responsive */
 
 /* Mobile: width < 740px */
