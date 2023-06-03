@@ -54,6 +54,7 @@ const About = () => {
 
   return (
     <div>
+      <div className="MainContainer">{cartShow && <CartContainer />}</div>
       <Carousel />
       <main id="Main" className="about-main-container | md:tw-px-16  tw-w-full">
         <div className="introduction-container">

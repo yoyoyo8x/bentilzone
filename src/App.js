@@ -14,10 +14,12 @@ import AboutUs from "./pages/about_pages/AboutUs";
 import Commit from "./pages/about_pages/Commitment";
 import WhyChooseUs from "./pages/about_pages/WhyChooseUs";
 import PrivateRoute from "./config/PrivateRoute";
+import GroupOrder from "./components/Service/GroupOrder";
+import ShareBill from "./components/Service/ShareBill";
 import { StateProvider } from "./components/Context/StateProvider";
 import reducer from "./components/Context/reducer";
 import { initialState } from "./components/Context/initialState";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AuthProvider } from "./components/Context/AuthProvider";
 import { auth } from "./config/fire";
 import { onAuthStateChanged } from "firebase/auth";
@@ -67,7 +69,11 @@ function App() {
               path="/service"
               element={<Service />}
               activeClassName="active"
-            />
+            >
+              <Route index element={<Navigate to="grouporder" />} />
+              <Route path="grouporder" element={<GroupOrder />} />
+              <Route path="sharebill" element={<ShareBill />} />
+            </Route>
             <Route
               path="/contact"
               element={<Contact />}
