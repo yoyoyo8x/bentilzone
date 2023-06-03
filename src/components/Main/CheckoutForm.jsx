@@ -237,7 +237,7 @@ function CheckoutForm() {
             Your Bill
           </div>
           <div className="submit-content xl:tw-w-[800px] lg:tw-w-[600px] tw-w-full tw-flex-col">
-            <div className="submit-info ">
+            <div className="submit-info xl:tw-w-[800px] lg:tw-w-[600px] tw-w-full">
               {/* ----------- */}
               <input
                 style={{ width: "100%" }}
