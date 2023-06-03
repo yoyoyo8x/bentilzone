@@ -23,24 +23,24 @@ const Service = () => {
           <Sidebar />
           <div className="tw-flex tw-flex-col tw-w-full tw-mt-5">
             <ListingService />
-            <div className="tw-flex tw-justify-center">
+            <div className="tw-flex md:tw-justify-center">
               <div className="services-block | tw-flex tw-flex-row tw-justify-between tw-mt-7">
                 <CustomizeFood />
                 <Schedule />
               </div>
             </div>
-            <div className="tw-flex tw-justify-center">
+            <div className="tw-flex tw-justify-center lg:tw-w-full md:tw-w-full tw-w-[90%]">
               <button className="services-try-btn | tw-text-center tw-mt-5">
                 TRY OUR SERVICE NOW!
               </button>
             </div>
-            <div className="tw-flex tw-justify-center tw-mt-5">
+            <div className="tw-flex md:tw-justify-center tw-mt-5">
               <div className="coming-soon-container | tw-flex tw-flex-col tw-flex-between tw-drop-shadow-xl">
-                <div className="tw-flex tw-items-center tw-justify-between">
+                <div className="group-title-container tw-flex tw-items-center tw-justify-between">
                   <span className="tw-block tw-text-slate-400 tw-font-semibold tw-tracking-wider">
                     Coming soon
                   </span>
-                  <ul className="tw-flex tw-gap-16 tw-text-xl tw-font-semibold tw-tracking-wider">
+                  <ul className="group-title tw-flex tw-gap-16 tw-text-xl tw-font-semibold tw-tracking-wider">
                     <li>
                       <NavLink to="/service/grouporder">Group Order</NavLink>
                     </li>
@@ -50,7 +50,7 @@ const Service = () => {
                   </ul>
                   <span className="services-line tw-block"></span>
                 </div>
-                <div className="tw-mt-10">
+                <div className="md:tw-mt-10">
                   <Outlet />
                 </div>
               </div>

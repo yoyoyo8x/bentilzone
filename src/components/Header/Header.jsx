@@ -43,10 +43,10 @@ const Header = () => {
     <header className="tw-shadow-sm">
       <div className="navbar">
         {/* Navigation logo */}
-        <div className="header-logo">
+        <Link to="/" className="header-logo">
           <img src={Logo} alt="" />
           <div className="logo">Bentilzone</div>
-        </div>
+        </Link>
 
         {/* Navigation list */}
         <nav>

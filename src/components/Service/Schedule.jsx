@@ -1,6 +1,6 @@
 export default function Schedule() {
   return (
-    <div className="col-service | tw-flex tw-flex-col tw-justify-center tw-drop-shadow-xl">
+    <div className="col-service | tw-flex tw-flex-col md:tw-justify-center tw-drop-shadow-xl">
       <div className="tw-flex tw-justify-between">
         <span className="services-subtitle">Choose when you want to eat</span>
         <span className="services-line"></span>

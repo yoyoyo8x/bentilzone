@@ -3,9 +3,11 @@ import './Main.css'
 import Delivery from "./img/delivery.png"
 import heroBg from "./img/heroBg.png"
 import { heroData } from "./utils/data";
-
+import { useNavigate } from "react-router";
 
 function HomeContainer(){
+    const navigate=useNavigate();
+
     return(
         <section id="Home" className="tw-bg-primary tw-grid-cols-1 md:tw-grid-cols-2">
             <div className="homeContainerL">
@@ -26,7 +28,7 @@ function HomeContainer(){
                 </p>
                 <button 
                 type="button" 
-                className="homeElement4 tw-bg-gradient-to-t tw-from-orange-400 tw-to-orange-500 tw-rounded-lg hover:tw-shadow-lg"
+                className="homeElement4 tw-bg-gradient-to-t tw-from-orange-400 tw-to-orange-500 tw-rounded-lg hover:tw-shadow-lg" onClick={()=>navigate("/menu")}
                 >Order now
                 </button>
             </div>  

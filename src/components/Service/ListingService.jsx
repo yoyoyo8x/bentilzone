@@ -1,6 +1,6 @@
 export default function ListingService() {
   return (
-    <div className="tw-flex tw-justify-center">
+    <div className="tw-flex md:tw-justify-center">
       <div className="heading-service | tw-flex tw-flex-col tw-items-center tw-justify-center tw-drop-shadow-xl">
         <h1 className="tw-text-center tw-font-bold tw-text-4xl tw-text-slate-600 tw-tracking-wide">
           Bring food from the restaurant to your house table

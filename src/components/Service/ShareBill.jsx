@@ -41,7 +41,7 @@ export default function GroupOrder() {
 
   return (
     <div className="tw-mt-10 tw-flex tw-flex-col tw-items-center">
-      <div className="tw-flex tw-justify-around tw-items-center tw-gap-16">
+      <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-around tw-items-center tw-gap-4 md:tw-gap-16">
         <img className="group-order-img" src={share} alt="" />
         <div className="tw-text-lg tw-text-slate-500 tw-tracking-wider">
           <h3>

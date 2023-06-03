@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [parent, enable] = useAutoAnimate({ duration: 1000 });
 
   const openMenu = () => setIsOpen(!isOpen);
@@ -12,7 +12,7 @@ export default function Sidebar() {
     <div
       className={
         isOpen
-          ? "sidebar | tw-h-full tw-w-3/12 tw-px-7 tw-drop-shadow-xl tw-h-full"
+          ? "sidebar | tw-w-3/12 tw-px-7 tw-drop-shadow-xl tw-h-full"
           : "hide-sidebar tw-drop-shadow-xl tw-h-full"
       }
     >
