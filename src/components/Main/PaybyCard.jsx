@@ -12,8 +12,8 @@ function PaybyCard({
   cvvError,
 }) {
   return (
-    <form className="my-form" onSubmit={pay}>
-      <div className="submit-content tw-w-[800px] tw-flex-col">
+    <div className="my-form" onSubmit={pay}>
+      <div className="submit-content xl:tw-w-[800px] lg:tw-w-[600px] tw-w-full tw-flex-col">
         <div className="submit-info">
           <input
             style={{ width: "100%" }}
@@ -80,7 +80,7 @@ function PaybyCard({
           </div>
         </div>
       </div>
-    </form>
+    </div>
   );
 }
 export default PaybyCard;

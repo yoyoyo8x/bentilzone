@@ -59,7 +59,7 @@ const About = () => {
       <main id="Main" className="about-main-container | md:tw-px-16  tw-w-full">
         <div className="introduction-container">
           <div className="introduction-link-container tw-flex tw-justify-center">
-            <ul className="tw-flex tw-justify-around lg:tw-w-5/12 md:tw-w-7/12 tw-w-9/12 gap-x-3">
+            <ul className="tw-flex tw-justify-around tw-flex-wrap tw-gap-[10px] lg:tw-w-5/12 md:tw-w-7/12 tw-w-9/12 tw-gap-x-3">
               <li>
                 <NavLink to="/about/aboutus" className={activeItem}>
                   About Us
@@ -83,7 +83,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="achivement-container tw-flex tw-justify-center tw-gap-16 tw-mt-16 tw-leading-10 md:tw-flex-row tw-flex-col tw-items-center">
+        <div className="achivement-container tw-flex tw-justify-center tw-gap-4 lg:tw-gap-16 tw-mt-16 tw-leading-10 md:tw-flex-row tw-flex-col tw-items-center">
           {achivementDt.map((item) => (
             <div className="achivement-item | tw-flex tw-flex-col tw-items-center tw-justify-center tw-drop-shadow-xl tw-p-10">
               <h3 className="achivement-title | tw-tracking-wider tw-font-medium tw-text-slate-400 xl:tw-text-lg lg:tw-text-base md:tw-text-sm tw-text-xs lg:tw-leading-10 tw-leading-normal tw-text-center">
