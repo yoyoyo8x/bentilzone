@@ -8,8 +8,6 @@ import CartContainer from "../components/Header/CartContainer";
 import ListingService from "../components/Service/ListingService";
 import CustomizeFood from "../components/Service/CustomizeFood";
 import Schedule from "../components/Service/Schedule";
-import GroupOrder from "../components/Service/GroupOrder";
-import ShareBill from "../components/Service/ShareBill";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Service = () => {
