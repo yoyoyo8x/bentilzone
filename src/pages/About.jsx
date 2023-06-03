@@ -82,7 +82,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="achivement-container tw-flex tw-justify-center tw-gap-16 tw-mt-16 tw-leading-10 md:tw-flex-row tw-flex-col tw-items-center">
+        <div className="achivement-container tw-flex tw-justify-center tw-gap-4 lg:tw-gap-16 tw-mt-16 tw-leading-10 md:tw-flex-row tw-flex-col tw-items-center">
           {achivementDt.map((item) => (
             <div className="achivement-item | tw-flex tw-flex-col tw-items-center tw-justify-center tw-drop-shadow-xl tw-p-10">
               <h3 className="achivement-title | tw-tracking-wider tw-font-medium tw-text-slate-400 xl:tw-text-lg lg:tw-text-base md:tw-text-sm tw-text-xs lg:tw-leading-10 tw-leading-normal tw-text-center">
