@@ -1,7 +1,7 @@
 import React from "react";
 import { useStateValue } from "../components/Context/StateProvider";
 import { useState } from "react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Sidebar from "../components/Service/Sidebar";
 import Main from "../components/Service/Main";
 import CartContainer from "../components/Header/CartContainer";

@@ -26,8 +26,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import Ajax from "./components/AjaxLoader/AjaxLoader";
 import Checkout from "./pages/Checkout";
 import audio from "./audio.mp3";
-import muted from "./images/mute-audio.png";
-import play from "./images/audio.png";
+import { VscMute } from "react-icons/vsc";
+import { VscUnmute } from "react-icons/vsc";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -126,11 +126,11 @@ function App() {
           {" "}
           {isPlaying ? (
             <div className="audio-icon">
-              <img src={play} alt="" />
+              <VscUnmute />
             </div>
           ) : (
             <div className="audio-icon">
-              <img src={muted} alt="" />
+              <VscMute />
             </div>
           )}
         </button>
