@@ -30,13 +30,13 @@ const About = () => {
   const membersDt = [
     {
       id: 1,
-      imgUrl: "https://picsum.photos/id/79/300/250",
+      imgUrl: "https://avatars.githubusercontent.com/u/116778505?v=4",
       name: "Phạm Đức Tài",
       position: "Member",
     },
     {
       id: 2,
-      imgUrl: "https://picsum.photos/id/79/300/250",
+      imgUrl: "https://avatars.githubusercontent.com/u/109934250?v=4",
       name: "Nguyễn Đức Trung",
       position: "Team Leader",
     },
