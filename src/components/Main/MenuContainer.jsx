@@ -8,14 +8,25 @@ import { menuList } from "./utils/data";
 import { IoFastFood } from "react-icons/io5";
 import { IoSearchSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
+import { useSearchParams } from "react-router-dom";
 
 function MenuContainer({ flag }) {
   const [filter, setFilter] = useState("chicken");
   const [isFilter, setIsFilter] = useState(false);
   const [result, setResult] = useState("");
   const [filterData, setFilterData] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  //   const [query, setQuery] = useState(searchParams.get("query"));
 
   const handleSearch = () => {
+    // setQuery(result);
+    if (result === "") {
+      setSearchParams();
+    } else {
+      setSearchParams({
+        keywords: result,
+      });
+    }
     setIsFilter(true);
     const newFilter = menuList?.filter((item) => {
       return (
@@ -57,7 +68,7 @@ function MenuContainer({ flag }) {
           </p>
           <div className="tw-flex tw-relative">
             <input
-              className="tw-px-4 tw-py-1 tw-text-[18px] tw-placeholder-black focus:tw-outline-none focus:tw-shadow-sm focus:tw-shadow-slate-800"
+              className="tw-px-4 tw-py-1 tw-text-[18px] tw-placeholder-slate-500 focus:tw-outline-none focus:tw-shadow-sm focus:tw-shadow-slate-800"
               type="text"
               name=""
               id=""
