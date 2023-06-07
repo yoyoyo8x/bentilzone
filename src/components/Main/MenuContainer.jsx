@@ -20,13 +20,7 @@ function MenuContainer({ flag }) {
 
   const handleSearch = () => {
     // setQuery(result);
-    if (result === "") {
-      setSearchParams();
-    } else {
-      setSearchParams({
-        keywords: result,
-      });
-    }
+
     setIsFilter(true);
     const newFilter = menuList?.filter((item) => {
       return (
@@ -38,7 +32,11 @@ function MenuContainer({ flag }) {
     if (result === "") {
       setFilterData([]);
       setIsFilter(false);
+      setSearchParams();
     } else {
+      setSearchParams({
+        keywords: result,
+      });
       setFilterData(newFilter);
       setIsFilter(true);
     }
