@@ -273,6 +273,12 @@
   #Home .homeContainerR .homeContainerRbg {
     width: 100%;
   }
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
 }
 /* .middleCat {
   flex-wrap: wrap;
