@@ -74,6 +74,10 @@
   border-radius: 0.8rem;
 }
 
+.members-img {
+  width: 100%;
+}
+
 .member-name {
   font-family: Be Vietnam Pro;
 }
@@ -89,12 +93,11 @@
 /* --responsive-- */
 
 @media (max-width: 739px) {
-  .achivement-container{
-    gap:35px;
+  .achivement-container {
+    gap: 35px;
     margin-top: 35px;
   }
-  .members-container{
+  .members-container {
     margin-top: 35px;
   }
-
 }

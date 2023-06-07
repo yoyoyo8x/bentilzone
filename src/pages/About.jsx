@@ -1,4 +1,5 @@
 import React from "react";
+import member from "./../images/member.jpg";
 import "../css/About.css";
 import Carousel from "../components/About/Carousel";
 import CartContainer from "../components/Header/CartContainer";
@@ -42,7 +43,7 @@ const About = () => {
     },
     {
       id: 3,
-      imgUrl: "https://picsum.photos/id/79/300/250",
+      imgUrl: "https://avatars.githubusercontent.com/u/124450882?v=4",
       name: "Lê Hoàng Anh Thư",
       position: "Member",
     },
@@ -102,7 +103,7 @@ const About = () => {
           <div className="tw-flex md:tw-flex-row tw-flex-col tw-items-center tw-justify-center tw-gap-16 tw-mt-16 tw-grow-0">
             {membersDt.map((item) => (
               <div className="member-item tw-flex tw-flex-col tw-items-center tw-text-center  tw-drop-shadow-xl">
-                <img src={item.imgUrl} alt="" />
+                <img className="members-img" src={item.imgUrl} alt="" />
                 <div className="member-info | tw-mt-5 tw-leading-8 tw-px-5">
                   <h2 className="member-name | lg:tw-text-xl md:tw-text-sm tw-font-medium">
                     {item.name}
