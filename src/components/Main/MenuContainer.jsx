@@ -66,7 +66,7 @@ function MenuContainer({ flag }) {
           </p>
           <div className="tw-flex tw-relative">
             <input
-              className="tw-px-4 tw-py-1 tw-text-[18px] tw-placeholder-slate-500 focus:tw-outline-none focus:tw-shadow-sm focus:tw-shadow-slate-800"
+              className="tw-px-4 tw-py-1 tw-text-[18px] tw-placeholder-slate-500 focus:tw-outline-none focus:tw-shadow-sm focus:tw-shadow-slate-800 tw-rounded-[2rem]"
               type="text"
               name=""
               id=""
