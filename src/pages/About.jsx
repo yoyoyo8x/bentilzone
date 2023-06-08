@@ -6,9 +6,11 @@ import CartContainer from "../components/Header/CartContainer";
 import { useState } from "react";
 import { useStateValue } from "../components/Context/StateProvider";
 import { useEffect } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+
   const [{ cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
   useEffect(() => {}, [scrollValue, cartShow]);
@@ -117,7 +119,10 @@ const About = () => {
           </div>
         </div>
         <div className="tw-flex tw-justify-center tw-mt-16">
-          <button className="about-btn | tw-font-medium hover:tw-drop-shadow-xl">
+          <button
+            className="about-btn | tw-font-medium hover:tw-drop-shadow-xl"
+            onClick={() => navigate("/menu")}
+          >
             TRY OUR SERVICE NOW
           </button>
         </div>

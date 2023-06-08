@@ -8,9 +8,11 @@ import CartContainer from "../components/Header/CartContainer";
 import ListingService from "../components/Service/ListingService";
 import CustomizeFood from "../components/Service/CustomizeFood";
 import Schedule from "../components/Service/Schedule";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 const Service = () => {
+  const navigate = useNavigate();
+
   const [{ cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
   useEffect(() => {}, [scrollValue, cartShow]);
@@ -30,7 +32,10 @@ const Service = () => {
               </div>
             </div>
             <div className="tw-flex tw-justify-center lg:tw-w-full md:tw-w-full tw-w-[90%]">
-              <button className="services-try-btn | tw-text-center tw-mt-5">
+              <button
+                className="services-try-btn | tw-text-center tw-mt-5"
+                onClick={() => navigate("/menu")}
+              >
                 TRY OUR SERVICE NOW!
               </button>
             </div>
