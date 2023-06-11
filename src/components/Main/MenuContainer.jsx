@@ -16,10 +16,10 @@ function MenuContainer({ flag }) {
   const [result, setResult] = useState("");
   const [filterData, setFilterData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  //   const [query, setQuery] = useState(searchParams.get("query"));
+  const [query, setQuery] = useState(searchParams.get("query"));
 
   const handleSearch = () => {
-    // setQuery(result);
+    setQuery(result);
 
     setIsFilter(true);
     const newFilter = menuList?.filter((item) => {
@@ -83,66 +83,70 @@ function MenuContainer({ flag }) {
             </div>
           </div>
         </div>
-        <div
-          className={`middleCat ${
-            flag
-              ? "tw-overflow-x-scroll tw-scrollbar-none"
-              : "tw-overflow-x-hidden tw-flex-wrap tw-justify-center"
-          } xl:tw-justify-center lg:tw-justify-start`}
-        >
-          {Categories &&
-            Categories.map((category) => (
-              <motion.div
-                whileTap={{ scale: 0.75 }}
-                key={category.id}
-                className={`tw-group cateFilter
+        {isFilter ? (
+          <div className=" tw-w-full">
+            <RowContainer data={filterData} />
+          </div>
+        ) : (
+          <div>
+            <div
+              className={`middleCat ${
+                flag
+                  ? "tw-overflow-x-scroll tw-scrollbar-none"
+                  : "tw-overflow-x-hidden tw-flex-wrap tw-justify-center"
+              } xl:tw-justify-center lg:tw-justify-start`}
+            >
+              {Categories &&
+                Categories.map((category) => (
+                  <motion.div
+                    whileTap={{ scale: 0.75 }}
+                    key={category.id}
+                    className={`tw-group cateFilter
                             ${
                               filter === category.urlParamName
                                 ? " tw-bg-cartNumBg"
                                 : " tw-bg-card"
                             } tw-drop-shadow-xl hover:tw-bg-cartNumBg`}
-                onClick={() => setFilter(category.urlParamName)}
-              >
-                <div
-                  className={`cateIcon tw-shadow-lg
+                    onClick={() => setFilter(category.urlParamName)}
+                  >
+                    <div
+                      className={`cateIcon tw-shadow-lg
                             ${
                               filter === category.urlParamName
                                 ? "tw-bg-white"
                                 : "tw-bg-cartNumBg"
                             } group-hover:tw-bg-white`}
-                >
-                  <IoFastFood
-                    className={`${
-                      filter === category.urlParamName
-                        ? "tw-text-textColor"
-                        : "tw-text-white"
-                    } tw-text-lg group-hover:tw-text-textColor`}
-                  />
-                </div>
-                <p
-                  className={`tw-text-sm 
+                    >
+                      <IoFastFood
+                        className={`${
+                          filter === category.urlParamName
+                            ? "tw-text-textColor"
+                            : "tw-text-white"
+                        } tw-text-lg group-hover:tw-text-textColor`}
+                      />
+                    </div>
+                    <p
+                      className={`tw-text-sm 
                             ${
                               filter === category.urlParamName
                                 ? "tw-text-white"
                                 : "tw-text-textColor"
                             }                       
                             group-hover:tw-text-white`}
-                >
-                  {category.name}
-                </p>
-              </motion.div>
-            ))}
-        </div>
-        <div className=" tw-w-full">
-          {isFilter ? (
-            <RowContainer data={filterData} />
-          ) : (
-            <RowContainer
-              flag={false}
-              data={menuList?.filter((n) => n.category == filter)}
-            />
-          )}
-        </div>
+                    >
+                      {category.name}
+                    </p>
+                  </motion.div>
+                ))}
+            </div>
+            <div className="tw-w-full">
+              <RowContainer
+                flag={false}
+                data={menuList?.filter((n) => n.category == filter)}
+              />
+            </div>{" "}
+          </div>
+        )}
       </div>
     </section>
   );
