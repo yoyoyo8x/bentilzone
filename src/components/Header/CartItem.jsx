@@ -13,8 +13,8 @@ function CartItem({ item, setFlag, flag }) {
   const [{ cartItems }, dispatch] = useStateValue();
   const [qty, setQty] = useState(item.qty);
   const [items, setItems] = useState([]);
-  const [dialog,setDialog] = useState({
-    isLoading: false
+  const [dialog, setDialog] = useState({
+    isLoading: false,
   });
 
   const UppdateItem = (action) => {
@@ -32,34 +32,84 @@ function CartItem({ item, setFlag, flag }) {
         type: actionNew.SET_CART_ITEMS,
         cartItems: UpdateCart,
       });
-
     } else if (action == "remove") {
-      let UpdateCart = cartItems
-        .map((cartItem) => {
-          if (cartItem.id == item.id) {
-            return { ...cartItem, qty: cartItem.qty - 1 };
-          }
-          if (cartItem.qty <= 1) {  
-            setDialog({
-              isLoading: true
-            })
-          }
-          return cartItem;
-        })
-        // .filter((cartItem) => cartItem.qty !== 0);
-        setFlag(flag + 1);
+      let UpdateCart = cartItems.map((cartItem) => {
+        if (cartItem.id == item.id && cartItem.qty > 1) {
+          return { ...cartItem, qty: cartItem.qty - 1 };
+        }
+        if (cartItem.id == item.id && cartItem.qty <= 1) {
+          setDialog({
+            isLoading: true,
+          });
+        }
+        return cartItem;
+      });
+      cartItems.filter((cartItem) => cartItem.qty !== 0);
+      setFlag(flag + 1);
 
-        localStorage.setItem("cartItems", JSON.stringify(UpdateCart));
-        dispatch({
-          type: actionNew.SET_CART_ITEMS,
-          cartItems: UpdateCart,
-        });
-        
+      localStorage.setItem("cartItems", JSON.stringify(UpdateCart));
+      dispatch({
+        type: actionNew.SET_CART_ITEMS,
+        cartItems: UpdateCart,
+      });
     }
   };
   useEffect(() => {
     setItems(cartItems);
   }, [qty]);
+
+  // const cartDispatch = ()=>{
+  //     localStorage.setItem("cartItems", JSON.stringify(items));
+  //     dispatch({
+  //         type: actionNew.SET_CART_ITEMS,
+  //         cartItems: items,
+  //     })
+  // }
+
+  // const removeCart = () => {
+  //     cartItems.map((cartItem)=>{
+  //         if (cartItem.id == item.id) {
+  //             const remove = cartItems.filter((item1)=>item1.id !== item.id);
+  //             const items = remove
+  //             setFlag(flag+1)
+  //             localStorage.setItem("cartItems", JSON.stringify(items));
+  //             dispatch({
+  //                 type:actionNew.SET_CART_ITEMS,
+  //                 cartItems:items
+  //             })
+
+  //         }})
+
+  //     }
+  // // Đoan này hàm +- đang bị bug :(
+  // const updateQty = (action,id)=>{
+  //     if(action === "add"){
+  //         setQty(qty+1)
+  //             cartItems.map(item => {
+  //                 if(item.id === id){
+  //                     item.qty +=1;
+  //                     setFlag(flag+1);
+  //                 }
+  //             })
+  //         cartDispatch();
+  //     }else{
+  //         if(qty <= 1 ){
+  //             removeCart()
+  //         }
+  //             else {
+  //         setQty(qty-1)
+  //             cartItems.map(item => {
+  //                 if(item.id === id){
+  //                     item.qty -=1;
+  //                     setFlag(flag+1);
+  //                 }
+  //             })
+  //         cartDispatch();
+  //     }}
+  // }
+  // useEffect(()=>{
+  //    setItems(cartItems)
+  // },[qty,items])
 
   return (
     <div className="CartItem tw-bg-cartItem ">
@@ -88,8 +138,7 @@ function CartItem({ item, setFlag, flag }) {
         </motion.div>
       </div>
 
-      {dialog.isLoading &&  <PopupDelete/>}
-
+      {dialog.isLoading && <PopupDelete />}
     </div>
   );
 }
