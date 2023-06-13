@@ -62,7 +62,7 @@ const Register = () => {
             setErrorPassword("");
           }
           if (error.code === "auth/weak-password") {
-            setErrorPassword("Password is not strong enough.");
+            setErrorPassword("Password must not less than 6 characters.");
           } else {
             setErrorPassword("");
           }
