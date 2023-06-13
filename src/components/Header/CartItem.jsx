@@ -33,7 +33,8 @@ function CartItem({ item, setFlag, flag }) {
         cartItems: UpdateCart,
       });
     } else if (action == "remove") {
-      let UpdateCart = cartItems.map((cartItem) => {
+      let UpdateCart = cartItems
+        .map((cartItem) => {
         if (cartItem.id == item.id && cartItem.qty > 1) {
           return { ...cartItem, qty: cartItem.qty - 1 };
         }
@@ -43,8 +44,8 @@ function CartItem({ item, setFlag, flag }) {
           });
         }
         return cartItem;
-      });
-      cartItems.filter((cartItem) => cartItem.qty !== 0);
+      })
+        .filter((cartItem) => cartItem.qty !== 0);
       setFlag(flag + 1);
 
       localStorage.setItem("cartItems", JSON.stringify(UpdateCart));
