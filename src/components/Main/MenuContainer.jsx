@@ -18,9 +18,15 @@ function MenuContainer({ flag }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("query"));
 
+
+
+  // Find item
   const handleSearch = () => {
     setQuery(result);
+    
 
+
+    // filter item
     setIsFilter(true);
     const newFilter = menuList?.filter((item) => {
       return (
@@ -64,6 +70,8 @@ function MenuContainer({ flag }) {
           >
             Our Hot Dishes
           </p>
+
+          {/* Search Item */}
           <div className="tw-flex tw-relative">
             <input
               className="tw-px-4 tw-py-1 tw-text-[18px] tw-placeholder-slate-500 focus:tw-outline-none focus:tw-shadow-sm focus:tw-shadow-slate-800 tw-rounded-[2rem]"
@@ -83,6 +91,9 @@ function MenuContainer({ flag }) {
             </div>
           </div>
         </div>
+
+
+        {/* Filter Item */}
         {isFilter ? (
           <div className=" tw-w-full">
             <RowContainer data={filterData} />

@@ -12,6 +12,7 @@ import CartContainer from "../Header/CartContainer";
 
 function MainContainer() {
   const [{ cartShow }, dispatch] = useStateValue();
+// current state và dispatch function
   const [scrollValue, setScrollValue] = useState(0);
   useEffect(() => {}, [scrollValue, cartShow]);
 
