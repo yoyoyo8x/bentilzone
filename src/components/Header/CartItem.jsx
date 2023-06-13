@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { BiMinus } from "react-icons/bi";
 import { BiPlus } from "react-icons/bi";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 import PopupDelete from "./Popupdelete";
 
 function CartItem({ item, setFlag, flag }) {
@@ -35,16 +36,25 @@ function CartItem({ item, setFlag, flag }) {
     } else if (action == "remove") {
       let UpdateCart = cartItems
         .map((cartItem) => {
-        if (cartItem.id == item.id ) {
-          return { ...cartItem, qty: cartItem.qty - 1 };
-        }
-        // if (cartItem.id == item.id && cartItem.qty <= 1) {
-        //   setDialog({
-        //     isLoading: true,
-        //   });
-        // }
-        return cartItem;
-      })
+          if (cartItem.id == item.id && cartItem.qty > 1) {
+            return { ...cartItem, qty: cartItem.qty - 1 };
+          }
+          if (cartItem.id == item.id && cartItem.qty <= 1) {
+            Swal.fire({
+              title: `Do you want to detele this item: ${cartItem.title}?`,
+              showDenyButton: true,
+              confirmButtonText: "Yes",
+              denyButtonText: `No`,
+            }).then((result) => {
+              if (result.isConfirmed) {
+                Swal.fire("Deleted!", "", "success");
+                console.log(cartItem.qty);
+                return { ...cartItem, qty: cartItem.qty - 1 };
+              }
+            });
+          }
+          return cartItem;
+        })
         .filter((cartItem) => cartItem.qty !== 0);
       setFlag(flag + 1);
 
