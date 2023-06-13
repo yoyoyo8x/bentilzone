@@ -35,14 +35,14 @@ function CartItem({ item, setFlag, flag }) {
     } else if (action == "remove") {
       let UpdateCart = cartItems
         .map((cartItem) => {
-        if (cartItem.id == item.id && cartItem.qty > 1) {
+        if (cartItem.id == item.id ) {
           return { ...cartItem, qty: cartItem.qty - 1 };
         }
-        if (cartItem.id == item.id && cartItem.qty <= 1) {
-          setDialog({
-            isLoading: true,
-          });
-        }
+        // if (cartItem.id == item.id && cartItem.qty <= 1) {
+        //   setDialog({
+        //     isLoading: true,
+        //   });
+        // }
         return cartItem;
       })
         .filter((cartItem) => cartItem.qty !== 0);
@@ -139,7 +139,7 @@ function CartItem({ item, setFlag, flag }) {
         </motion.div>
       </div>
 
-      {dialog.isLoading && <PopupDelete />}
+      {/* {dialog.isLoading && <PopupDelete />} */}
     </div>
   );
 }
