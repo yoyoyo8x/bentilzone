@@ -9,9 +9,14 @@ import { menuList } from "./utils/data";
 import MenuContainer from "./MenuContainer";
 import { useStateValue } from "../Context/StateProvider";
 import CartContainer from "../Header/CartContainer";
+import PopupDelete from "../Header/Popupdelete";
+
 
 function MainContainer() {
   const [{ cartShow }, dispatch] = useStateValue();
+  const [dialog,setDialog] = useState({
+    isLoading: false
+  });
 // current state và dispatch function
   const [scrollValue, setScrollValue] = useState(0);
   useEffect(() => {}, [scrollValue, cartShow]);
@@ -54,6 +59,7 @@ function MainContainer() {
         </section>
         <MenuContainer flag={true} />
         {cartShow && <CartContainer />}
+        {dialog.isLoading &&  <PopupDelete/>}
       </div>
     </main>
   );
