@@ -6,6 +6,7 @@ import { CityList } from "./utils/data";
 import PaybyCard from "./PaybyCard";
 import PaybyQR from "./PaybyQR";
 import PayinCash from "./PayinCash";
+import secureLocalStorage from "react-secure-storage";
 
 function CheckoutForm() {
   const [isPopup, setIsPopup] = useState(false);
@@ -180,7 +181,7 @@ function CheckoutForm() {
     }
 
     localStorage.setItem("userCheckout", JSON.stringify(info));
-    localStorage.setItem("userCard", JSON.stringify(cardInfo));
+    secureLocalStorage.setItem("userCard", JSON.stringify(cardInfo));
 
     const dataInfo = JSON.parse(localStorage.getItem("userCheckout"));
     const firstN = dataInfo.firstName;

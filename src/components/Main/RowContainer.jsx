@@ -5,7 +5,8 @@ import NotFound from "./img/NotFound.svg"
 import { useStateValue } from "../Context/StateProvider";
 import { actionNew } from "../Context/reducer";
 import { useState } from "react";
-import {fetchCart} from "../Main/utils/fetchLocalStorageData"
+import {fetchCart} from "../Main/utils/fetchLocalStorageData";
+import  secureLocalStorage  from  "react-secure-storage";
 
 function RowContainer({flag,data,scrollValue}){
     const rowContainer = useRef()
@@ -26,7 +27,7 @@ function RowContainer({flag,data,scrollValue}){
             type: actionNew.SET_CART_ITEMS,
             cartItems: products,
         })
-        localStorage.setItem("cartItems", JSON.stringify(items));
+        secureLocalStorage.setItem("cartItems", JSON.stringify(items));
     }
 
     

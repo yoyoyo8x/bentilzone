@@ -8,6 +8,7 @@ import { BiMinus } from "react-icons/bi";
 import { BiPlus } from "react-icons/bi";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
+import secureLocalStorage from "react-secure-storage";
 import PopupDelete from "./Popupdelete";
 
 function CartItem({ item, setFlag, flag }) {
@@ -28,7 +29,7 @@ function CartItem({ item, setFlag, flag }) {
       });
       setFlag(flag + 1);
 
-      localStorage.setItem("cartItems", JSON.stringify(UpdateCart));
+      secureLocalStorage.setItem("cartItems", JSON.stringify(UpdateCart));
       dispatch({
         type: actionNew.SET_CART_ITEMS,
         cartItems: UpdateCart,
@@ -49,6 +50,7 @@ function CartItem({ item, setFlag, flag }) {
               if (result.isConfirmed) {
                 Swal.fire("Deleted!", "", "success");
                 console.log(cartItem.qty);
+                console.log({ ...cartItem, qty: cartItem.qty - 1 });
                 return { ...cartItem, qty: cartItem.qty - 1 };
               }
             });
@@ -58,7 +60,7 @@ function CartItem({ item, setFlag, flag }) {
         .filter((cartItem) => cartItem.qty !== 0);
       setFlag(flag + 1);
 
-      localStorage.setItem("cartItems", JSON.stringify(UpdateCart));
+      secureLocalStorage.setItem("cartItems", JSON.stringify(UpdateCart));
       dispatch({
         type: actionNew.SET_CART_ITEMS,
         cartItems: UpdateCart,
@@ -70,7 +72,7 @@ function CartItem({ item, setFlag, flag }) {
   }, [qty]);
 
   // const cartDispatch = ()=>{
-  //     localStorage.setItem("cartItems", JSON.stringify(items));
+  //     secureLocalStorage.setItem("cartItems", JSON.stringify(items));
   //     dispatch({
   //         type: actionNew.SET_CART_ITEMS,
   //         cartItems: items,
@@ -83,7 +85,7 @@ function CartItem({ item, setFlag, flag }) {
   //             const remove = cartItems.filter((item1)=>item1.id !== item.id);
   //             const items = remove
   //             setFlag(flag+1)
-  //             localStorage.setItem("cartItems", JSON.stringify(items));
+  //             secureLocalStorage.setItem("cartItems", JSON.stringify(items));
   //             dispatch({
   //                 type:actionNew.SET_CART_ITEMS,
   //                 cartItems:items

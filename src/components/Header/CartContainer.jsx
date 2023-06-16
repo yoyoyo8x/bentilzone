@@ -10,6 +10,7 @@ import CartItem from "./CartItem";
 import { useState } from "react";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import  secureLocalStorage  from  "react-secure-storage";
 
 function CartContainer() {
   const [{ cartShow, cartItems }, dispatch] = useStateValue();
@@ -35,7 +36,7 @@ function CartContainer() {
   console.log(cartItems);
 
   const clearCart = () => {
-    localStorage.setItem("cartItems", JSON.stringify([]));
+    secureLocalStorage.setItem("cartItems", JSON.stringify([]));
     dispatch({
       type: actionNew.SET_CART_ITEMS,
       cartItems: [],
