@@ -1,7 +1,9 @@
-export const fetchCart = ()=> {
-    const cartInfo = 
-    localStorage.getItem('cartItems')!== "undefined" 
-    ? JSON.parse(localStorage.getItem('cartItems'))
-    : localStorage.clear();
-    return cartInfo ? cartInfo : [];
+import secureLocalStorage from "react-secure-storage";
+
+export const fetchCart = () => {
+  const cartInfo =
+    secureLocalStorage.getItem("cartItems") !== "undefined"
+      ? JSON.parse(secureLocalStorage.getItem("cartItems"))
+      : secureLocalStorage.clear();
+  return cartInfo ? cartInfo : [];
 };
