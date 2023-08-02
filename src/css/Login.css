@@ -99,12 +99,12 @@
 .login-form {
   width: 90%;
 }
-
+.input-name,
 .input-email,
 .input-password {
   margin-bottom: 15px;
 }
-
+.input-name input,
 .input-email input,
 .input-password input {
   width: 100%;

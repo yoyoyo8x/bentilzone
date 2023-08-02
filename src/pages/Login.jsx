@@ -8,48 +8,78 @@ import { auth, google, github } from "../config/fire";
 import { signInWithPopup } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { signIn } from "../services/auth";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
-  const [errorPassword, setErrorPassword] = useState("");
+  const navigate = useNavigate();
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [errorEmail, setErrorEmail] = useState("");
+  // const [errorPassword, setErrorPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  })
 
-  const Login = (e) => {
+  const hangdleChange = (e) =>{
+    const {name, value} = e.target;
+    setFormData({...formData, [name]: value});
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const { user } = userCredential;
+    try {
+      const {data} = await signIn(formData);
+      console.log(data);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem("accessToken", data.accessToken);
+      if (data.user.role === "admin") {
+        // kieu lam the nao de no link sang trang profile cua minh neu la admin y
+        navigate("/profile");
+      } else 
+        // Neu la tai khoan khach hang se link ra trang home
+      {
         navigate("/");
-        console.log(user);
-      })
-      .catch((error) => {
-        console.log(error.code);
-        if (error.code == "auth/invalid-email") {
-          setErrorEmail("Invaded email address.");
-        } else {
-          setErrorEmail("");
-        }
-        if (error.code == "auth/user-not-found") {
-          setErrorEmail("Account does not exist.");
-        } else {
-          setErrorEmail("");
-        }
-        if (error.code === "auth/missing-password") {
-          setErrorPassword("Please enter your password.");
-        } else {
-          setErrorPassword("");
-        }
-        if (error.code === "auth/wrong-password") {
-          setErrorPassword("Wrong password.");
-        } else {
-          setErrorPassword("");
-        }
-      });
-  };
+      }
+    } catch (error) {
+      console.error("Đã xảy ra lỗi khi đăng nhập:", error);
+    }
+  }
+
+
+
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       // Signed in
+  //       const { user } = userCredential;
+  //       navigate("/");
+  //       console.log(user);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.code);
+  //       if (error.code == "auth/invalid-email") {
+  //         setErrorEmail("Invaded email address.");
+  //       } else {
+  //         setErrorEmail("");
+  //       }
+  //       if (error.code == "auth/user-not-found") {
+  //         setErrorEmail("Account does not exist.");
+  //       } else {
+  //         setErrorEmail("");
+  //       }
+  //       if (error.code === "auth/missing-password") {
+  //         setErrorPassword("Please enter your password.");
+  //       } else {
+  //         setErrorPassword("");
+  //       }
+  //       if (error.code === "auth/wrong-password") {
+  //         setErrorPassword("Wrong password.");
+  //       } else {
+  //         setErrorPassword("");
+  //       }
+  //     });
+  // };
 
   const login = async (provider) => {
     const result = await signInWithPopup(auth, provider);
@@ -92,26 +122,28 @@ const Login = () => {
               <div className="input-email">
                 <input
                   type="text"
-                  name="Email"
+                  name="email"
                   placeholder="Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formData.email}
+                  onChange={hangdleChange}
+                  required
                 />
-                <div className="alert">{errorEmail}</div>
+                {/* <div className="alert">{errorEmail}</div> */}
               </div>
               <div className="input-password">
                 <input
                   type="password"
-                  name="Password"
+                  name="password"
                   placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={formData.password}
+                  onChange={hangdleChange}
+                  required
                 />
-                <div className="alert">{errorPassword}</div>
+                {/* <div className="alert">{errorPassword}</div> */}
               </div>
               <div className="forgot">Forgot Password?</div>
             </div>
-            <button type="submit" className="submit-btn" onClick={Login}>
+            <button type="submit" className="submit-btn" onClick={handleSubmit}>
               Sign in
             </button>
           </form>
