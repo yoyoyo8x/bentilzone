@@ -63,6 +63,7 @@ export const create = async (req, res) =>{
         });
     }
 }
+
 export const update = async (req, res) =>{
     try {
         const {error} = categoryValid.validate(req.body,{abortEarly:false});

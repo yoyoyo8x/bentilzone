@@ -2,6 +2,7 @@ import Item from "../models/item.js";
 import Category from "../models/category.js";
 
 import { itemValid } from "../validation/item.js";
+import cloudinary from "../utils/cloudinary.js";
 
 export const getAll = async(req, res) =>{
     try {
@@ -34,16 +35,31 @@ export const getDetail = async(req, res) =>{
 }
 
 export const create = async(req, res) =>{
+    const {image} = req.body;
     try {
         const {error} = itemValid.validate(req.body)
         if(error){
             return res.status(400).json({message:error.details[0].message});
         }
-        const item = await Item.create(req.body)
-        if(!item){
+
+        if(image){
+            const uploadRes = await cloudinary.uploader.upload(image,{
+                upload_preset:"bentilzone"
+            })
+        if(uploadRes){
+            const newItem  = new Item({
+                id,
+                calories,
+                tittle,
+                qty,
+                image: uploadRes,
+                description,
+                categoryId,
+            })
+            const item = await newItem.create(req.body)
+            if(!item){
             return res.status(404).json({message:"Tao mon an khong thanh cong"});
         }
-
         const updateCategory = await Category.findByIdAndUpdate(product.categoryId,{
             $addToSet:{
                 data: item._id,
@@ -55,8 +71,9 @@ export const create = async(req, res) =>{
 
         return res.status(200).json({
             message:"Tao mon an thanh cong", 
-            items: item
+            item: item
     });
+    }}
     } catch (error) {
         return res.status(500).json({message : error});
     }

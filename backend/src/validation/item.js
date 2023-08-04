@@ -5,7 +5,7 @@ export const itemValid = Joi.object({
     calories: Joi.number().required(),
     tittle: Joi.string().required(),
     qty: Joi.number().required(),
-    imageURL: Joi.required(),
+    image: Joi.object().required(),
     description: Joi.string(),
     categoryId: Joi.string().required(),
 })

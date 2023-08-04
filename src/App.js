@@ -28,6 +28,9 @@ import Checkout from "./pages/Checkout";
 import audio from "./audio.mp3";
 import { VscMute } from "react-icons/vsc";
 import { VscUnmute } from "react-icons/vsc";
+import ProfileAcount from "./pages/ProfileAcount";
+
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -115,6 +118,10 @@ function App() {
             <Route
               path="/profile"
               element={<PrivateRoute Component={Profile} />}
+            />
+            <Route
+              path="/profile/accounts"
+              element={<ProfileAcount/>}
             />
           </Routes>
           <Footer />
