@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { MdFastfood, MdCloudUpload, MdDelete, MdFoodBank, MdAttachMoney } from 'react-icons/md'
 import { getallCategory } from "../services/category";
 import Loader from "./Loader";
+import { addItem } from "../services/item";
 
 
 
@@ -15,17 +16,85 @@ const ProfileMember = () => {
   const [alertStatus, setAlerStatus] = useState("danger");
   const [title, setTitle] = useState("");
   const [isLoading, setIsloading] = useState(false);
-  const [imageAsset, setImageAsset] = useState(null);
   const [price, setPrice] = useState("");
+  const [category, setCategory] = useState(null);
   const [msg, setMsg] = useState(null);
   const [calories, setCalories] = useState("");
 
 
 
+  const [imageAsset, setImageAsset] = useState("");
+  const uploadImage = (e) => {
+    const file = e.target.files[0];
+    TransformFile(file)
+  }
+  const TransformFile = (file) => {
+    const reader = new FileReader();
+    if (file) {
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImageAsset(reader.result);
+      }
+    } else {
+      setImageAsset("")
+    }
+  }
 
 
+  const deleteImage = () => {
+    setImageAsset(null);
+    setIsloading(false);
+    setFields(true);
+    setMsg("Delete success");
+    setAlerStatus("success")
+    setTimeout(() => {
+      setFields(false);
+    }, 3000);
+  }
 
-
+  const saveDetails = async (e) => {
+    e.preventDefault()
+    try {
+      if ((!title || !calories || !imageAsset || !price || !category)) {
+        setFields(true);
+        setMsg("Empty");
+        setAlerStatus("danger");
+        setTimeout(() => {
+          setFields(false);
+          setIsloading(false);
+        }, 3000)
+      } else {
+        const data = {
+          id: `${Date.now()}`,
+          title: title,
+          image: imageAsset,
+          category: category,
+          calories: calories,
+          qty: 1,
+          price: price,
+        }
+        const { dataItem } = await addItem(data)
+        console.log(dataItem)
+        setIsloading(false)
+        setFields(true);
+        setMsg("Data Upload success");
+        clearData();
+        setAlerStatus("success")
+        setTimeout(() => {
+          setFields(false);
+        }, 3000);
+      }
+    } catch (error) {
+      console.error("Đã xảy ra lỗi khi tải sản phẩm:", error);
+    }
+  }
+  const clearData = () => {
+    setTitle("")
+    setImageAsset(null)
+    setCalories("")
+    setPrice("")
+    setCategory("")
+  }
 
 
   const [formData, setFormData] = useState([])
@@ -44,7 +113,6 @@ const ProfileMember = () => {
 
   const getCategories = async () => {
     const { data } = await getallCategory();
-
     setCategories(data.datas);
   };
   console.log(Categories)
@@ -133,12 +201,12 @@ const ProfileMember = () => {
                 required value={title}
                 placeholder="Give me a title..."
                 className="tw-w-full tw-h-full tw-text-lg tw-bg-transparent tw-outline-none tw-border-none placeholder:tw-text-gray-500 tw-text-textColor"
-              //  onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="tw-w-full">
               <select
-                //  onChange={(e) => setCategory(e.target.value)}
+                onChange={(e) => setCategory(e.target.value)}
                 className="tw-outline-none tw-w-full tw-text-base tw-border-b-2 tw-border-gray-200 tw-p-2 tw-rounded-md tw-cursor-pointer"
               >
                 <option value="other" className="tw-bg-white">Select Category
@@ -162,7 +230,7 @@ const ProfileMember = () => {
                       <p className="tw-text-gray-500 hover:tw-text-gray-700">Click here to upload</p>
                     </div>
                     <input type="file" name="uploadimage" accept="image/*"
-                      //  onChange={uploadImage} 
+                      onChange={uploadImage}
                       className="tw-w-0 tw-h-0" />
                   </label>
                 </> : <>
@@ -174,7 +242,7 @@ const ProfileMember = () => {
                     <button
                       type="button"
                       className=" tw-absolute tw-bottom-3 tw-right-3 tw-p-3 tw-rounded-full tw-bg-red-500 tw-text-x1 tw-cursor-pointer tw-outline-none hover:tw-shadow-md tw-duration-500 tw-transition-all tw-ease-in-out"
-                    //  onClick={deleteImage}
+                      onClick={deleteImage}
                     ><MdDelete className="tw-text-white" /></button>
                   </div>
                 </>}
@@ -190,7 +258,7 @@ const ProfileMember = () => {
                   placeholder="Calories"
                   value={calories}
                   className="tw-w-full tw-h-full tw-text-lg tw-bg-transparent tw-outline-none tw-border-none placeholder:tw-text-gray-400 tw-text-textColor"
-                //  onChange={(e) => setCalories(e.target.value)}
+                  onChange={(e) => setCalories(e.target.value)}
                 />
               </div>
               <div className="tw-w-full tw-py-2 tw-border-b tw-border-gray-300 tw-flex tw-items-center tw-gap-2">
@@ -201,13 +269,13 @@ const ProfileMember = () => {
                   placeholder="Price"
                   value={price}
                   className="tw-w-full tw-h-full tw-text-lg tw-bg-transparent tw-outline-none tw-border-none placeholder:tw-text-gray-400 tw-text-textColor"
-                //  onChange={(e) => setPrice(e.target.value)}
+                  onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
             </div>
             <div className="tw-flex tw-items-center tw-w-full">
               <button type="button" className="tw-ml-0 md:tw-ml-auto tw-w-full md:tw-w-auto tw-border-none tw-outline-none tw-bg-emerald-500 tw-px-12 tw-py-2 tw-rounded-lg tw-text-white tw-font-semibold"
-              //  onClick={saveDetails}
+                onClick={saveDetails}
               >Save</button>
             </div>
           </div>

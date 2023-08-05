@@ -3,7 +3,7 @@ import Joi from "joi";
 export const itemValid = Joi.object({
     id: Joi.number().required(),
     calories: Joi.number().required(),
-    tittle: Joi.string().required(),
+    title: Joi.string().required(),
     qty: Joi.number().required(),
     image: Joi.object().required(),
     description: Joi.string(),

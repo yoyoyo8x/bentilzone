@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import router from "./routers/index.js"
 
 const app = express();
+app.use(express.urlencoded({ extended: true }))
+
 dotenv.config();
 
 const PORT = process.env.PORT;
@@ -13,6 +15,8 @@ const URI_DB = process.env.URI_DB;
 
 connect(URI_DB);
 app.use(cors());
+
+
 app.use(express.json());
 
 app.use("/api", router)

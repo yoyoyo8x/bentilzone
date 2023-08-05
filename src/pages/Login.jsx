@@ -35,10 +35,8 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(data.user));
       localStorage.setItem("accessToken", data.accessToken);
       if (data.user.role === "admin") {
-        // kieu lam the nao de no link sang trang profile cua minh neu la admin y
         navigate("/profile/accounts");
       } else 
-        // Neu la tai khoan khach hang se link ra trang home
       {
         navigate("/profile/accounts");
       }
