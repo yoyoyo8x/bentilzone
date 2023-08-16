@@ -72,6 +72,7 @@ const ProfileMember = () => {
           calories: calories,
           qty: 1,
           price: price,
+          categoryId: cateId._id
         }
         const { dataItem } = await addItem(data)
         console.log(dataItem)
@@ -115,7 +116,10 @@ const ProfileMember = () => {
     const { data } = await getallCategory();
     setCategories(data.datas);
   };
-  console.log(Categories)
+
+  const cateId = Categories.find(({name})=> name === category)
+  console.log(cateId._id)
+
 
 
   return (
