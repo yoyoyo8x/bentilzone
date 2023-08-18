@@ -13,7 +13,7 @@ const itemSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
-    tittle: {
+    title: {
         type: String, 
         required: true
     },
@@ -22,10 +22,10 @@ const itemSchema = new mongoose.Schema({
         required: true, 
         default: 1
     },
-    image: {
-        type: String, 
+    image:[ {
+        type: Object, 
         required: true
-    },
+    }],
     price: {
         type: Number, 
         required: true
@@ -34,7 +34,6 @@ const itemSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category",
         required: true,
-        default: "Uncategorized",
     },
 },
     {

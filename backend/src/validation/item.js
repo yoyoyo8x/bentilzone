@@ -9,4 +9,4 @@ export const itemValid = Joi.object({
     price: Joi.number().required(),
     category: Joi.string().required(),
     categoryId: Joi.string().required(),
-})
+}) 

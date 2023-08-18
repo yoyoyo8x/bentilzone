@@ -3,7 +3,6 @@ import { signInValid, signUpValid } from "../validation/user.js";
 import bcrypyjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import axios from "axios";
 dotenv.config();
 
 const { SECRET_CODE } = process.env;
@@ -74,9 +73,7 @@ export const signIn = async (req, res) => {
     // create jwt
     const token = jwt.sign({ id: user.id }, SECRET_CODE, { expiresIn: "1d" });
     console.log(token);
-    axios.defaults.headers.common = {
-      Authorization: "Bearer " + token,
-    };
+   
     // access successfully
     user.password = undefined;
     return res.status(200).json({

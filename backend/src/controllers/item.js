@@ -34,14 +34,14 @@ export const getDetail = async(req, res) =>{
 }
 
 export const create = async(req, res) =>{
-    const {image} = req.body;
     try {
+        const {image, id, calories, category, title, qty, price, categoryId} = req.body;
         const {error} = itemValid.validate(req.body)
         if(error){
             return res.status(400).json({message:error.details[0].message});
         }
         if(image){
-            const uploadRes = await cloudinary.uploader.image(image,{
+            const uploadRes = await cloudinary.uploader.upload(image,{
                 upload_preset:"bentilzone"
             })
         if(uploadRes){
@@ -49,17 +49,18 @@ export const create = async(req, res) =>{
                 id,
                 calories,
                 category,
-                tittle,
+                title,
                 qty,
                 price,
                 image: uploadRes,
                 categoryId,
             })
-            const item = await newItem.create(req.body)
+            const item = await newItem.save()
+            console.log(item)
             if(!item){
             return res.status(404).json({message:"Tao mon an khong thanh cong"});
         }
-        const updateCategory = await Category.findByIdAndUpdate(product.categoryId,{
+        const updateCategory = await Category.findByIdAndUpdate(item.categoryId,{
             $addToSet:{
                 data: item._id,
             }
@@ -74,6 +75,7 @@ export const create = async(req, res) =>{
     });
     }}
     } catch (error) {
+        console.log(error)
         return res.status(500).json({message : error});
     }
 }

@@ -97,7 +97,6 @@ const ProfileMember = () => {
     setCategory("")
   }
 
-
   const [formData, setFormData] = useState([])
   useEffect(() => {
     const dataUser = localStorage.getItem('user')
@@ -118,7 +117,8 @@ const ProfileMember = () => {
   };
 
   const cateId = Categories.find(({name})=> name === category)
-  console.log(cateId._id)
+  // console.log(cateId._id)
+  console.log(typeof(imageAsset))
 
 
 
