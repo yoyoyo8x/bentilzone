@@ -8,13 +8,13 @@ import { useState } from "react";
 import {fetchCart} from "../Main/utils/fetchLocalStorageData";
 import  secureLocalStorage  from  "react-secure-storage";
 
-function RowContainer({flag,data,scrollValue}){
+function RowContainer({flag, data, scrollValue}){
+    console.log(data)
     const rowContainer = useRef()
     useEffect(()=>{
         rowContainer.current.scrollLeft += scrollValue;
         console.log(rowContainer.current.scrollLeft)
     },[scrollValue]);
-    
     
     const cartInfo = fetchCart() 
     const[items, setItems]=useState(cartInfo)
@@ -49,6 +49,8 @@ function RowContainer({flag,data,scrollValue}){
         addtoCart(items)
     },[items])
 
+
+
     return(
         <div ref={rowContainer} 
             className={`middleRow ${flag ? 
@@ -68,7 +70,7 @@ function RowContainer({flag,data,scrollValue}){
                             tw-w-[130px] tw-h-[90px]
                             tw-drop-shadow-2xl"
                             >
-                            <img src={item?.imageURL} alt=""/>      
+                            <img src={item?.image[0].secure_url} alt=""/>      
                             </motion.div>
                             <motion.div
                             whileTap={{scale:0.75}}

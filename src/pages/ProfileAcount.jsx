@@ -27,6 +27,7 @@ const ProfileMember = () => {
   const uploadImage = (e) => {
     const file = e.target.files[0];
     TransformFile(file)
+    setIsloading(true);
   }
   const TransformFile = (file) => {
     const reader = new FileReader();
@@ -34,9 +35,24 @@ const ProfileMember = () => {
       reader.readAsDataURL(file);
       reader.onloadend = () => {
         setImageAsset(reader.result);
+        setIsloading(false);
+        setFields(true);
+        setMsg("Upload success");
+        setAlerStatus("success");
+        setTimeout(() => {
+          setFields(false);
+          setIsloading(false);
+        }, 3000)
       }
     } else {
       setImageAsset("")
+      setFields(true);
+      setMsg("Error when upload");
+      setAlerStatus("danger");
+      setTimeout(() => {
+        setFields(false);
+        setIsloading(false);
+      }, 3000)
     }
   }
 
@@ -116,9 +132,9 @@ const ProfileMember = () => {
     setCategories(data.datas);
   };
 
-  const cateId = Categories.find(({name})=> name === category)
+  const cateId = Categories.find(({ name }) => name === category)
   // console.log(cateId._id)
-  console.log(typeof(imageAsset))
+  console.log(typeof (imageAsset))
 
 
 

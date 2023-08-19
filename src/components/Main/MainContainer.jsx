@@ -5,11 +5,12 @@ import { motion } from "framer-motion";
 import "./Main.css";
 import RowContainer from "./RowContainer";
 import { useState, useEffect } from "react";
-import { menuList } from "./utils/data";
+// import { menuList } from "./utils/data";
 import MenuContainer from "./MenuContainer";
 import { useStateValue } from "../Context/StateProvider";
 import CartContainer from "../Header/CartContainer";
 import PopupDelete from "../Header/Popupdelete";
+import { getallItem } from "../../services/item";
 
 
 function MainContainer() {
@@ -20,6 +21,23 @@ function MainContainer() {
 // current state và dispatch function
   const [scrollValue, setScrollValue] = useState(0);
   useEffect(() => {}, [scrollValue, cartShow]);
+
+
+
+// Getitem
+  const [menuList, setMenuList] = useState([]);
+  useEffect(() => {
+    getItems();
+  }, []);
+
+  const getItems = async () => {
+    const { data } = await getallItem();
+    setMenuList(data.data);
+  };
+  const data = menuList.filter(item => item.category === 'Fruits')
+
+
+
 
   return (
     <main id="Main" className="md:tw-px-16 tw-w-full">
@@ -54,7 +72,7 @@ function MainContainer() {
           <RowContainer
             scrollValue={scrollValue}
             flag={true}
-            data={menuList?.filter((n) => n.category === "fruits")}
+            data={data}
           />
         </section>
         <MenuContainer flag={true} />
