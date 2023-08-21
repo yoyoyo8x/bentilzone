@@ -9,7 +9,11 @@ const itemSchema = new mongoose.Schema({
         type: Number, 
         required: true
     },
-    tittle: {
+    category: {
+        type: String, 
+        required: true
+    },
+    title: {
         type: String, 
         required: true
     },
@@ -18,19 +22,18 @@ const itemSchema = new mongoose.Schema({
         required: true, 
         default: 1
     },
-    image: {
+    image:[ {
         type: Object, 
         required: true
-    },
+    }],
     price: {
         type: Number, 
         required: true
     },
     categoryId:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "category",
+        ref: "Category",
         required: true,
-        default: "Uncategorized",
     },
 },
     {

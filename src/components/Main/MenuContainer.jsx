@@ -1,17 +1,19 @@
 import React from "react";
 import "./Main.css";
 import { motion } from "framer-motion";
-import { Categories } from "./utils/data";
+// import { Categories } from "./utils/data";
 import { useState, useEffect } from "react";
 import RowContainer from "./RowContainer";
-import { menuList } from "./utils/data";
+// import { menuList } from "./utils/data";
 import { IoFastFood } from "react-icons/io5";
 import { IoSearchSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";
+import { getallCategory } from "../../services/category";
+import { getallItem } from "../../services/item";
 
 function MenuContainer({ flag }) {
-  const [filter, setFilter] = useState("chicken");
+  const [filter, setFilter] = useState("Chicken");
   const [isFilter, setIsFilter] = useState(false);
   const [result, setResult] = useState("");
   const [filterData, setFilterData] = useState([]);
@@ -20,12 +22,30 @@ function MenuContainer({ flag }) {
 
 
 
+  const [Categories, setCategories] = useState([]);
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  const getCategories = async () => {
+    const { data } = await getallCategory();
+    setCategories(data.datas);
+  };
+  
+  const [menuList, setMenuList] = useState([]);
+  useEffect(() => {
+    getItems();
+  }, []);
+
+  const getItems = async () => {
+    const { data } = await getallItem();
+    setMenuList(data.data);
+  };
+
   // Find item
   const handleSearch = () => {
     setQuery(result);
     
-
-
     // filter item
     setIsFilter(true);
     const newFilter = menuList?.filter((item) => {
@@ -34,6 +54,8 @@ function MenuContainer({ flag }) {
         item.price.includes(result)
       );
     });
+    console.log(newFilter);
+
 
     if (result === "") {
       setFilterData([]);
@@ -46,8 +68,8 @@ function MenuContainer({ flag }) {
       setFilterData(newFilter);
       setIsFilter(true);
     }
-    console.log(result);
   };
+
 
   useEffect(() => {
     handleSearch();

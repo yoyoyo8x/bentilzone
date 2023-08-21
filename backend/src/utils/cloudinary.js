@@ -1,8 +1,7 @@
 import dotenv from "dotenv"
-import cloudinaryModule from "cloudinary"
+import { v2 as cloudinary } from "cloudinary"
 
 dotenv.config()
-const cloudinary = cloudinaryModule.v2
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
@@ -11,3 +10,4 @@ cloudinary.config({
 })
 
 export default cloudinary
+
