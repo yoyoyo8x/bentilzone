@@ -6,6 +6,7 @@ import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../Context/AuthProvider";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -19,6 +20,7 @@ const Dropdown = () => {
     const result = await signOut(auth);
     navigate("/");
   };
+  axios.get("/users")
 
   return (
     <Menu as="div" className="tw-relative tw-inline-block tw-text-left">

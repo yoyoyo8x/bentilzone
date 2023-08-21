@@ -15,14 +15,20 @@ function CartItem({ item, setFlag, flag }) {
   const [{ cartItems }, dispatch] = useStateValue();
   const [qty, setQty] = useState(item.qty);
   const [items, setItems] = useState([]);
-  const [dialog, setDialog] = useState({
-    isLoading: false,
-  });
+  const [dialog, setDialog] = useState(false);
+  const [action, setAction] = useState()
+
+  useEffect(() => {
+    if("remove"){
+
+    }
+  }, [action]);
 
   const UppdateItem = (action) => {
     if (action == "add") {
       let UpdateCart = cartItems.map((cartItem) => {
         if (cartItem.id == item.id) {
+          setDialog(false);
           return { ...cartItem, qty: cartItem.qty + 1 };
         }
         return cartItem;
@@ -35,25 +41,32 @@ function CartItem({ item, setFlag, flag }) {
         cartItems: UpdateCart,
       });
     } else if (action == "remove") {
+      setAction("remove")
       let UpdateCart = cartItems
         .map((cartItem) => {
           if (cartItem.id == item.id && cartItem.qty > 1) {
             return { ...cartItem, qty: cartItem.qty - 1 };
           }
-          if (cartItem.id == item.id && cartItem.qty <= 1) {
+          if (cartItem.id == item.id && cartItem.qty <= 1 && dialog == false) {
             Swal.fire({
-              title: `Do you want to detele this item: ${cartItem.title}?`,
+              title: `Do you want to remove this item: ${cartItem.title}?`,
+              icon: "warning",
               showDenyButton: true,
               confirmButtonText: "Yes",
               denyButtonText: `No`,
             }).then((result) => {
               if (result.isConfirmed) {
                 Swal.fire("Deleted!", "", "success");
-                console.log(cartItem.qty);
-                console.log({ ...cartItem, qty: cartItem.qty - 1 });
-                return { ...cartItem, qty: cartItem.qty - 1 };
+                setDialog(true);
+                console.log(dialog);
+              } else {
+                setDialog(false);
               }
             });
+          }
+          if (dialog == true) {
+            console.log(dialog);
+            return { ...cartItem, qty: cartItem.qty - 1 };
           }
           return cartItem;
         })
