@@ -2,21 +2,23 @@ import React from "react";
 import "../css/Login.css";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { useState, useEffect } from "react";
+import { useState,useEffect } from "react";
 import Logo from "../images/Logo.png";
 import { auth, google, github } from "../config/fire";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signUp } from "../services/auth";
 
 const Register = () => {
-  const [error, setError] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
-  const [errorName, setErrorName] = useState("");
-  const [errorPassword, setErrorPassword] = useState("");
-  const [errorConfirmPass, setErrorConfirmPass] = useState("");
-
   const [user, setUser] = useState(null);
+
+  const [error,setError]=useState("")
+  const [errorName,setErrorName]=useState("")
+  const [errorEmail,setErrorEmail]=useState("")
+  const [errorPassword,setErrorPassword]=useState("")
+  const [errorConfirmPass,setErrorConfirmPass]=useState("")
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -31,17 +33,12 @@ const Register = () => {
   };
 
   const handleSubmit = async (e) => {
-    setErrorName("");
-    setErrorEmail("");
-    setErrorPassword("");
-    setErrorConfirmPass("");
-
     e.preventDefault();
     try {
       const { data } = await signUp(formData);
       console.log(data);
       navigate("/login");
-    } catch  (error) {
+    } catch (error) {
       // alert(error.response.data.message);
       console.error("Đã xảy ra lỗi khi đăng ký:", error);
       setError(error.response.data.message);
@@ -110,6 +107,12 @@ const Register = () => {
   useEffect(() => {
     handleSubmit();
   });
+  // const [password, setPassword] = useState("");
+  // const [confirmPass, setConfirmPass] = useState("");
+  // const [error, setError] = useState("");
+  // const [errorEmail, setErrorEmail] = useState("");
+  // const [errorPassword, setErrorPassword] = useState("");
+
   // const validatePassword = () => {
   //   let isValid = true;
   //   if (password !== "" && confirmPass !== "") {
@@ -205,6 +208,7 @@ const Register = () => {
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
+                  required
                 />
                 <div className="alert">{errorName}</div>
               </div>
@@ -215,6 +219,7 @@ const Register = () => {
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                 />
                 <div className="alert">{errorEmail}</div>
               </div>
@@ -225,6 +230,7 @@ const Register = () => {
                   placeholder="Password"
                   value={formData.password}
                   onChange={handleChange}
+                  required
                 />
                 <div className="alert">{errorPassword}</div>
               </div>
@@ -235,6 +241,7 @@ const Register = () => {
                   placeholder="Confirm Password"
                   value={formData.confirmPassword}
                   onChange={handleChange}
+                  required
                 />{" "}
                 <div className="alert">{errorConfirmPass}</div>
               </div>
