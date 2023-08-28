@@ -9,7 +9,7 @@ export default function GroupOrder() {
   let interval = useRef();
 
   const startTimer = () => {
-    const countDownDate = new Date("June 15, 2023 00:00:00").getTime();
+    const countDownDate = new Date("November 15, 2023 00:00:00").getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = countDownDate - now;
