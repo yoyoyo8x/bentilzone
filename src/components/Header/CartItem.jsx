@@ -70,7 +70,7 @@ function CartItem({ item, setFlag, flag }) {
   useEffect(() => {
     setItems(cartItems);
   }, [qty]);
-
+  console.log(item)
   // const cartDispatch = ()=>{
   //     secureLocalStorage.setItem("cartItems", JSON.stringify(items));
   //     dispatch({
@@ -126,7 +126,7 @@ function CartItem({ item, setFlag, flag }) {
 
   return (
     <div className="CartItem tw-bg-cartItem ">
-      <img src={item.imageURL} alt="" className="tw-object-contain" />
+      <img src={item.image[0].secure_url} alt="" className="tw-object-contain" />
       {/* Name */}
       <div className="CartItemEle">
         <p className="tw-text-base tw-text-gray-50">{item?.title}</p>

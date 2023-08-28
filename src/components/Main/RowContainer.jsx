@@ -9,7 +9,7 @@ import {fetchCart} from "../Main/utils/fetchLocalStorageData";
 import  secureLocalStorage  from  "react-secure-storage";
 
 function RowContainer({flag, data, scrollValue}){
-    console.log(data)
+    // console.log(data)
     const rowContainer = useRef()
     useEffect(()=>{
         rowContainer.current.scrollLeft += scrollValue;

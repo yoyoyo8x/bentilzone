@@ -33,7 +33,7 @@ function CartContainer() {
     }, 0);
     setTot(totalPrice);
   }, [tot, flag, cartItems]);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   const clearCart = () => {
     secureLocalStorage.setItem("cartItems", JSON.stringify([]));
