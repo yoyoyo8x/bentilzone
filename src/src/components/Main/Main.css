@@ -1,0 +1,295 @@
+#Main {
+  padding: 16px 64px;
+}
+#Main .MainContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#Home {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Homeleft */
+
+#Home .homeContainerL {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 24px;
+  padding: 8px 0;
+  flex: 1 1 0%;
+}
+#Home .homeContainerL .homeElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 4px;
+}
+#Home .homeContainerL .homeElement .homeTitle {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+#Home .homeContainerL .homeElement .homeLogo {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+}
+#Home .homeContainerL .homeElement .homeLogo img {
+  width: 100%;
+  height: 100%;
+}
+#Home .homeContainerL .homeElement2 {
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+#Home .homeContainerL .homeElement3 {
+  font-size: 16px;
+  line-height: 24px;
+}
+#Home .homeContainerL .homeElement4 {
+  width: auto;
+  padding: 8px 16px;
+  transition: all;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Homeright */
+
+#Home .homeContainerR {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+  padding: 8px 0;
+}
+#Home .homeContainerR .homeContainerRbg {
+  width: auto;
+  margin-left: auto;
+}
+#Home .homeContainerR .homeElementR {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#Home .homeContainerR .homeElementR .homeItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+#Home .homeContainerR .homeElementR .homeItem .homeItemName {
+  font-weight: 600;
+  margin-top: 16px;
+}
+#Home .homeContainerR .homeElementR .homeItem .homeItemDes {
+  font-weight: 600;
+  margin: 12px 0;
+}
+#Home .homeContainerR .homeElementR .homeItem .homeItemP {
+  font-weight: 600;
+}
+
+/* Middle */
+
+.Middle {
+  width: 100%;
+  margin: 24px 0;
+}
+.Middle .middleContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Middle .middleContainer .middleTitle {
+  width: 100%;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  text-transform: capitalize;
+  position: relative;
+  transition: all;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+}
+.Middle .middleContainer .middleElement {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.Middle .middleContainer .middleElement .middleButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Middle Row */
+.middleRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  scroll-behavior: smooth;
+  gap: 12px;
+  margin: 48px 0 0 0;
+}
+.middleRow .middleRContainer {
+  padding: 8px 16px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+.middleRow .middleRContainer .middleRElement {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.middleRow .middleRContainer .middleRElement .middleImg {
+  margin-top: -32px;
+}
+.middleRow .middleRContainer .middleRElement .middleImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.middleRow .middleRContainer .middleRElement .middleAddtoCart {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.middleRow .middleRContainer .middleRElement2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+  margin-top: -32px;
+}
+.middleRow .middleRContainer .middleRElement2 .tittle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+.middleRow .middleRContainer .middleRElement2 .calories {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 4px;
+}
+.middleRow .middleRContainer .middleRElement2 .price {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.middleRow .middleRContainer .middleRElement2 .price span {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* emptyItem */
+.emptyItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.emptyItem img {
+  height: 340px;
+}
+.emptyItem p {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+/* MiddleCat */
+.middleCat {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+  scroll-behavior: smooth;
+}
+.middleCat .cateFilter {
+  width: 96px;
+  min-width: 94px;
+  height: 112px;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.middleCat .cateFilter .cateIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive */
+
+/* Mobile: width < 740px */
+
+@media only screen and (max-width: 739px) {
+  #Main {
+    padding: 16px;
+  }
+  #Home .homeContainerR .homeContainerRbg {
+    width: 100%;
+  }
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+}
+/* .middleCat {
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 24px 0;
+} */
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (max-width: 1039px) and (min-width: 739px) {
+  #Home .homeContainerR .homeContainerRbg {
+    width: 100%;
+  }
+}
+/* PC: width >= 1040px */
+/* --------HEADER-------- */

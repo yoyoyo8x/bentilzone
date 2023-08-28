@@ -1,0 +1,244 @@
+.contact-container {
+  text-align: center;
+  padding: 0px 80px;
+  background-color: #f7f7f7;
+}
+
+.contact-container p {
+  font-size: 17px;
+  font-family: "Open Sans", Sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+  color: #4f5255;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 930px;
+  padding: 10px;
+  margin: auto;
+}
+
+.contact-title {
+  font-family: "Playfair Display", Sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 15px 0;
+  text-align:center;
+}
+
+.contact-content > p {
+  margin-bottom: 17px;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto;
+  margin-bottom: 70px;
+  object-fit: cover;
+}
+
+#bike {
+  width: 30px;
+  height: 29px;
+  opacity: 0.6;
+}
+
+#telephone {
+  height: 29px;
+}
+
+.contact-img {
+  margin: auto;
+}
+
+.info-item {
+  padding: 10px;
+}
+
+.info-item > h3 {
+  font-size: 20px;
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 400;
+  margin: 15px 0;
+}
+
+.info-item p > a {
+  color: #212428;
+  font-weight: 700;
+  font-family: "Playfair Display";
+  font-size: 17px;
+}
+
+.submit-content {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-left: 100px; */
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+}
+
+.contact-form{
+  margin-left: 100px;
+}
+
+.submit-info {
+  flex: 1;
+  padding: 0 15px;
+}
+
+.submit-content input,
+.submit-content textarea {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  width: 95%;
+  border: 1px solid #ebeced;
+  padding: 16px 18px;
+}
+
+.submit-content textarea {
+  height: 189px;
+  min-height: 189px;
+}
+
+.submit-box {
+  flex: 2;
+  padding: 0 15px;
+}
+
+.required {
+  font-family: Poppins;
+  line-height: 1em;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  color: red;
+}
+
+.button-submit {
+  display: flex;
+  justify-content: center;
+}
+
+/* Popup */
+.popup-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-container {
+  width: 40%;
+  background-color: #fff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
+  padding: 35px 0;
+  gap: 25px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.644);
+}
+
+.success-icon img {
+  width: 85px;
+}
+
+.success {
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.check-out{
+  margin-left: 0px;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#city,#method,#cardType {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  width: 95%;
+  border: 1px solid #ebeced;
+  padding: 16px 18px;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+/* Responsive */
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px) {
+  /* --------CONTACT-------- */
+  .contact-container {
+    padding: 0 10px;
+  }
+  .contact-info {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .submit-content {
+    flex-direction: column;
+  }
+
+  .contact-form{
+    margin-left: 0;
+  }
+
+  .submit-content input,
+  .submit-content textarea {
+    width: 100%;
+  }
+
+  .popup-container {
+    width: 340px;
+  }
+}
+
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (max-width: 1039px) and (min-width: 740px) {
+  /* --------CONTACT-------- */
+  .contact-container {
+    padding: 0 50px;
+  }
+
+  .submit-content {
+    flex-direction: column;
+  }
+
+  .contact-form{
+    margin-left: 0;
+  }
+
+  .submit-content input,
+  .submit-content textarea {
+    width: 100%;
+  }
+
+  .popup-container {
+    width: 50%;
+  }
+}
+
+/* PC: width >= 1040px */

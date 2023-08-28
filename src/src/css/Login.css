@@ -1,0 +1,193 @@
+@keyframes zoomOut {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    transform: scale(1.05, 1.05);
+  }
+}
+
+.login-container {
+  padding: 0 100px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f7f7f7;
+}
+
+.login-logo {
+  width: 450px;
+}
+
+.form-container {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Social Login */
+
+.social-login {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.social-login button {
+  width: 130px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: Poppins;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eff7f8;
+    scale: 1.07;
+  }
+}
+
+/* Break Line */
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  margin: 10px;
+}
+
+#short {
+  width: 27%;
+}
+
+#short-res {
+  width: 24%;
+}
+
+.line-container {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  font-family: Poppins;
+  font-weight: 500;
+}
+
+#signup {
+  width: 90%;
+}
+/* Login Form */
+
+.login-form {
+  width: 90%;
+}
+.input-name,
+.input-email,
+.input-password {
+  margin-bottom: 15px;
+}
+.input-name input,
+.input-email input,
+.input-password input {
+  width: 100%;
+  font-size: 18px;
+  font-family: Poppins;
+  padding: 5px 15px;
+
+  &:focus {
+    outline-color: rgb(252, 132, 132);
+  }
+}
+
+.alert {
+  color: red;
+  padding: 3px 15px;
+}
+
+.forgot {
+  color: red;
+  margin-bottom: 15px;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(171, 58, 58);
+  }
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-family: Poppins;
+  text-transform: uppercase;
+  box-shadow: 1px 1px #848484;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #ffa500;
+  cursor: pointer;
+
+  &:hover {
+    animation: zoomOut forwards 1s ease-in-out;
+  }
+}
+
+/* Responsive */
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px) {
+  /* --------LOGIN-------- */
+  .login-container {
+    padding: 0 35px;
+  }
+
+  .login-logo {
+    display: none;
+  }
+
+  .form-container {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (max-width: 1039px) and (min-width: 740px) {
+  /* --------LOGIN-------- */
+  .login-container {
+    padding: 0 35px;
+    flex-direction: column-reverse;
+  }
+
+  .login-logo-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-container {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+/* PC: width >= 1040px */

@@ -1,0 +1,182 @@
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jump-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateY(-9px);
+  }
+  35% {
+    transform: translateY(-9px) rotate(17deg);
+  }
+  55% {
+    transform: translateY(-9px) rotate(-17deg);
+  }
+  65% {
+    transform: translateY(-9px) rotate(17deg);
+  }
+  75% {
+    transform: translateY(-9px) rotate(-17deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+footer {
+  padding: 30px 50px;
+  padding-top: 20px;
+  background-color: #f7f7f7;
+}
+/* Footer Contact */
+.footer-contact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  padding-bottom: 30px;
+}
+.footer-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+.contactUs {
+  display: flex;
+  flex-direction: column;
+}
+/* Footer Logo */
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+footer img {
+  width: 150px;
+}
+
+.banner {
+  font-size: 26px;
+  font-weight: 500;
+  font-family: Poppins;
+}
+
+.footer-logo-container:hover {
+  animation: tilt-shaking 1s ease-in-out;
+}
+
+footer img:hover {
+  animation: jump-shaking 1s ease-in-out;
+}
+/* Footer Items */
+.footer-container {
+  border-top: 1px solid rgb(223, 222, 222);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.copyright {
+  opacity: 0.6;
+  font-family: Poppins;
+}
+
+.footer-container ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  gap: 80px;
+}
+
+.footer-item a {
+  font-size: 28px;
+  opacity: 0.8;
+}
+
+/* Responsive */
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px) {
+  /* --------FOOTER-------- */
+  footer {
+    padding: 25px 35px;
+  }
+
+  .footer-contact {
+    display: block;
+  }
+
+  .footer-title{
+    margin-top:25px;
+  }
+
+  .footer-logo {
+    display: block;
+  }
+
+  .footer-logo-container {
+    flex-direction: column;
+  }
+
+  .footer-container {
+    display: block;
+  }
+
+  .footer-container ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin-top: 25px;
+  }
+
+  .footer-container li {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (max-width: 1039px) and (min-width: 740px) {
+  /* --------FOOTER-------- */
+  .footer-container {
+    display: block;
+  }
+
+  .footer-contact {
+    display: block;
+  }
+
+  .footer-title{
+    margin-top:25px;
+  }
+
+
+  .footer-container ul {
+    gap: 60px;
+    margin-top: 25px;
+  }
+}
+/* PC: width >= 1040px */

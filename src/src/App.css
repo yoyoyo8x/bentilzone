@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap");
+#root {
+  height: 100vh;
+}
+
+.active {
+  color: #6f93f6 !important;
+}
+
+.body {
+  margin-top: 90px;
+  margin-bottom: 30px;
+}
+
+.app {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.audio-btn {
+  display: block;
+  position: fixed;
+  padding: 5px;
+  border: none;
+  bottom: 20px;
+  left: 20px;
+  background-color: #a0a0a067;
+  opacity: 0.6;
+  border-radius: 80%;
+}
+
+.audio-icon {
+  font-size: 35px;
+}
