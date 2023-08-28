@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { MdAddShoppingCart } from "react-icons/md";
-import NotFound from "./img/NotFound.svg";
+import {MdAddShoppingCart} from "react-icons/md"
+import NotFound from "./img/NotFound.svg"
 import { useStateValue } from "../Context/StateProvider";
 import { actionNew } from "../Context/reducer";
 import { useState } from "react";
-import { fetchCart } from "../Main/utils/fetchLocalStorageData";
-import secureLocalStorage from "react-secure-storage";
+import {fetchCart} from "../Main/utils/fetchLocalStorageData";
+import  secureLocalStorage  from  "react-secure-storage";
 
 function RowContainer({flag, data, scrollValue}){
-    console.log(data)
+    // console.log(data)
     const rowContainer = useRef()
     useEffect(()=>{
         rowContainer.current.scrollLeft += scrollValue;
@@ -51,28 +51,21 @@ function RowContainer({flag, data, scrollValue}){
 
 
 
-  return (
-    <div
-      ref={rowContainer}
-      className={`middleRow ${
-        flag
-          ? "tw-overflow-x-scroll tw-scrollbar-none"
-          : "tw-overflow-x-hidden tw-flex-wrap tw-justify-center"
-      }`}
-    >
-      {data && data.length > 0 ? (
-        data.map((item) => (
-          <div
-            key={item.id}
-            className="middleRContainer
+    return(
+        <div ref={rowContainer} 
+            className={`middleRow ${flag ? 
+            'tw-overflow-x-scroll tw-scrollbar-none':
+            'tw-overflow-x-hidden tw-flex-wrap tw-justify-center'}`}>
+            {data && data.length >0 ? (
+                data.map((item)=>(
+                    <div key={item.id} className="middleRContainer
                     md:tw-w-[300px] md:tw-min-w-[300px] 
                     tw-w-[275px] tw-h-[175px] tw-bg-cardOverlay tw-rounded-lg  
-                    tw-backdrop-blur-lg hover:tw-drop-shadow-lg"
-          >
-            <div className="middleRElement">
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                className="middleImg 
+                    tw-backdrop-blur-lg hover:tw-drop-shadow-lg">
+                        <div className="middleRElement">
+                            <motion.div
+                            whileHover={{scale: 1.2}}
+                            className="middleImg 
                             md:tw-w-[160px] md:tw-h-[110px]
                             tw-w-[130px] tw-h-[90px]
                             tw-drop-shadow-2xl"
@@ -108,4 +101,4 @@ function RowContainer({flag, data, scrollValue}){
 
     )
 }
-export default RowContainer;
+export default RowContainer

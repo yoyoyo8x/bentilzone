@@ -15,20 +15,14 @@ function CartItem({ item, setFlag, flag }) {
   const [{ cartItems }, dispatch] = useStateValue();
   const [qty, setQty] = useState(item.qty);
   const [items, setItems] = useState([]);
-  const [dialog, setDialog] = useState(false);
-  const [action, setAction] = useState()
-
-  useEffect(() => {
-    if("remove"){
-
-    }
-  }, [action]);
+  const [dialog, setDialog] = useState({
+    isLoading: false,
+  });
 
   const UppdateItem = (action) => {
     if (action == "add") {
       let UpdateCart = cartItems.map((cartItem) => {
         if (cartItem.id == item.id) {
-          setDialog(false);
           return { ...cartItem, qty: cartItem.qty + 1 };
         }
         return cartItem;
@@ -41,32 +35,25 @@ function CartItem({ item, setFlag, flag }) {
         cartItems: UpdateCart,
       });
     } else if (action == "remove") {
-      setAction("remove")
       let UpdateCart = cartItems
         .map((cartItem) => {
           if (cartItem.id == item.id && cartItem.qty > 1) {
             return { ...cartItem, qty: cartItem.qty - 1 };
           }
-          if (cartItem.id == item.id && cartItem.qty <= 1 && dialog == false) {
+          if (cartItem.id == item.id && cartItem.qty <= 1) {
             Swal.fire({
-              title: `Do you want to remove this item: ${cartItem.title}?`,
-              icon: "warning",
+              title: `Do you want to detele this item: ${cartItem.title}?`,
               showDenyButton: true,
               confirmButtonText: "Yes",
               denyButtonText: `No`,
             }).then((result) => {
               if (result.isConfirmed) {
                 Swal.fire("Deleted!", "", "success");
-                setDialog(true);
-                console.log(dialog);
-              } else {
-                setDialog(false);
+                console.log(cartItem.qty);
+                console.log({ ...cartItem, qty: cartItem.qty - 1 });
+                return { ...cartItem, qty: cartItem.qty - 1 };
               }
             });
-          }
-          if (dialog == true) {
-            console.log(dialog);
-            return { ...cartItem, qty: cartItem.qty - 1 };
           }
           return cartItem;
         })
@@ -83,7 +70,7 @@ function CartItem({ item, setFlag, flag }) {
   useEffect(() => {
     setItems(cartItems);
   }, [qty]);
-
+  console.log(item)
   // const cartDispatch = ()=>{
   //     secureLocalStorage.setItem("cartItems", JSON.stringify(items));
   //     dispatch({
@@ -139,7 +126,7 @@ function CartItem({ item, setFlag, flag }) {
 
   return (
     <div className="CartItem tw-bg-cartItem ">
-      <img src={item.imageURL} alt="" className="tw-object-contain" />
+      <img src={item.image[0].secure_url} alt="" className="tw-object-contain" />
       {/* Name */}
       <div className="CartItemEle">
         <p className="tw-text-base tw-text-gray-50">{item?.title}</p>
