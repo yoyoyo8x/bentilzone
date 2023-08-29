@@ -26,6 +26,7 @@ const Login = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  const refreshPage = () => window.location.reload(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,8 +37,10 @@ const Login = () => {
       localStorage.setItem("accessToken", data.accessToken);
       if (data.user.role === "admin") {
         navigate("/profile/accounts");
+        refreshPage()
       } else {
         navigate("/profile/accounts");
+        refreshPage()
       }
     } catch (error) {
       console.error(
@@ -75,7 +78,7 @@ const Login = () => {
       } else {
         setErrorPassword("");
       }
-
+      
     }
   };
 

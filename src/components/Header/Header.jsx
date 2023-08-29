@@ -21,7 +21,7 @@ const Header = () => {
     setUser(JSON.parse(localStorage.getItem("user")));
     console.log(user);
   }, []);
-
+  console.log(user)
   const [isOpen, setIsOpen] = useState(false);
 
   const [sum, setSum] = useState(0);

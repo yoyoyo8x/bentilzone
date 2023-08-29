@@ -21,6 +21,8 @@ const Dropdown = () => {
   }, []);
 
   const navigate = useNavigate();
+  const refreshPage = () => window.location.reload(true);
+
   const logout = async () => {
     const result = await signOut(auth);
     const notUser = [
@@ -31,6 +33,7 @@ const Dropdown = () => {
     ];
     localStorage.setItem("user", JSON.stringify(notUser));
     navigate("/");
+    refreshPage()
   };
 
   return (
