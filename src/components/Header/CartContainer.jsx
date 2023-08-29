@@ -10,14 +10,16 @@ import CartItem from "./CartItem";
 import { useState } from "react";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
+import { useAuthValue } from "../Context/AuthProvider";
 
 function CartContainer() {
   const [{ cartShow, cartItems }, dispatch] = useStateValue();
   const [tot, setTot] = useState(0);
   const [flag, setFlag] = useState(1);
   const auth = getAuth();
-  const user = auth.currentUser;
+  const { currentUser } = useAuthValue();
+  const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
   const showCart = () => {
@@ -98,7 +100,7 @@ function CartContainer() {
               <p className="tw-text-gray-400">${tot + 2.5}</p>
             </div>
 
-            {user ? (
+            {user[0]?.email != "" || currentUser ? (
               <motion.button
                 whileTap={{ scale: 0.8 }}
                 type="button"

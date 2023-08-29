@@ -15,8 +15,12 @@ import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [user, setUser] = useState([]);
   const { currentUser } = useAuthValue();
-  const user = JSON.parse(localStorage.getItem("user"));
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+    console.log(user);
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -78,7 +82,7 @@ const Header = () => {
           </ul>
         </nav>
         {/* Login */}
-        {(!currentUser && user[0]?.email !== "") ? (
+        {currentUser || user[0]?.email !== "" ? (
           <div
             className={`group tw-flex tw-items-center tw-gap-3 tw-px-3 tw-py-1 tw-rounded-lg`}
           >
@@ -167,13 +171,13 @@ const Header = () => {
             <div className="logo">Bentilzone</div>
           </Link>
           {/* Login */}
-          {currentUser ? (
+          {currentUser || user[0]?.email ? (
             <div
               className={`group tw-flex tw-items-center tw-gap-3  tw-py-1 tw-rounded-lg`}
             >
               <div className=" tw-flex tw-items-center tw-justify-center">
                 <img
-                  src={currentUser.photoURL || Avatar}
+                  src={currentUser?.photoURL || Avatar}
                   className="tw-w-10 tw-min-w-[40px] tw-h-10 tw-min-h-[40px] tw-drop-shadow-2xl tw-rounded-full tw-cursor-pointer tw-object-contain"
                   alt="profile"
                 />
